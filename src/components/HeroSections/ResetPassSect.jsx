@@ -5,7 +5,7 @@ const ResetPassSect = () => {
   return (
     <div className='abtHero-container'>
         <Navbar />
-        <div className='container'>
+        <div className='container' style={{paddingTop: '50px'}}>
             <h1>Reset Password Section</h1>
         </div>
     </div>

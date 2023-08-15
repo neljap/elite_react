@@ -9,6 +9,7 @@ import ForgotPasswordPg from "./pages/authPages/ForgotPasswordPg";
 import ResetPassPg from "./pages/authPages/ResetPassPg";
 import "bootstrap/dist/css/bootstrap.min.css"
 import UserIndex from "./pages/userPages/UserIndex";
+import FaqSecPg from "./pages/WebPages/FaqSecPg";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/about" element={<AboutPg />} />
         <Route path="/contact" element={<ContactPg />} />
         <Route path="/packages" element={<Packages />} />
+        <Route path="/faq" element={<FaqSecPg />} />
         <Route path="/login" element={<LoginPg />} />
         <Route path="/register" element={<RegisterPg />} />
         <Route path="/forgot-password" element={<ForgotPasswordPg />} />

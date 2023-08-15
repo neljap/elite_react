@@ -4,7 +4,7 @@ const PackHeroSec = () => {
   return (
     <div className='abtHero-container'>
         <Navbar />
-        <div className='container'>
+        <div className='container' style={{paddingTop: '50px'}}>
             <h1>Contact Section</h1>
         </div>
     </div>

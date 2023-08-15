@@ -6,8 +6,8 @@ const AbtHeroSection = () => {
   return (
     <div className='abtHero-container'>
         <Navbar />
-        <div>
-            <h1>About Section</h1>
+        <div className='container' style={{paddingTop: '50px'}}>
+          <h1>About Section</h1>
         </div>
     </div>
   )

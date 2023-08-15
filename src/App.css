@@ -1,4 +1,51 @@
+h1, h2{
+  font-size: 64px;
+  font-weight: bolder;
+}
+
 /* Navbar */
+.nav-mob-div{
+  display: flex;
+  gap: 1em;
+}
+.nav-btn-mob{
+  display: none;
+}
+.nav-icon-mob{
+  display: none;
+}
+.nav-btn-desk{
+  display: block;
+}
+@media screen and (max-width: 767px) {
+  .nav-btn-desk{
+    display: none;
+  }
+  .nav-icon-mob{
+    display: block;
+  }
+  .nav-btn-mob{
+    display: block;
+  }
+  .nav-mob-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #000;
+    color: #fff;
+    transition: 1s;
+    transform: translateY(100vh);
+  }
+  .switch{
+    transform: none;
+  }
+}
 
 /* Hero Section */
 .mainhero-container {
@@ -16,6 +63,7 @@
   background-blend-mode: multiply;
   height: 70vh;
   width: 100%;
+  /* padding-top: 50px; */
 }
 body {
   margin-top: 20px;
@@ -29,10 +77,10 @@ body {
   margin: 0px 15px;
 }
 .pricing_design .single-pricing {
-  background: #554c86;
+  background: rgb(0, 208, 10);
   padding: 60px 40px;
   border-radius: 30px;
-  box-shadow: 0 10px 40px -10px rgba(0, 64, 128, 0.2);
+  box-shadow: 0 10px 40px -10px rgba(6, 27, 7, 0.5);
   position: relative;
   z-index: 1;
 }
@@ -71,7 +119,7 @@ body {
   line-height: 36px;
 }
 .single-pricing ul li i {
-  background: #554c86;
+  background: rgb(0, 208, 10);
   color: #fff;
   width: 20px;
   height: 20px;
@@ -85,7 +133,7 @@ body {
 }
 
 .price_btn {
-  background: #554c86;
+  background: rgb(0, 208, 10);
   padding: 10px 30px;
   color: #fff;
   display: inline-block;
@@ -117,7 +165,7 @@ a {
 }
 
 .signIn-form-container {
-  background-color: rgb(35, 42, 96);
+  background-color: rgb(0, 208, 10);
   color: white;
   padding: 40px 20px;
   border-radius: 20px;
@@ -126,7 +174,7 @@ a {
 }
 
 .signUp-form-container {
-  background-color: rgb(35, 42, 96);
+  background-color: rgb(0, 208, 10);
   color: white;
   padding: 40px 20px;
   border-radius: 20px;
@@ -227,4 +275,56 @@ a {
   .close-quotes {
     margin-right: 30px;
   }
+}
+
+/* Sidebar */
+.sidebar-container {
+  width: 100%;
+  /* padding: 20px; */
+  display: flex;
+}
+/* main {
+  width: 100%;
+  padding: 0px 20px; 
+} */
+.sidebar {
+  background: #000;
+  color: #fff;
+  height: 100vh;
+  width: 300px;
+  transition: all 0.5s;
+}
+.top_section {
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+}
+.logo {
+  font-size: 30px;
+}
+.bars {
+  display: flex;
+  font-size: 25px;
+  margin-left: 30px;
+}
+.link {
+  display: flex;
+  color: #fff;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+}
+.link:hover {
+  background: #00d018;
+  color: #000;
+  transition: all 0.5s;
+}
+.active {
+  background: #00d018;
+  color: #000;
+}
+
+.footer-main-container{
+  background-color: #000;
+  color: #fff;
 }

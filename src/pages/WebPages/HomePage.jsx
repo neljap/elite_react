@@ -5,6 +5,7 @@ import FooterSection from '../../components/WebSections/FooterSection'
 import AbtHmSect from '../../components/WebSections/AbtHmSect'
 import FaqSection from '../../components/WebSections/FaqSection'
 import TestimSect from '../../components/WebSections/TestimSect'
+import FooterS from '../../components/WebSections/FooterS'
 
 const HomePage = () => {
   return (
@@ -14,7 +15,8 @@ const HomePage = () => {
       <PricingSec />
       <FaqSection />
       {/* <TestimSect /> */}
-      <FooterSection />
+      <FooterS />
+      {/* <FooterSection /> */}
     </div>
   )
 }

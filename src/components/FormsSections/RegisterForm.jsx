@@ -45,21 +45,11 @@ const RegisterForm = () => {
                 />
               </Form.Group>
             </div>
-            <div className="row justify-content-center align-items-center">
-              <Form.Group className="col-md-6 mb-3" controlId="formBasicEmail">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="email" placeholder="Enter username" />
-              </Form.Group>
-              <Form.Group className="col-md-6 mb-3" controlId="formBasicEmail">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="email" placeholder="Enter username" />
-              </Form.Group>
-            </div>
             <Button variant="danger" type="submit">
               Login
             </Button>
             <div className="d-flex justify-content-between align-items-center py-3">
-              <Link to="/sign-in" className="text-decoration-none text-white">
+              <Link to="/login" className="text-decoration-none text-white">
                 Already have an account?
               </Link>
               <span
