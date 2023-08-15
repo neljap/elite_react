@@ -1,8 +1,13 @@
 import React from 'react'
 
-const Sidebar = () => {
+const Sidebar = ({children}) => {
   return (
-    <div>Sidebar</div>
+    <div>
+        <nav>
+
+        </nav>
+        <div>{children}</div>
+    </div>
   )
 }
 

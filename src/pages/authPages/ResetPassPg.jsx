@@ -1,8 +1,10 @@
-import React from 'react'
+import ResetPassSect from '../../components/FormsSections/ResetPassSect'
 
 const ResetPassPg = () => {
   return (
-    <div>ResetPassPg</div>
+    <div>
+      <ResetPassSect />
+    </div>
   )
 }
 

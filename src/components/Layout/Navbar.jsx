@@ -16,25 +16,36 @@ const Navbar = () => {
   }
 
   return (
-    <div>
-      <img src={Logo} alt="img" />
-      <nav>
-        <Link></Link>
-        <Link></Link>
-        <Link></Link>
+    <div className='container d-flex justify-content-between align-items-center'>
+      <Link to='/'>
+        <img src={Logo} alt="img" />
+      </Link>
+      <nav ref={NavRef}>
+        <Link to='/about' className='text-white text-decoration-none ml-3' onClick={showNavRef}>About</Link>
+        <Link to='/packages' onClick={showNavRef}>Packages</Link>
+        <Link to='/contact' onClick={showNavRef}>Contact Us</Link>
         <Link></Link>
         <Link></Link>
         <div>
-          <button>Login</button>
-          <button>Register</button>
+          <Link to='/login'>
+            <button className='btn btn-success' onClick={showNavRef}>Login</button>
+          </Link>
+          <Link to='/register'>
+            <button className='btn btn-success' onClick={showNavRef}>Register</button>
+          </Link>
+          
         </div>
-        <FaTimes />
+        <FaTimes onClick={showNavRef}/>
       </nav>
       <div>
-        <button>Login</button>
-        <button>Register</button>
+        <Link to='/login'>
+          <button className='btn btn-success' onClick={showNavRef}>Login</button>
+        </Link>
+        <Link to='/register'>
+          <button className='btn btn-success' onClick={showNavRef}>Register</button>
+        </Link>
       </div>
-      <FaBars />
+      <FaBars onClick={showNavRef}/>
     </div>
   )
 }

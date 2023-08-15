@@ -1,8 +1,12 @@
-import React from 'react'
+import RegHeroSec from '../../components/HeroSections/FaqHeroSection'
+import RegisterForm from '../../components/FormsSections/RegisterForm'
 
 const RegisterPg = () => {
   return (
-    <div>RegisterPg</div>
+    <div>
+      <RegHeroSec />
+      <RegisterForm />
+    </div>
   )
 }
 

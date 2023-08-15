@@ -1,8 +1,12 @@
-import React from 'react'
+import LogHeroSec from '../../components/HeroSections/LogHeroSec'
+import LoginFormSec from '../../components/FormsSections/LoginFormSec'
 
 const LoginPg = () => {
   return (
-    <div>LoginPg</div>
+    <div>
+      <LogHeroSec />
+      <LoginFormSec />
+    </div>
   )
 }
 
