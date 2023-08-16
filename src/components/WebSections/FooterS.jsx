@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import {FaFacebook, FaTwitter, FaGoogle, FaInstagram, FaLinkedin, FaGithub} from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 export default function FooterS() {
   return (
@@ -39,10 +40,10 @@ export default function FooterS() {
       </section>
 
       <section className=''>
-        <MDBContainer className='text-center text-md-start mt-5'>
+        <MDBContainer className='text-center text-md-start'>
           <MDBRow className='mt-3'>
-            <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
-              <h6 className='text-uppercase text-white fw-bold mb-4'>
+            <MDBCol md='' lg='4' xl='3' className='mx-auto '>
+              <h6 className='text-uppercase text-white fw-bold mb-0'>
                 <MDBIcon color='secondary' icon='gem' className='me-3' />
                 Company name
               </h6>
@@ -52,8 +53,8 @@ export default function FooterS() {
               </p>
             </MDBCol>
 
-            <MDBCol md='2' lg='2' xl='2' className='mx-auto mb-4'>
-              <h6 className='text-uppercase text-white fw-bold mb-4'>Products</h6>
+            <MDBCol md='2' lg='2' xl='2' className='mx-auto '>
+              <h6 className='text-uppercase text-white fw-bold mb-0'>Products</h6>
               <p className='text-white'>
                 <a href='#!' className='text-reset'>
                   Angular
@@ -76,32 +77,32 @@ export default function FooterS() {
               </p>
             </MDBCol>
 
-            <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
+            <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-0'>
+              <h6 className='text-uppercase fw-bold mb-4 text-white'>Useful links</h6>
               <p className='text-white'>
-                <a href='#!' className='text-reset'>
+                <Link to='/' className='text-reset'>
                   Pricing
-                </a>
+                </Link>
               </p>
               <p className='text-white'>
-                <a href='#!' className='text-reset'>
+                <Link to='/' className='text-reset'>
                   Settings
-                </a>
+                </Link>
               </p>
               <p className='text-white'>
-                <a href='#!' className='text-reset'>
+                <Link to='/' className='text-reset'>
                   Orders
-                </a>
+                </Link>
               </p>
               <p className='text-white'>
-                <a href='#!' className='text-reset'>
+                <Link to='/' className='text-reset'>
                   Help
-                </a>
+                </Link>
               </p>
             </MDBCol>
 
-            <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
+            <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-0'>
+              <h6 className='text-uppercase fw-bold mb-4 text-white'>Contact</h6>
               <p className='text-white'>
                 <MDBIcon color='secondary' icon='home' className='me-2' />
                 New York, NY 10012, US
@@ -121,10 +122,10 @@ export default function FooterS() {
         </MDBContainer>
       </section>
 
-      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+      <div className='text-center px-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
         © 2021 Copyright:
         <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
+          spectrumcapitals.com
         </a>
       </div>
     </MDBFooter>
