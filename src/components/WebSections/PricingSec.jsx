@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../App.css'
+import { Link } from 'react-router-dom'
 const PricingSec = () => {
   return (
     <section id="pricing" class="pricing-content section-padding">
@@ -13,22 +14,21 @@ const PricingSec = () => {
 				<div class="pricing_design">
 					<div class="single-pricing">
 						<div class="price-head">		
-							<h2>Starter</h2>
-							<h1>$0</h1>
-							<span>/Monthly</span>
+							<h2>BASIC PACKAGE</h2>
+							{/* <h1>$0</h1>
+							<span>/Monthly</span> */}
 						</div>
 						<ul>
-							<li><b>15</b> website</li>
-							<li><b>50GB</b> Disk Space</li>
-							<li><b>50</b> Email</li>
-							<li><b>50GB</b> Bandwidth</li>
-							<li><b>10</b> Subdomains</li>
-							<li><b>Unlimited</b> Support</li>
+							<li>Minimum Deposit: $200.00</li>
+							<li>Maximum Deposit: $1000.00</li>
+							<li>Trade Duration: 2days</li>
+							<li>ROI: 30% Daily</li>
+							<li>Cycle: hourly</li>
 						</ul>
 						<div class="pricing-price">
 							
 						</div>
-						<a href="#" class="price_btn">Order Now</a>
+						<Link class="price_btn">Get Started</Link>
 					</div>
 				</div>
 			</div>
@@ -36,22 +36,21 @@ const PricingSec = () => {
 				<div class="pricing_design">
 					<div class="single-pricing">
 						<div class="price-head">		
-							<h2>Personal</h2>
-							<h1 class="price">$29</h1>
-							<span>/Monthly</span>
+							<h2>STANDARD PACKAGES</h2>
+							{/* <h1 class="price">$29</h1>
+							<span>/Monthly</span> */}
 						</div>
 						<ul>
-							<li><b>15</b> website</li>
-							<li><b>50GB</b> Disk Space</li>
-							<li><b>50</b> Email</li>
-							<li><b>50GB</b> Bandwidth</li>
-							<li><b>10</b> Subdomains</li>
-							<li><b>Unlimited</b> Support</li>
+							<li>Minimum Deposit: $2,000:00</li>
+							<li>Maximum Deposit: $5,000:00</li>
+							<li>Trade Duration: 7days</li>
+							<li>ROI: 45% Daily</li>
+							<li>Cycle: hourly</li>
 						</ul>
 						<div class="pricing-price">
 							
 						</div>
-						<a href="#" class="price_btn">Order Now</a>
+						<a href="#" class="price_btn">Select Package</a>
 					</div>
 				</div>
 			</div>
@@ -59,22 +58,21 @@ const PricingSec = () => {
 				<div class="pricing_design">
 					<div class="single-pricing">
 						<div class="price-head">		
-							<h2>Ultimate</h2>
-							<h1 class="price">$49</h1>
-							<span>/Monthly</span>
+							<h2>EXECUTIVE PACKAGE</h2>
+							{/* <h1 class="price">$49</h1>
+							<span>/Monthly</span> */}
 						</div>
 						<ul>
-							<li><b>15</b> website</li>
-							<li><b>50GB</b> Disk Space</li>
-							<li><b>50</b> Email</li>
-							<li><b>50GB</b> Bandwidth</li>
-							<li><b>10</b> Subdomains</li>
-							<li><b>Unlimited</b> Support</li>
+							<li>Minimum Deposit: $10,000.00</li>
+							<li>Maximum Deposit: $100,000.00</li>
+							<li>Trade Duration</li>
+							<li>ROI: 50% Daily</li>
+							<li>Cycle: hourly</li>
 						</ul>
 						<div class="pricing-price">
 							
 						</div>
-						<a href="#" class="price_btn">Order Now</a>
+						<a href="#" class="price_btn">Select Package</a>
 					</div>
 				</div>
 			</div>
