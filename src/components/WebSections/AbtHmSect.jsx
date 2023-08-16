@@ -2,7 +2,7 @@ import AbtImg from '../../assests/abtImg.png'
 import '../../App.css'
 const AbtHmSect = () => {
   return (
-    <div className='d-flex justify-content-center align-items-center flex-wrap'>
+    <div className='d-flex justify-content-center bg-dark text-white align-items-center flex-wrap'>
       <div className='col-md-6'>
         <img src={AbtImg} alt="image" className='w-100' />
       </div>

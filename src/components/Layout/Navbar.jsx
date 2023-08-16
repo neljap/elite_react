@@ -1,4 +1,4 @@
-import Logo from '../../assests/sclogo.png'
+import Logo from '../../assests/logosc.png'
 import {Link} from 'react-router-dom'
 import {
   FaTimes,
@@ -16,10 +16,17 @@ const Navbar = () => {
   }
 
   return (
-    <div className='container d-flex justify-content-between align-items-center'>
-      <Link to='/' style={{width: '200px', height: '50px'}}>
+    <div className='container d-flex justify-content-between align-items-center py-2'>
+      <Link to='/' className='d-flex justify-content-center align-items-center text-decoration-none'>
+        <div style={{width: '50px', height: '50px'}}>
         <img src={Logo} alt="img"  className='w-100'/>
+        </div>
+        <div>
+         <span className='text-white font-weight-bold'>Spectrum</span><br/>
+          <span className='text-success font-weight-bold'>Capitals</span>
+        </div>
       </Link>
+      
       <nav ref={NavRef} className='nav-mob-div'>
         <Link to='/about' className='text-white text-decoration-none ml-3' onClick={showNavRef}>About</Link>
         <Link to='/packages' className='text-white text-decoration-none ml-3' onClick={showNavRef}>Packages</Link>
@@ -34,7 +41,7 @@ const Navbar = () => {
           </Link>
           
         </div>
-        <FaTimes color='white' className='nav-icon-mob' size={25} onClick={showNavRef}/>
+        <FaTimes color='white' className='nav-icon-mob times-icon' size={25} onClick={showNavRef}/>
       </nav>
       <div className='nav-btn-desk'>
         <Link to='/login'>

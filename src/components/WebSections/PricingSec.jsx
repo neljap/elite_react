@@ -3,7 +3,7 @@ import '../../App.css'
 import { Link } from 'react-router-dom'
 const PricingSec = () => {
   return (
-    <section id="pricing" class="pricing-content section-padding">
+    <section id="pricing" class="pricing-content section-padding bg-dark text-light">
 	<div class="container">					
 		<div class="section-title text-center">
 			<h2>Pricing Plans</h2>
@@ -15,8 +15,8 @@ const PricingSec = () => {
 					<div class="single-pricing">
 						<div class="price-head">		
 							<h2>BASIC PACKAGE</h2>
-							{/* <h1>$0</h1>
-							<span>/Monthly</span> */}
+							<h1 className='text-success'>$200</h1>
+							<span>/14 days</span>
 						</div>
 						<ul>
 							<li>Minimum Deposit: $200.00</li>
@@ -37,8 +37,8 @@ const PricingSec = () => {
 					<div class="single-pricing">
 						<div class="price-head">		
 							<h2>STANDARD PACKAGES</h2>
-							{/* <h1 class="price">$29</h1>
-							<span>/Monthly</span> */}
+							<h1 class="price text-success">$500</h1>
+							<span>/28 days</span>
 						</div>
 						<ul>
 							<li>Minimum Deposit: $2,000:00</li>
@@ -59,8 +59,8 @@ const PricingSec = () => {
 					<div class="single-pricing">
 						<div class="price-head">		
 							<h2>EXECUTIVE PACKAGE</h2>
-							{/* <h1 class="price">$49</h1>
-							<span>/Monthly</span> */}
+							<h1 class="price text-success">$1000</h1>
+							<span>/40 days</span>
 						</div>
 						<ul>
 							<li>Minimum Deposit: $10,000.00</li>

@@ -3,8 +3,9 @@ import FaqImg from '../../assests/faqi.png'
 
 const FaqSection = () => {
   return (
-    <div className="container d-flex justify-content-center align-items-center flex-wrap">
-      <div className="col-md-6">
+    <div className="bg-dark text-light ">
+      <div className="container py-5 d-flex justify-content-center align-items-center flex-wrap">
+        <div className="col-md-6">
         <Accordion>
           <Accordion.Item eventKey="0">
             <Accordion.Header>Accordion Item #1</Accordion.Header>
@@ -35,6 +36,8 @@ const FaqSection = () => {
       <div className="col-md-6">
         <img src={FaqImg} alt="img" className="w-100"/>
       </div>
+      </div>
+      
     </div>
   );
 };
