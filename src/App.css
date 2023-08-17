@@ -15,7 +15,8 @@ h2{
   display: none;
 }
 .nav-btn-desk{
-  display: block;
+  display: flex;
+  gap: 2rem;
 }
 .times-icon{
   position: absolute;
@@ -75,10 +76,10 @@ h2{
   width: 100%;
   /* padding-top: 50px; */
 }
-body {
+/* body {
   margin-top: 20px;
   background: #dcdcdc;
-}
+} */
 .pricing-content {
   position: relative;
 }
@@ -344,4 +345,42 @@ a {
   background-color: #000;
   border-radius: 20px;
   border: 1px solid #fff;
+}
+
+/* All Header */
+.all-headers{
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* User Dashboard */
+/* .user-dash-box{
+  height: 150px;
+} */
+
+.nav-links-mob{
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .nav-links-mob{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    transition: 1s;
+    transform: translateY(-100vh);
+    background-color: #000;
+    color: #fff;
+  }
+  .switch{
+    transform: none;
+  }
 }
