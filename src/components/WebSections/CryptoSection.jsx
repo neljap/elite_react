@@ -1,10 +1,10 @@
-import React from "react";
+import '../../App.css'
 
 const CryptoSection = () => {
   return (
     <div className="bg-dark text-white py-5">
       <div>
-        <h1 className="text-success text-center">Cryptocurrency</h1>
+        <h1 className="text-success text-center all-headers">Cryptocurrency</h1>
         <p className="text-center">Trade and Invest Top Cryptocurrency</p>
       </div>
       <div className="d-flex justify-content-center align-items-center gap-5 flex-wrap py-5">
