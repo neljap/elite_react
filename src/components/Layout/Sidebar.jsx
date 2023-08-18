@@ -79,7 +79,7 @@ const Sidebar = ({children}) => {
             <NavLink
               to={item.path}
               key={index}
-              className="link"
+              className="link text-decoration-none"
               activeclassName="active"
             >
               <div className="icon">{item.icon}</div>
@@ -92,7 +92,7 @@ const Sidebar = ({children}) => {
             </NavLink>
           ))}
         </div>
-        <div className="w-100 w-md-100" style={{marginLeft: '300px'}}>
+        <div className="w-100" style={{marginLeft: '300px'}}>
           <UserNavSec />
           <main className="container w-100">{children}</main>
         </div>

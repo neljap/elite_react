@@ -9,7 +9,7 @@ import UserTopNot from '../../components/UsersDashSection/UserTopNot'
 const UserHome = () => {
   return (
     <div>
-      <UserTopNot />
+      {/* <UserTopNot /> */}
       <UserGreetings />
       <UserDasDetails />
       <UserTradeBin />

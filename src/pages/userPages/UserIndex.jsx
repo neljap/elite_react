@@ -6,10 +6,12 @@ import UserOverPg from "./UserOverPg";
 import Sidebar from "../../components/Layout/Sidebar";
 import UserHome from "./UserHome";
 import UserRefer from "./UserReferSect";
+import UserTopNot from "../../components/UsersDashSection/UserTopNot";
 
 const UserIndex = () => {
   return (
     <Sidebar>
+      <UserTopNot />
       <Routes>
         <Route path="home" element={<UserHome />} />
         <Route path="invest" element={<UserInvest />} />

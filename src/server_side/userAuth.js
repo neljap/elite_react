@@ -72,6 +72,7 @@ export const createUser = (userdetails ) => {
                 })
                 .catch((err) => {
                     //error
+                    console.log(err);
                     reject(`unable to create user with email and password`);
                 })
         }

@@ -1,7 +1,8 @@
 import React from 'react'
+import Navbar from '../Layout/Navbar'
 import '../../App.css'
 
-const ResetPassSect = () => {
+const ResetPassSection = () => {
   return (
     <div className='abtHero-container'>
         <Navbar />
@@ -12,4 +13,4 @@ const ResetPassSect = () => {
   )
 }
 
-export default ResetPassSect
+export default ResetPassSection

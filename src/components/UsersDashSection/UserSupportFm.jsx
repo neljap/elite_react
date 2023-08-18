@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const UserSupportFm = () => {
+  const defaultFormData = {
+    subject: '',
+    message: ''
+  }
+
+  const [formData, setFormData] = useState(defaultFormData)
+  const {subject, message} = formData;
+
   return (
     <div>
         <h2>SUPPORT</h2>
