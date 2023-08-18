@@ -1,6 +1,6 @@
 import { app } from "./firebaseConfig";
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail} from 'firebase/auth'
 
 const db = getFirestore(app);
 const auth = getAuth(app);
@@ -102,6 +102,18 @@ export function signInWithEmailAndPassword(email, password) {
     });
 }
 
+export function sendPasswordResetEmail(email) {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        console.log("Password reset email sent successfully");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error("Password reset error:", errorCode, errorMessage);
+      });
+  }
+  
 
 
   
