@@ -6,11 +6,11 @@ const PricingSec = () => {
     <section id="pricing" class="pricing-content section-padding bg-dark text-light">
 	<div class="container">					
 		<div class="section-title text-center">
-			<h2>Pricing Plans</h2>
+			<h2 className='text-success'>Packages</h2>
 			<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
 		</div>				
 		<div class="row text-center">									
-			<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0" style={{visibility: 'visible', animationDuration: '1s', animationDelay: '0.1s', animationName: 'fadeInUp'}}>
+			<div class="col-lg-4 col-sm-6 col-xs-12 mb-2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0" style={{visibility: 'visible', animationDuration: '1s', animationDelay: '0.1s', animationName: 'fadeInUp'}}>
 				<div class="pricing_design">
 					<div class="single-pricing">
 						<div class="price-head">		

@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 
 const db = getFirestore(app);
 
-function addData(data, collectionId, persistCustomId) {
+export const addData = (data, collectionId, persistCustomId) => {
     let customId = persistCustomId != '' ? '' : `/${persistCustomId}`;
 
     const promise = new Promise((resolve, reject) => {
@@ -27,8 +27,8 @@ function addData(data, collectionId, persistCustomId) {
 }
 
 
-function createUser(userdetails ) {
-    const pass = userdetails.pass != undefined ? userdetails.pass : '';
+export const createUser = (userdetails ) => {
+    const pass = userdetails.password != undefined ? userdetails.password : '';
     const auth = getAuth();
 
     // const example={

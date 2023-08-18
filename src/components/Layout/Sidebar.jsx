@@ -92,7 +92,7 @@ const Sidebar = ({children}) => {
             </NavLink>
           ))}
         </div>
-        <div className="w-100 w-md-100">
+        <div className="w-100 w-md-100" style={{marginLeft: '300px'}}>
           <UserNavSec />
           <main className="container w-100">{children}</main>
         </div>
