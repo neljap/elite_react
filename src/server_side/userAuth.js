@@ -40,6 +40,7 @@ function createUser(userdetails ) {
                     //details
                     const userDetails = {
                         referal_id: Math.random() * new Date().getDate(),
+                        ["phone number"]: userdetails.number,
                         fullname: userdetails.fullname,
                         ["profile picture"]: userdetails.profile,
                         uid: _uid,
