@@ -1,8 +1,9 @@
 import { app } from "./firebaseConfig";
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail} from 'firebase/auth'
 
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 export const addData = (data, collectionId, persistCustomId) => {
     let customId = persistCustomId != '' ? '' : `/${persistCustomId}`;
@@ -82,3 +83,38 @@ export const createUser = (userdetails ) => {
     })
     return promise;
 }
+
+
+
+
+
+
+export function signInWithEmailAndPassword(email, password) {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log("User signed in:", user);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Sign-in error:", errorCode, errorMessage);
+    });
+}
+
+export function sendPasswordResetEmail(email) {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        console.log("Password reset email sent successfully");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error("Password reset error:", errorCode, errorMessage);
+      });
+  }
+  
+
+
+  
