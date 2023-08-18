@@ -31,6 +31,13 @@ function createUser(userdetails ) {
     const pass = userdetails.pass != undefined ? userdetails.pass : '';
     const auth = getAuth();
 
+    // const example={
+    //     number:,
+    //     fullname:,
+    //     email:,
+    //     referred_by:,
+    // }
+
     const promise = new Promise((resolve, reject) => {
         try {
             createUserWithEmailAndPassword(auth, userdetails.email, pass)
@@ -42,15 +49,15 @@ function createUser(userdetails ) {
                         referal_id: Math.random() * new Date().getDate(),
                         ["phone number"]: userdetails.number,
                         fullname: userdetails.fullname,
-                        ["profile picture"]: userdetails.profile,
+                        ["profile picture"]: userdetails.profile != undefined? userdetails.profile : "",
                         uid: _uid,
-                        ["total deposit"]: userdetails.totalDeposit,
-                        ["total referrals"]: userdetails.totalReferrals,
-                        ["total withdrawal"] : userdetails.totalWithdrawal,
-                        verified: userdetails.verified,
+                        ["total deposit"]: userdetails.totalDeposit != undefined ? userdetails.totalDeposit : "",
+                        ["total referrals"]: userdetails.totalReferrals != undefined ? userdetails.totalReferrals: "",
+                        ["total withdrawal"] : userdetails.totalWithdrawal != undefined ? userdetails.totalWithdrawal: "",
+                        verified: userdetails.verified != undefined ? userdetails.verified : "",
                         ["verify docs"]: "",
                         email: userdetails.email,
-                        ["referred by"]: "",
+                        ["referred by"]: userdetails.referred_by != undefined ? userdetails.referred_by: "",
                         ['Registered at']: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
                         time: `${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}`
                     };
