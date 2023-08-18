@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 const LoginFormSec = () => {
   return (
     <div className="container">
-      <form className="signIn-form-container">
+      <div className="signIn-form-container">
         <h1 className='text-center'>Sign In</h1>
-        <div>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Username</Form.Label>
@@ -30,7 +29,6 @@ const LoginFormSec = () => {
             </div>
           </Form>
         </div>
-      </form>
     </div>
   );
 }

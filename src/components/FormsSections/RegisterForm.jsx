@@ -1,58 +1,110 @@
-import {Form, Button} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
-import '../../App.css'
+import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "../../App.css";
+import { useState } from "react";
+import { createUser } from "../../server_side/userAuth";
 
 const RegisterForm = () => {
+  const defaultData = {
+    email: "",
+    fullname: "",
+    ["referred by"]: "",
+    number: "",
+    password: '',
+    passwordConfirm: ""
+  };
+
+  const [formData, setFormData] = useState(defaultData);
+  const { email, fullname, number, password, passwordConfirm } = formData;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (password !== passwordConfirm) {
+      alert('Password do not match')
+      return;
+    }
+
+    try {
+      const data = await createUser({fullname, email, number, password, })
+      console.log(data)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="container">
-      <form className="signUp-form-container">
+      <div className="signUp-form-container">
         <h1 className="text-center">Sign Up</h1>
-        <div>
-          <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter your First Name" />
-            </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Enter username" />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter your email" />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Enter your Password"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Confirm Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Re-Enter your Password"
-                />
-              </Form.Group>
-            <Button variant="danger" type="submit">
-              Login
-            </Button>
+          <form onSubmit={handleSubmit}>
+            <div className="row w-100">
+              <div className="mb-3 col-md-6" >
+                <label>Full Name</label>
+                <input type="text" value={fullname} name="fullname" required onChange={handleChange}  placeholder="Enter your First Name" className="w-100 rounded shadow p-1" />
+              </div>
+
+              <div className="mb-3 col-md-6" >
+                <label>Email</label>
+                <input type="email" value={email} name="email" required placeholder="Enter your email" onChange={handleChange} className="w-100 rounded shadow p-1"/>
+              </div>
+            </div>
+            <div className="row w-100">
+              <div className="mb-3 col-md-6" >
+                <label>Phone Number</label>
+                <input type="text" name='number'  required value={number} placeholder="Enter username" onChange={handleChange} className="w-100 rounded shadow p-1"/>
+              </div>
+              <div className="mb-3 col-md-6" >
+                <label>Referral ID (Optional)</label>
+                <input type="text" name="referred"   placeholder="Enter username" onChange={handleChange} className="w-100 rounded shadow p-1"/>
+              </div>
+            </div>
+            <div className="row w-100">
+             <div className="mb-3 col-md-6" >
+              <label>Password</label>
+              <input type="password" name="password" value={password} required onChange={handleChange} placeholder="Enter your Password" className="w-100 rounded shadow p-1"/>
+            </div>
+            <div className="mb-3 col-md-6" >
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                name="passwordConfirm"
+                value={passwordConfirm}
+                required
+                onChange={handleChange}
+                placeholder="Re-Enter your Password"
+                className="w-100 rounded shadow p-1"
+              />
+            </div> 
+            </div>
+            
+            <button variant="success" type="submit" className="w-100 mb-3 btn btn-success">
+              Sign Up
+            </button>
+            <button variant="primary" type="button" className="w-100 btn btn-primary" >
+              Sign In With Google
+            </button>
             <div className="d-flex justify-content-between align-items-center py-3">
               <Link to="/login" className="text-decoration-none text-white">
                 Already have an account?
               </Link>
-              <span
-                className="text-decoration-none text-white"
-              >
+              <span className="text-decoration-none text-white">
                 {/* Forget Password */}
               </span>
             </div>
-          </Form>
+          </form>
         </div>
-      </form>
     </div>
-  )
-}
+  );
+};
 
-export default RegisterForm
+export default RegisterForm;

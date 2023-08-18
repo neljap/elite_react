@@ -5,7 +5,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} fr
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-function addData(data, collectionId, persistCustomId) {
+export const addData = (data, collectionId, persistCustomId) => {
     let customId = persistCustomId != '' ? '' : `/${persistCustomId}`;
 
     const promise = new Promise((resolve, reject) => {
@@ -28,8 +28,8 @@ function addData(data, collectionId, persistCustomId) {
 }
 
 
-export function createUser(userdetails ) {
-    const pass = userdetails.pass != undefined ? userdetails.pass : '';
+export const createUser = (userdetails ) => {
+    const pass = userdetails.password != undefined ? userdetails.password : '';
     const auth = getAuth();
 
     // const example={
