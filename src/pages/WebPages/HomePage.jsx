@@ -9,6 +9,7 @@ import FooterS from '../../components/WebSections/FooterS'
 import ProofSection from '../../components/WebSections/ProofSection'
 import CryptoSection from '../../components/WebSections/CryptoSection'
 import UserFxData from '../../components/UsersDashSection/UserFxData'
+import SubFooter from '../../components/WebSections/SubFooter'
 
 const HomePage = () => {
   return (
@@ -18,8 +19,9 @@ const HomePage = () => {
       <ProofSection />
       <PricingSec />
       <UserFxData />
-      <CryptoSection />
+      {/* <CryptoSection /> */}
       <FaqSection />
+      <SubFooter />
       {/* <TestimSect /> */}
       <FooterS />
       {/* <FooterSection /> */}

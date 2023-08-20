@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import '../../App.css'
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,9 +16,10 @@ const ContactForm = () => {
   return (
     <div className="bg-dark text-light">
       <h2 className="text-success font-bold text-center">Get In Touch</h2>
-      <form
+      <div className="container">
+        <form
         onSubmit={handleSubmit}
-        className="w-100 w-md-75 mt-5 border border-success p-md-5 p-2 rounded mx-auto py-3"
+        className="main-contactFm-con mt-5 border border-success p-md-5 p-3 rounded mx-auto py-3"
       >
         <div className="row">
           <div className="d-flex flex-column col-md-6">
@@ -74,6 +75,8 @@ const ContactForm = () => {
         </div>
         <button className="btn btn-success w-100">Send</button>
       </form>
+      </div>
+      
     </div>
   );
 };

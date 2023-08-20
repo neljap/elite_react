@@ -2,8 +2,9 @@ import React from "react";
 
 const UseReferSect = () => {
   return (
-    <div>
+    <div className="bg-dark text-light">
       <h2>REFFERALS</h2>
+      <div className="container">
       <div className="row">
         <div className="col-md-4">
           <p>
@@ -12,7 +13,7 @@ const UseReferSect = () => {
           </p>
           <input type="text" />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 ">
           <h4>Total Referral</h4>
           <h1>0</h1>
         </div>
@@ -21,6 +22,8 @@ const UseReferSect = () => {
           <h1>0</h1>
         </div>
       </div>
+      </div>
+      
     </div>
   );
 };

@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import ProofImg from "../../assests/tra.png";
+import ProofPdf from '../../assests/tradehood.pdf'
 
 const ProofSection = () => {
   return (
@@ -15,7 +17,8 @@ const ProofSection = () => {
             Spectrum Capitals is a Licensed and Certified Trading Platform.{" "}
           </p>
           <div>
-            <p>Find Out More </p>
+
+            <Link to={ProofPdf} target="_blank" className="text-success">Find Out More</Link>
           </div>
         </div>
       </div>
