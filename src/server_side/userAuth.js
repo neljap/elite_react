@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 
 const provider = new GoogleAuthProvider(app);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 const auth = getAuth(app);
 
 export const addData = (data, collectionId, persistCustomId) => {
@@ -134,6 +134,8 @@ export function sendPasswordResetEmailHandler(email) {
       console.error("Password reset error:", errorCode, errorMessage);
     });
 }
+
+
 
 export const googleProvider = async () => {
   try {

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { db } from "../../server_side/userAuth";
+import { addDoc, collection } from "firebase/firestore";
 import '../../App.css'
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -9,6 +11,12 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const conData = await addDoc(collection(db, 'contact'), {name, email, subject, message})
+      console.log(conData)
+      setEmail('')
+      setMessage('')
+      setName('')
+      setSubject('')
     } catch (err) {
       console.log(err);
     }

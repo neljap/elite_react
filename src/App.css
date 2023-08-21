@@ -377,11 +377,10 @@ a {
   }
 }
 
-/* User Dashboard */
-/* .user-dash-box{
-  height: 150px;
-} */
-
+/* User Investment Section */
+.user-invest-sec{
+  max-width: 500px;
+}
 .nav-links-mob{
   display: none;
 }
@@ -403,6 +402,7 @@ a {
     background-color: #000;
     opacity: 0.9;
     color: #fff;
+    z-index: 10;
   }
   .switch{
     transform: none;
@@ -431,4 +431,8 @@ a {
   .main-details-section{
     margin-left: 0px;
   }
+}
+
+.hide{
+  display: none;
 }

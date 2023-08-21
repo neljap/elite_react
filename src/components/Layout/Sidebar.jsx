@@ -8,6 +8,7 @@ import {
   FaCommentAlt,
   FaShoppingBag,
   FaThList,
+  FaWallet
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assests/sclogo.png";
@@ -30,6 +31,11 @@ const Sidebar = ({children}) => {
       icon: <FaUserAlt />,
     },
     {
+      path: "/user/my-wallet",
+      name: "Wallet",
+      icon: <FaWallet />
+    },
+    {
       path: "/user/investment",
       name: "Investment",
       icon: <FaRegChartBar />,
@@ -43,6 +49,11 @@ const Sidebar = ({children}) => {
       path: "/user/settings",
       name: "Settings",
       icon: <FaShoppingBag />,
+    },
+    {
+      path: "/user/kyc-verify",
+      name: "KYC Verification",
+      icon: <FaThList />,
     },
     {
       path: "/user/support",

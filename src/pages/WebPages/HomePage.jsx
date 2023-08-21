@@ -10,6 +10,7 @@ import ProofSection from '../../components/WebSections/ProofSection'
 import CryptoSection from '../../components/WebSections/CryptoSection'
 import UserFxData from '../../components/UsersDashSection/UserFxData'
 import SubFooter from '../../components/WebSections/SubFooter'
+import UserCyptData from '../../components/UsersDashSection/UserCyptData'
 
 const HomePage = () => {
   return (
@@ -19,6 +20,7 @@ const HomePage = () => {
       <ProofSection />
       <PricingSec />
       <UserFxData />
+      <UserCyptData />
       {/* <CryptoSection /> */}
       <FaqSection />
       <SubFooter />

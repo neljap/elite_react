@@ -16,7 +16,7 @@ const SubFooter = () => {
           </div>
           <div className="col-md-3">
             <Link to='/register'>
-               <button className="btn btn-light text-dark p-3">Get Started</button> 
+              <button className="btn btn-light text-dark shadow">Get Started</button> 
             </Link>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 import { useState } from "react";
 import { createUser } from "../../server_side/userAuth";
+import { googleProvider } from "../../server_side/userAuth";
 
 const RegisterForm = () => {
   const defaultData = {
@@ -90,7 +91,7 @@ const RegisterForm = () => {
             <button variant="success" type="submit" className="w-100 mb-3 btn btn-success">
               Sign Up
             </button>
-            <button variant="primary" type="button" className="w-100 btn btn-primary" >
+            <button variant="primary" type="button" className="w-100 btn btn-primary" onClick={googleProvider} >
               Sign In With Google
             </button>
             <div className="d-flex justify-content-between align-items-center py-3">
