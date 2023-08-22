@@ -8,7 +8,15 @@ const UserSupportFm = () => {
   }
 
   const [formData, setFormData] = useState(defaultFormData)
-  const {subject, message} = formData;
+  
+
+  const handleChange = (e) => {
+    const {name, value, type, checked} = e.target
+
+    setFormData({
+
+    })
+  }
 
   return (
     <div>

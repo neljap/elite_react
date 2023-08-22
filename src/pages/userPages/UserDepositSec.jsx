@@ -1,8 +1,11 @@
 import React from 'react'
+import UserDepForm from '../../components/UsersDashSection/UserDepForm'
 
 const UserDepositSec = () => {
   return (
-    <div>UserDepositSec</div>
+    <div>
+      <UserDepForm />
+    </div>
   )
 }
 

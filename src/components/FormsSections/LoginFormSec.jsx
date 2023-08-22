@@ -1,17 +1,24 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPasswordHandler } from "../../server_side/userAuth";
+import {toast} from 'react-toastify'
 
 const LoginFormSec = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async(e) => {
     e.preventDefault()
     if(!email || !password) return;
 
     try{
-
+      const LoginData = await signInWithEmailAndPasswordHandler(email, password)
+      console.log(LoginData)
+      // toast.success('Login Successfully', {
+      //   position: 'bottom-left'
+      // })
     }catch(err){
       console.log(err)
     }
@@ -31,7 +38,7 @@ const LoginFormSec = () => {
               <Form.Control type="password" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             </Form.Group>
             <Button variant="success" type="submit" className="w-100 mb-3">
-              Login
+             Login
             </Button>
             <Button variant="primary" type="button" className="w-100">Sign In With Google</Button>
             <div className="d-flex justify-content-between align-items-center py-3">

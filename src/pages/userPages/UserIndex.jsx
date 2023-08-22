@@ -13,25 +13,28 @@ import UserWallet from "./UserWallet";
 import UserDepositSec from "./UserDepositSec";
 import UserWithdrawPg from "./UserWithdrawPg";
 import UserSwapPg from "./UserSwapPg";
+import { DepConProvider } from "../../components/UsersDashSection/context/DepContext";
 
 const UserIndex = () => {
   return (
     <Sidebar>
       <UserTopNot />
-      <Routes>
-        <Route path="home" element={<UserHome />} />
-        <Route path="investment" element={<UserInvest />} />
-        <Route path="support" element={<UserSupport />} />
-        <Route path="refferals" element={<UserRefer />} />
-        <Route path="overview" element={<UserOverPg />} />
-        <Route path="my-wallet" element={<UserWallet />} />
-        <Route path="deposit" element={<UserDepositSec />} />
-        <Route path="withdraw" element={<UserWithdrawPg />} />
-        <Route path="coin-swap" element={<UserSwapPg />} />
-        <Route path="settings" element={<UserSettings />} />
-        <Route path="kyc-verify" element={<UserKycVerify />} />
-        <Route path="kyc-data" element={<UserKycVData />} />
-      </Routes>
+      <DepConProvider>
+        <Routes>
+          <Route path="home" element={<UserHome />} />
+          <Route path="investment" element={<UserInvest />} />
+          <Route path="support" element={<UserSupport />} />
+          <Route path="refferals" element={<UserRefer />} />
+          <Route path="overview" element={<UserOverPg />} />
+          <Route path="my-wallet" element={<UserWallet />} />
+          <Route path="deposit" element={<UserDepositSec />} />
+          <Route path="withdraw" element={<UserWithdrawPg />} />
+          <Route path="coin-swap" element={<UserSwapPg />} />
+          <Route path="settings" element={<UserSettings />} />
+          <Route path="kyc-verify" element={<UserKycVerify />} />
+          <Route path="kyc-data" element={<UserKycVData />} />
+        </Routes>
+      </DepConProvider>
     </Sidebar>
   );
 };
