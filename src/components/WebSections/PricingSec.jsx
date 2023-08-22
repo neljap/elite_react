@@ -9,9 +9,9 @@ const PricingSec = () => {
 			<h2 className='text-success'>Packages</h2>
 			<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
 		</div>				
-		<div class="row text-center">									
-			<div class="col-lg-4 col-sm-6 col-xs-12 mb-2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0" style={{visibility: 'visible', animationDuration: '1s', animationDelay: '0.1s', animationName: 'fadeInUp'}}>
-				<div class="pricing_design">
+		<div class="row text-center py-5 justify-content-center align-items-center">									
+			<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0" style={{visibility: 'visible', animationDuration: '1s', animationDelay: '0.1s', animationName: 'fadeInUp'}}>
+				<div class="pricing_design mb-4">
 					<div class="single-pricing">
 						<div class="price-head">		
 							<h2>BASIC PACKAGE</h2>
@@ -33,7 +33,7 @@ const PricingSec = () => {
 				</div>
 			</div>
 			<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0" style={{visibility: 'visible', animationDuration: '1s', animationDelay: '0.2s', animationName: 'fadeInUp'}}>
-				<div class="pricing_design">
+				<div class="pricing_design mb-4">
 					<div class="single-pricing">
 						<div class="price-head">		
 							<h2>STANDARD PACKAGES</h2>
@@ -55,7 +55,7 @@ const PricingSec = () => {
 				</div>
 			</div>
 			<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0" style={{visibility: 'visible', animationDuration: '1s', animationDelay: '0.3s', animationName: 'fadeInUp'}}>
-				<div class="pricing_design">
+				<div class="pricing_design mb-4">
 					<div class="single-pricing">
 						<div class="price-head">		
 							<h2>EXECUTIVE PACKAGE</h2>

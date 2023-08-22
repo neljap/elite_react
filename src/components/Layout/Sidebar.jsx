@@ -8,6 +8,7 @@ import {
   FaCommentAlt,
   FaShoppingBag,
   FaThList,
+  FaWallet
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assests/sclogo.png";
@@ -30,6 +31,11 @@ const Sidebar = ({children}) => {
       icon: <FaUserAlt />,
     },
     {
+      path: "/user/my-wallet",
+      name: "Wallet",
+      icon: <FaWallet />
+    },
+    {
       path: "/user/investment",
       name: "Investment",
       icon: <FaRegChartBar />,
@@ -45,6 +51,11 @@ const Sidebar = ({children}) => {
       icon: <FaShoppingBag />,
     },
     {
+      path: "/user/kyc-verify",
+      name: "KYC Verification",
+      icon: <FaThList />,
+    },
+    {
       path: "/user/support",
       name: "Help",
       icon: <FaThList />,
@@ -53,13 +64,13 @@ const Sidebar = ({children}) => {
   return (
     <>
       <div className="sidebar-container">
-        <div style={{ width: isOpen ? "300px" : "50px" }} className="sidebar d-none d-lg-block">
+        <div style={{ width:  "200px" }} className="sidebar d-none d-lg-block">
           <div className="top_section">
             <Link to='/'>
               <img
               src={Logo}
               style={{
-                display: isOpen ? "block" : "none",
+                // display: isOpen ? "block" : "none",
                 width: "150px",
                 height: "50px",
               }}
@@ -69,22 +80,22 @@ const Sidebar = ({children}) => {
             </Link>
             
             <div
-              style={{ marginLeft: isOpen ? "50px" : "0px" }}
+              // style={{ marginLeft: isOpen ? "50px" : "0px" }}
               className="bars"
             >
-              <FaBars onClick={toggle} />
+              {/* <FaBars onClick={toggle} /> */}
             </div>
           </div>
           {menuItem.map((item, index) => (
             <NavLink
               to={item.path}
               key={index}
-              className="link"
+              className="link text-decoration-none"
               activeclassName="active"
             >
               <div className="icon">{item.icon}</div>
               <div
-                style={{ display: isOpen ? "block" : "none" }}
+                // style={{ display: isOpen ? "block" : "none" }}
                 className="link_text"
               >
                 {item.name}
@@ -92,7 +103,7 @@ const Sidebar = ({children}) => {
             </NavLink>
           ))}
         </div>
-        <div className="w-100 w-md-100" style={{marginLeft: '300px'}}>
+        <div className="w-100 bg-dark text-light main-details-section">
           <UserNavSec />
           <main className="container w-100">{children}</main>
         </div>

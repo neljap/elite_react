@@ -1,8 +1,11 @@
 import React from 'react'
+import UserInvestStart from '../../components/UsersDashSection/UserInvestStart'
 
 const UserInvest = () => {
   return (
-    <div>UserInvest</div>
+    <div>
+      <UserInvestStart />
+    </div>
   )
 }
 

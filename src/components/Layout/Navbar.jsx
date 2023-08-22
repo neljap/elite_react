@@ -38,8 +38,7 @@ const Navbar = () => {
           </Link>
           <Link to='/register'>
             <button className='btn btn-success' onClick={showNavRef}>Register</button>
-          </Link>
-          
+          </Link> 
         </div>
         <FaTimes color='white' className='nav-icon-mob times-icon' size={25} onClick={showNavRef}/>
       </nav>
