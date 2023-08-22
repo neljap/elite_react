@@ -10,6 +10,7 @@ import {
   signOut
 } from "firebase/auth";
 
+
 const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 const auth = getAuth(app);
@@ -137,11 +138,12 @@ export function sendPasswordResetEmailHandler(email) {
 
 
 export const googleProvider = async () => {
+    const provider = new GoogleAuthProvider();
     try {
-      const prov = await signInWithPopup(provider);
-      console.log(prov);
-    } catch (err) {
-      console.log(err);
+      let result = await signInWithPopup(auth, provider);
+      console.log('Successfully signed in with Google');
+    } catch (error) {
+      console.error('Error signing in with Google:', error);
     }
   };
   

@@ -1,11 +1,13 @@
 import React from "react";
-import { useSelector, useDispatch } from 'react-redux'
 
 function Example() {
-    const user = useSelector((state)=> state.userinfo.value)
+    const user = useSelector((state)=> state.userinfo.value);
+    console.log(user)//please use the console to track the data
     return (
         <div>
-            <div className="email">{user.email}</div>
+            <h1>helo</h1>
+            <div className="email">USER EMAIL -{user.email}</div>
+            <div className="fullname">USER FULLNAME - {user.fullname}</div>
         </div>
     );
 }
