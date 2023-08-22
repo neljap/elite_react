@@ -10,6 +10,7 @@ import ResetPassPg from "./pages/authPages/ResetPassPg";
 import "bootstrap/dist/css/bootstrap.min.css"
 import UserIndex from "./pages/userPages/UserIndex";
 import FaqSecPg from "./pages/WebPages/FaqSecPg";
+import Example from "./pages/store_example";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPasswordPg />} />
         <Route path="/reset-password" element={<ResetPassPg />}/>
         <Route path="/user/*" element={<UserIndex />} />
+        <Route path="/storage-test" element={<Example/>}/>
       </Routes>
     </BrowserRouter>
   );
