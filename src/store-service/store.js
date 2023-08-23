@@ -16,7 +16,7 @@ export const sample = {
   verifyDocs: []
 };
 
-function storageAvailable(type){// = "localStorage" | "sessionStorage") {
+export function storageAvailable(type){// = "localStorage" | "sessionStorage") {
   let storage = null;
 
   try {
@@ -45,11 +45,27 @@ function storageAvailable(type){// = "localStorage" | "sessionStorage") {
 }
 
 
-function startSession(){
-  if(storageAvailable()){
-    let data = JSON.stringify(sample);
-    sessionStorage.setItem(data);
+export function deleteUserData(){
+  if(storageAvailable("localStorage")){
+    localStorage.removeItem("userinfo");
   }
+};
+
+// startSession();
+
+export function updateInfo(data){
+  // console.log(data)
+  let dt = JSON.stringify(data);
+  localStorage.setItem("userinfo", dt);
 }
 
-function updateInfo(){}
+export function getInfo(){
+  let data = localStorage.getItem("userinfo");
+  return JSON.parse(data);
+}
+
+export function updateAuntheticatedUser(data){
+  if(storageAvailable("localStorage")){
+    localStorage.setItem("isUserAuthenticated", data);console.log(localStorage.getItem("isUserAuthenticated"))
+  }
+}

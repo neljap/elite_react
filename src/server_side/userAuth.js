@@ -7,9 +7,10 @@ import {
   sendPasswordResetEmail,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut
+  signOut,
+  onAuthStateChanged
 } from "firebase/auth";
-
+import { sample, updateInfo, deleteUserData, updateAuntheticatedUser } from "../store-service/store";
 
 const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
@@ -116,8 +117,10 @@ export function signInWithEmailAndPasswordHandler(email, password) {
       // Signed in
       const user = userCredential.user;
       console.log("User signed in:", user);
+      updateAuntheticatedUser("true")
     })
     .catch((error) => {
+      updateAuntheticatedUser("false");
       const errorCode = error.code;
       const errorMessage = error.message;
       console.error("Sign-in error:", errorCode, errorMessage);
@@ -137,18 +140,40 @@ export function sendPasswordResetEmailHandler(email) {
 }
 
 
+
 export const googleProvider = async () => {
     const provider = new GoogleAuthProvider();
+    const obj = sample;
     try {
       let result = await signInWithPopup(auth, provider);
+      updateAuntheticatedUser("true")
       console.log('Successfully signed in with Google');
     } catch (error) {
+      updateAuntheticatedUser("false")
       console.error('Error signing in with Google:', error);
     }
   };
   
   export const signOutHandler = async () => {
+     updateAuntheticatedUser("false");
+     deleteUserData();
       await signOut(null)
   }
 
-  
+
+
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      updateAuntheticatedUser("true")
+      let ob = sample;
+      ob.email= user.email;
+      ob.fullname= user.displayName;
+      updateInfo(ob);
+      console.log('User is logged in:', user);
+    } else {
+      updateAuntheticatedUser("false")
+      // User is signed out
+      deleteUserData();
+      console.log('User is logged out');
+    }
+  });

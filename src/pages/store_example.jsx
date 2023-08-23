@@ -1,7 +1,8 @@
 import React from "react";
+import { getInfo } from "../store-service/store";
 
 function Example() {
-    const user = useSelector((state)=> state.userinfo.value);
+    let user = getInfo();
     console.log(user)//please use the console to track the data
     return (
         <div>
