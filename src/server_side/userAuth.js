@@ -9,8 +9,11 @@ import {
   signInWithPopup,
   signOut
 } from "firebase/auth";
+import {
+getStorage
+} from 'firebase/storage'
 
-
+export const storage = getStorage(app)
 const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 const auth = getAuth(app);

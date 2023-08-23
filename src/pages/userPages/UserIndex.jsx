@@ -14,6 +14,9 @@ import UserDepositSec from "./UserDepositSec";
 import UserWithdrawPg from "./UserWithdrawPg";
 import UserSwapPg from "./UserSwapPg";
 import { DepConProvider } from "../../components/UsersDashSection/context/DepContext";
+import UserWithDrawF from "./UserWithDrawF";
+import UserPayData from "./UserPayData";
+import UserFooterCy from "../../components/UsersDashSection/UserFooterCy";
 
 const UserIndex = () => {
   return (
@@ -28,13 +31,16 @@ const UserIndex = () => {
           <Route path="overview" element={<UserOverPg />} />
           <Route path="my-wallet" element={<UserWallet />} />
           <Route path="deposit" element={<UserDepositSec />} />
+          <Route path="payment" element={<UserPayData />} />
           <Route path="withdraw" element={<UserWithdrawPg />} />
+          <Route path="withdraw-funds" element={<UserWithDrawF />} />
           <Route path="coin-swap" element={<UserSwapPg />} />
           <Route path="settings" element={<UserSettings />} />
           <Route path="kyc-verify" element={<UserKycVerify />} />
           <Route path="kyc-data" element={<UserKycVData />} />
         </Routes>
       </DepConProvider>
+      {/* <UserFooterCy /> */}
     </Sidebar>
   );
 };

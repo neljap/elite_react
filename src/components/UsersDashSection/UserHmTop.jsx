@@ -8,7 +8,7 @@ const UserHmTop = () => {
             <h2>$0.00</h2>
             <div className='d-flex gap-2'>
                 <button className='btn btn-success'>Deposit</button>
-                <button className='btn btn-transparent border border-success text-light'>Exchange</button>
+                <button className='btn btn-transparent border border-success text-light'>Withdraw</button>
             </div>
         </div>
         <div className='col-md-5 p-3 border border-success shadow rounded'>

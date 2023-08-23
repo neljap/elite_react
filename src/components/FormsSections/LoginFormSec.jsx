@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { signInWithEmailAndPasswordHandler } from "../../server_side/userAuth";
+import { signInWithEmailAndPasswordHandler, googleProvider } from "../../server_side/userAuth";
 import {toast} from 'react-toastify'
 
 const LoginFormSec = () => {
@@ -23,6 +23,9 @@ const LoginFormSec = () => {
       console.log(err)
     }
   }
+
+
+
   return (
     <div className="container">
       <div className="signIn-form-container">
@@ -40,7 +43,7 @@ const LoginFormSec = () => {
             <Button variant="success" type="submit" className="w-100 mb-3">
              Login
             </Button>
-            <Button variant="primary" type="button" className="w-100">Sign In With Google</Button>
+            <Button variant="primary" type="button" className="w-100" onClick={googleProvider}>Sign In With Google</Button>
             <div className="d-flex justify-content-between align-items-center py-3">
               <Link to="/register" className="text-decoration-none text-white">
                 Don't have an account?

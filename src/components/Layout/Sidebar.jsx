@@ -14,6 +14,7 @@ import { NavLink } from "react-router-dom";
 import Logo from "../../assests/sclogo.png";
 import '../../App.css'
 import UserNavSec from "../UsersDashSection/UserNavSec";
+import UserFooterCy from "../UsersDashSection/UserFooterCy";
 
 const Sidebar = ({children}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -106,6 +107,7 @@ const Sidebar = ({children}) => {
         <div className="w-100 bg-dark text-light main-details-section">
           <UserNavSec />
           <main className="container w-100">{children}</main>
+          <UserFooterCy />
         </div>
       </div>
     </>

@@ -4,6 +4,8 @@ import FaqImg from "../../assests/faqi.png";
 const FaqSection = () => {
   return (
     <div className="bg-dark text-light ">
+      <h2 className="text-success text-center all-headers">FAQ</h2>
+      <p className="text-center">Answers to Common Questions: Your Ultimate FAQ Guide</p>
       <div className="container row py-5 d-flex justify-content-center align-items-center flex-wrap gap-3 w-100">
         <div className="col-md-5">
           <Accordion className="w-100">
