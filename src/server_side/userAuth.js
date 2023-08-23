@@ -10,8 +10,11 @@ import {
   signOut,
   onAuthStateChanged
 } from "firebase/auth";
-import { sample, updateInfo, deleteUserData, updateAuntheticatedUser } from "../store-service/store";
+import { sample, updateInfo, deleteUserData, updateAuntheticatedUser } from "../store-service/store";import {
+getStorage
+} from 'firebase/storage'
 
+export const storage = getStorage(app)
 const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 const auth = getAuth(app);
@@ -160,8 +163,6 @@ export const googleProvider = async () => {
       await signOut(null)
   }
 
-
-
   onAuthStateChanged(auth, user => {
     if (user) {
       updateAuntheticatedUser("true")
@@ -177,3 +178,4 @@ export const googleProvider = async () => {
       console.log('User is logged out');
     }
   });
+  

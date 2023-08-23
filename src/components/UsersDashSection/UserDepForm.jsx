@@ -3,8 +3,10 @@ import BtcImg from '../../assests/bitcoin.png'
 import LtcImg from '../../assests/litecoin.png'
 import EthImg from '../../assests/ethereum.png'
 import UtImg from '../../assests/dollar.png'
+import { useNavigate } from 'react-router-dom'
 
 const UserDepForm = () => {
+    const navigate = useNavigate()
     const [DepData, setDepData] =  useState({
         amount: '',
         currency: ''
@@ -25,6 +27,7 @@ const UserDepForm = () => {
         e.preventDefault()
         try{
             console.log(DepData)
+            navigate('/user/payment')
         }catch(err){
             console.log(err)
         }
