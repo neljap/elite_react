@@ -1,5 +1,5 @@
 import { app } from "./firebaseConfig";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDoc, setDoc, doc } from "firebase/firestore";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -10,11 +10,9 @@ import {
   signOut,
   onAuthStateChanged
 } from "firebase/auth";
-import { sample, updateInfo, deleteUserData, updateAuntheticatedUser } from "../store-service/store";import {
-getStorage
-} from 'firebase/storage'
+import { sample, updateInfo, deleteUserData, updateAuntheticatedUser } from "../store-service/store";
 
-export const storage = getStorage(app)
+
 const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 const auth = getAuth(app);
@@ -84,9 +82,8 @@ export const createUser = (userdetails) => {
               userdetails.referred_by != undefined
                 ? userdetails.referred_by
                 : "",
-            ["Registered at"]: `${new Date().getFullYear()}-${
-              new Date().getMonth() + 1
-            }-${new Date().getDate()}`,
+            ["Registered at"]: `${new Date().getFullYear()}-${new Date().getMonth() + 1
+              }-${new Date().getDate()}`,
             time: `${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}`,
           };
           addData(
@@ -145,37 +142,67 @@ export function sendPasswordResetEmailHandler(email) {
 
 
 export const googleProvider = async () => {
-    const provider = new GoogleAuthProvider();
-    const obj = sample;
-    try {
-      let result = await signInWithPopup(auth, provider);
-      updateAuntheticatedUser("true")
-      console.log('Successfully signed in with Google');
-    } catch (error) {
-      updateAuntheticatedUser("false")
-      console.error('Error signing in with Google:', error);
-    }
-  };
-  
-  export const signOutHandler = async () => {
-     updateAuntheticatedUser("false");
-     deleteUserData();
-      await signOut(null)
-  }
 
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      updateAuntheticatedUser("true")
-      let ob = sample;
-      ob.email= user.email;
-      ob.fullname= user.displayName;
-      updateInfo(ob);
-      console.log('User is logged in:', user);
-    } else {
-      updateAuntheticatedUser("false")
-      // User is signed out
-      deleteUserData();
-      console.log('User is logged out');
+  const provider = new GoogleAuthProvider();
+  const obj = sample;
+  try {
+    let result = await signInWithPopup(auth, provider);
+    const { displayName, email, uid } = result.user;
+    
+    const userDocRef = doc(db, 'Users', uid);
+    const userDocSnapshot = await getDoc(userDocRef);
+    updateAuntheticatedUser("true")
+    console.log('Successfully signed in with Google');
+
+    if (!userDocSnapshot.exists()) {
+      // User is new, store their data in Firestore
+      const userData = {
+        referal_id: Math.random() * new Date().getDate(),
+        ["phone number"]: "",
+        ["profile picture"]: "",
+        ["total deposit"]: "",
+        ["total referrals"]: "",
+        ["total withdrawal"]: "",
+        ["verify docs"]: "",
+        ["referred by"]: "",
+        verified: false,
+        ["Registered at"]: `${new Date().getFullYear()}-${new Date().getMonth() + 1
+          }-${new Date().getDate()}`,
+        time: `${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}`,
+
+        fullname: displayName,
+        email: email,
+        uid: uid,
+      };
+
+      await setDoc(userDocRef, userData);
+      console.log("New user signed up and data stored successfully!");
     }
-  });
-  
+
+  } catch (error) {
+    updateAuntheticatedUser("false")
+    console.error('Error signing in with Google:', error);
+  }
+};
+
+export const signOutHandler = async () => {
+  updateAuntheticatedUser("false");
+  deleteUserData();
+  await signOut(null)
+}
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    updateAuntheticatedUser("true")
+    let ob = sample;
+    ob.email = user.email;
+    ob.fullname = user.displayName;
+    updateInfo(ob);
+    console.log('User is logged in:', user);
+  } else {
+    updateAuntheticatedUser("false")
+    // User is signed out
+    deleteUserData();
+    console.log('User is logged out');
+  }
+});
