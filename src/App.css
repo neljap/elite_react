@@ -462,3 +462,9 @@ a {
 .userwith-dash{
   max-width: 600px;
 }
+.verify-box{
+  max-width: 600px;
+  height: 300px;
+  margin: 10px auto;
+  background: #000;
+}

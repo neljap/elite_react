@@ -24,8 +24,8 @@ const UserTopNot = () => {
                 <BiUserCircle />
             </div>
             <div className='d-flex'>
-                <button className='btn btn-danger' onClick={signOutFunc}>Log Out</button>
-                <AiOutlineArrowRight />
+                <button className='btn btn-danger' onClick={signOutFunc}>Log Out<AiOutlineArrowRight /></button>
+                
             </div>
         </div>
     </div>
