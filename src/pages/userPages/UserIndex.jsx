@@ -17,10 +17,12 @@ import { DepConProvider } from "../../components/UsersDashSection/context/DepCon
 import UserWithDrawF from "./UserWithDrawF";
 import UserPayData from "./UserPayData";
 import UserFooterCy from "../../components/UsersDashSection/UserFooterCy";
+import ProtectedRoutes from "../../components/ProtectedRoutes";
 
 const UserIndex = () => {
   return (
-    <Sidebar>
+    <ProtectedRoutes>
+      <Sidebar>
       <UserTopNot />
       <DepConProvider>
         <Routes>
@@ -42,6 +44,8 @@ const UserIndex = () => {
       </DepConProvider>
       {/* <UserFooterCy /> */}
     </Sidebar>
+    </ProtectedRoutes>
+    
   );
 };
 

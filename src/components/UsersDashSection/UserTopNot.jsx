@@ -1,7 +1,18 @@
 import {AiOutlineArrowRight} from 'react-icons/ai'
 import {BiUserCircle} from 'react-icons/bi'
+import { signOutHandler } from '../../server_side/userAuth'
+
 
 const UserTopNot = () => {
+
+    const signOutFunc = async() => {
+        try{
+            await signOutHandler()
+        }catch(err){
+            console.log(err)
+        }
+    }
+
   return (
     <div className='d-flex justify-content-between align-items-center p-3 rounded '>
         <div></div>
@@ -13,7 +24,7 @@ const UserTopNot = () => {
                 <BiUserCircle />
             </div>
             <div className='d-flex'>
-                <p>Logout</p>
+                <button className='btn btn-danger' onClick={signOutFunc}>Log Out</button>
                 <AiOutlineArrowRight />
             </div>
         </div>
