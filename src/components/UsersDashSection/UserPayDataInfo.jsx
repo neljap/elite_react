@@ -40,20 +40,16 @@ const UserPayDataInfo = () => {
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
+          <form>
+            <input type="file" name="" id="" />
+          </form>
         </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="formFileMultiple" className="mb-3">
-              <Form.Label>Multiple files input example</Form.Label>
-              <Form.Control type="file"  multiple />
-            </Form.Group>
-            <div className="d-flex justify-content-between align-items-center">
-              <button className="btn btn-danger">Close</button>
-            <button className="btn btn-success">Submit</button>
-            </div>
-            
-          </Form>
-        </Modal.Body>
+        {/* <Modal.Body>
+          <form>
+            <label>Files</label>
+            <input type="file" name="" value={fileUp} onChange={(e) => setFileUp(e.target.file[0])} id="" />
+          </form>
+        </Modal.Body> */}
         {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

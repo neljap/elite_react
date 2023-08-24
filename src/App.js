@@ -14,6 +14,7 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import UserIndex from './pages/userPages/UserIndex'
 
 AOS.init({
   // Global settings:
@@ -45,7 +46,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPasswordPg />} />
         <Route path="/reset-password" element={<ResetPassPg />}/>
         <Route path="/test" element={<Example/>}/>
-        
+        <Route path="/user/*" element={<UserIndex />} />
 
       </Routes>
       <ToastContainer />
