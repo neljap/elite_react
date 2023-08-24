@@ -66,6 +66,15 @@ const RegisterForm = () => {
     }
   };
 
+  const googleProviderHandler = async() => {
+    try{
+      await googleProvider()
+    }catch(err){
+      console.log(err)
+    }
+    
+  }
+
   return (
     <div className="container">
       <div className="signUp-form-container">
@@ -160,7 +169,7 @@ const RegisterForm = () => {
             variant="primary"
             type="button"
             className="w-100 btn btn-primary"
-            onClick={googleProvider}
+            onClick={googleProviderHandler}
           >
             Sign In With Google
           </button>

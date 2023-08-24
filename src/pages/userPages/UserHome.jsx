@@ -7,11 +7,13 @@ import UserFxData from '../../components/UsersDashSection/UserFxData'
 import UserTopNot from '../../components/UsersDashSection/UserTopNot'
 import UserHmTop from '../../components/UsersDashSection/UserHmTop'
 import UserWallAcc from '../../components/UsersDashSection/UserWallAcc'
+import UserText from '../../components/UsersDashSection/UserText'
 
 const UserHome = () => {
   return (
     <div>
       <UserGreetings />
+      <UserText />
       <UserHmTop />
       <UserWallAcc />
     </div>
