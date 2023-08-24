@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link, redirect} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import HomePage from "./pages/WebPages/HomePage";
 import AboutPg from "./pages/WebPages/AboutPg";
 import ContactPg from "./pages/WebPages/ContactPg";
@@ -14,20 +14,6 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import AOS from "aos";
 import 'aos/dist/aos.css';
-import ProtectedRoutes from "./components/protected-routes"
-import UserDepositSec from "./pages/userPages/UserDepositSec";
-import UserHome from "./pages/userPages/UserHome";
-import UserIndex from "./pages/userPages/UserIndex";
-import UserInvest from "./pages/userPages/UserInvest";
-import UserKycVData from "./pages/userPages/UserKycVData";
-import UserKycVerify from "./pages/userPages/UserKycVerify";
-import UserOverPg from "./pages/userPages/UserOverPg";
-import UserReferSect from "./pages/userPages/UserReferSect";
-import UserSettings from "./pages/userPages/UserSettings";
-import UserSupport from "./pages/userPages/UserSupport";
-import UserSwapPg from "./pages/userPages/UserSwapPg";
-import UserWallet from "./pages/userPages/UserWallet";
-import UserWithdrawPg from "./pages/userPages/UserWithdrawPg";
 
 AOS.init({
   // Global settings:
@@ -60,9 +46,6 @@ function App() {
         <Route path="/reset-password" element={<ResetPassPg />}/>
         <Route path="/test" element={<Example/>}/>
         
-        {/* PROTECTED ROUTES */}
-        <Route path="/test" element={<ProtectedRoutes><Example/></ProtectedRoutes>}/>
-        <Route path="/user/*" element={<ProtectedRoutes><UserIndex /></ProtectedRoutes>} />
 
       </Routes>
       <ToastContainer />
