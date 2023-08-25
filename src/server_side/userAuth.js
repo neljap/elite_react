@@ -148,7 +148,7 @@ export const googleProvider = async () => {
   try {
     let result = await signInWithPopup(auth, provider);
     const { displayName, email, uid } = result.user;
-    
+
     const userDocRef = doc(db, 'Users', uid);
     const userDocSnapshot = await getDoc(userDocRef);
     updateAuntheticatedUser("true")
@@ -188,7 +188,7 @@ export const googleProvider = async () => {
 export const signOutHandler = async () => {
   updateAuntheticatedUser("false");
   deleteUserData();
-  await signOut(null)
+  await signOut(auth);
 }
 
 onAuthStateChanged(auth, user => {
@@ -204,5 +204,8 @@ onAuthStateChanged(auth, user => {
     // User is signed out
     deleteUserData();
     console.log('User is logged out');
+    if (window.location.pathname !== '/login') {
+      window.location.href = '/login';
+    }
   }
 });
