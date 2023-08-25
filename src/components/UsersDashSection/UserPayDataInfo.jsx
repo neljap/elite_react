@@ -1,6 +1,9 @@
 import { FaRegClipboard } from "react-icons/fa";
 import { Form, Modal, Button } from "react-bootstrap";
 import { useState } from "react";
+import { storage } from "../../server_side/userUpdate";
+import { ref, uploadBytes } from "firebase/storage";
+import { v4 } from "uuid";
 
 const UserPayDataInfo = () => {
   const [fileUp, setFileUp] = useState(null)
@@ -9,8 +12,21 @@ const UserPayDataInfo = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSubmit = (e) => {
+  const uploadFile = (e) => {
     e.preventDefault();
+    try{
+      if(fileUp === null) return;
+      const fileUploadRef = ref(storage, `payments/${fileUp.name * v4()}`)
+      uploadBytes(fileUploadRef, fileUp).then(() => {
+        alert('Image Uploaded')
+        setFileUp(null)
+      }).catch((err) => {
+        console.log(err)
+      })
+
+    }catch(err){
+
+    }
   };
 
   return (
@@ -40,9 +56,10 @@ const UserPayDataInfo = () => {
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
-          <form>
-            <input type="file" name="" id="" />
-          </form>
+          <div>
+            <input type="file" name="fileUp" onChange={(e) => setFileUp(e.target.files[0])} />
+            <button className="btn btn-success" onClick={uploadFile}>Submit</button>
+          </div>
         </Modal.Header>
         {/* <Modal.Body>
           <form>

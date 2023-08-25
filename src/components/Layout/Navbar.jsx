@@ -6,17 +6,31 @@ import {
 } from 'react-icons/fa'
 import '../../App.css'
 import { useRef } from 'react'
+import { useState } from 'react'
 
 
 const Navbar = () => {
   const NavRef = useRef()
+  const [navbarHan, setNavbarHan] = useState(false)
 
   const showNavRef = () => {
     NavRef.current.classList.toggle('switch')
   }
 
+  const changeBackground = () => {
+    // console.log(window.scrollY)
+    if(window.scrollY >= 80) {
+      setNavbarHan(true)
+    }else{
+      setNavbarHan(false)
+    }
+  }
+
+  window.addEventListener('scroll', changeBackground)
+  
+
   return (
-    <div className='container d-flex justify-content-between align-items-center py-2'>
+    <div className={navbarHan ? 'd-flex justify-content-between align-items-center py-2 px-3 nav-active' : 'd-flex justify-content-between align-items-center py-2 px-3'}>
       <Link to='/' className='d-flex justify-content-center align-items-center text-decoration-none'>
         <div style={{width: '50px', height: '50px'}}>
         <img src={Logo} alt="img"  className='w-100'/>

@@ -17,14 +17,17 @@ const UserKycUpload = () => {
         </p>
         <div className="flex justify-content-center align-items-center flex-wrap gap-2">
           <div className="verify-box">
-            <Form.Group
+            <form>
+              <input type="file" name="" accept="" id="" />
+            </form>
+            {/* <Form.Group
               controlId="formFileMultiple"
               className="mb-3"
               style={{ height: "300px", backgroundColor: '#000' }}
             >
               <Form.Label>Multiple files input example</Form.Label>
               <Form.Control type="file" style={{backgroundColor: '#000'}} className="w-100 h-100" multiple />
-            </Form.Group>
+            </Form.Group> */}
           </div>
           <div></div>
         </div>

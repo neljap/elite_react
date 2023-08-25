@@ -1,21 +1,23 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth"; 
 import { signInWithEmailAndPasswordHandler, googleProvider } from "../../server_side/userAuth";
 import {toast} from 'react-toastify'
 
 const LoginFormSec = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
 
   const handleSubmit = async(e) => {
     e.preventDefault()
     if(!email || !password) return;
 
     try{
-      const LoginData = await signInWithEmailAndPasswordHandler(email, password)
-      console.log(LoginData)
+      const {user} = await signInWithEmailAndPassword(email, password)
+      // console.log(LoginData)
+      console.log(user)
       // toast.success('Login Successfully', {
       //   position: 'bottom-left'
       // })
@@ -30,7 +32,6 @@ const LoginFormSec = () => {
     }catch(err){
       console.log(err)
     }
-    
   }
 
   return (

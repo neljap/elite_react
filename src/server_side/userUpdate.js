@@ -7,7 +7,7 @@ import { sample } from "../store-service/store";
 const auth = getAuth(app);
 const user = auth.currentUser;
 const db = getFirestore(app);
-const storage = getStorage(app);
+export const storage = getStorage(app);
 
 function getUid(){
     if (user) {

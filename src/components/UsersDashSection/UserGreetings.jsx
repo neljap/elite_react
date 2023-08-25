@@ -1,10 +1,10 @@
-import { getInfo } from "../../store-service/store"
+// import { getInfo } from "../../store-service/store"
 
 const UserGreetings = () => {
-  let user = getInfo()
+  // let user = getInfo()
   return (
     <div>
-        <h1 className='display-6'>Welcome, {user.fullname}</h1>
+        <h1 className='display-6'>Welcome, name</h1>
     </div>
   )
 }
