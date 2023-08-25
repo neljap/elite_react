@@ -204,8 +204,8 @@ onAuthStateChanged(auth, user => {
     // User is signed out
     deleteUserData();
     console.log('User is logged out');
-    if (window.location.pathname !== '/login') {
+    if (window.location.pathname.indexOf("/user/") != -1) {
       window.location.href = '/login';
-    }
+    } 
   }
 });
