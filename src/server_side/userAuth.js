@@ -111,33 +111,33 @@ export const createUser = (userdetails) => {
   return promise;
 };
 
-// export function signInWithEmailAndPasswordHandler(email, password) {
-//   signInWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) => {
-//       // Signed in
-//       const user = userCredential.user;
-//       console.log("User signed in:", user);
-//       updateAuntheticatedUser("true")
-//     })
-//     .catch((error) => {
-//       updateAuntheticatedUser("false");
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       console.error("Sign-in error:", errorCode, errorMessage);
-//     });
-// }
+export function signInWithEmailAndPasswordHandler(email, password) {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log("User signed in:", user);
+      updateAuntheticatedUser("true")
+    })
+    .catch((error) => {
+      updateAuntheticatedUser("false");
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Sign-in error:", errorCode, errorMessage);
+    });
+}
 
-// export function sendPasswordResetEmailHandler(email) {
-//   sendPasswordResetEmail(auth, email)
-//     .then(() => {
-//       console.log("Password reset email sent successfully");
-//     })
-//     .catch((error) => {
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       console.error("Password reset error:", errorCode, errorMessage);
-//     });
-// }
+export function sendPasswordResetEmailHandler(email) {
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      console.log("Password reset email sent successfully");
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Password reset error:", errorCode, errorMessage);
+    });
+}
 
 
 
@@ -148,7 +148,7 @@ export const googleProvider = async () => {
   try {
     let result = await signInWithPopup(auth, provider);
     const { displayName, email, uid } = result.user;
-    
+
     const userDocRef = doc(db, 'Users', uid);
     const userDocSnapshot = await getDoc(userDocRef);
     // updateAuntheticatedUser("true")
@@ -185,24 +185,24 @@ export const googleProvider = async () => {
   }
 };
 
-// export const signOutHandler = async () => {
-//   updateAuntheticatedUser("false");
-//   deleteUserData();
-//   await signOut(null)
-// }
+export const signOutHandler = async () => {
+  updateAuntheticatedUser("false");
+  deleteUserData();
+  await signOut(null)
+}
 
-// onAuthStateChanged(auth, user => {
-//   if (user) {
-//     updateAuntheticatedUser("true")
-//     let ob = sample;
-//     ob.email = user.email;
-//     ob.fullname = user.displayName;
-//     updateInfo(ob);
-//     console.log('User is logged in:', user);
-//   } else {
-//     updateAuntheticatedUser("false")
-//     // User is signed out
-//     deleteUserData();
-//     console.log('User is logged out');
-//   }
-// });
+onAuthStateChanged(auth, user => {
+  if (user) {
+    updateAuntheticatedUser("true")
+    let ob = sample;
+    ob.email = user.email;
+    ob.fullname = user.displayName;
+    updateInfo(ob);
+    console.log('User is logged in:', user);
+  } else {
+    updateAuntheticatedUser("false")
+    // User is signed out
+    deleteUserData();
+    console.log('User is logged out');
+  }
+});
