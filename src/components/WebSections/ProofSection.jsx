@@ -6,13 +6,7 @@ const ProofSection = () => {
   return (
     <div className="bg-dark" >
       <div className="container py-5 d-flex justify-content-center align-items-center gap-5 flex-wrap">
-        <div className="col-md-5" data-aos='zoom-in' data-aos-offset="200"
-    data-aos-delay="50"
-    data-aos-duration="1000"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"
-    data-aos-anchor-placement="top-center">
+        <div className="col-md-5">
           <img src={ProofImg} alt="img" className="w-100" />
         </div>
         <div className="col-md-5">

@@ -6,8 +6,7 @@ const PackHeroSec = () => {
     <div className='abtHero-container'>
         <Navbar />
         <div className='container' style={{paddingTop: '50px'}}>
-            <h1 className='text-white all-headers'>Packages Section</h1>
-            <a href="https://www.flaticon.com/free-icons/bitcoin" title="bitcoin icons">Bitcoin icons created by Freepik - Flaticon</a>
+          <h1 className='text-white all-headers'>Packages Section</h1>
         </div>
     </div>
   )

@@ -11,7 +11,7 @@ const PricingSec = () => {
 		</div>				
 		<div class="row text-center py-5 justify-content-center align-items-center">									
 		<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp text-start" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0" style={{visibility: 'visible', animationDuration: '1s', animationDelay: '0.1s', animationName: 'fadeInUp'}}>
-			<h2>A Trading Account For Every Trader</h2>
+			<h2 className='text-3xl font-extrabold '>A Trading Account For Every Trader</h2>
 			<p>Forexmainiac offers a variety of trading accounts to match every trading style across all levels of experience.</p>
 			<p>Whether you’re a scalper or day trader, use EAs or are a discretionary trader - we have you covered.</p>
 		</div>
@@ -20,7 +20,11 @@ const PricingSec = () => {
 					<div class="single-pricing">
 						<div class="price-head">		
 							<h2>BASIC PACKAGE</h2>
-							<h1 className='text-success'>$200</h1>
+							<div className='d-flex gap-3 justify-content-center align-items-center'>
+								<h1 className='text-success'>$200</h1>
+								<p className='text-success'>minimum</p>
+							</div>
+							
 							<span>/14 days</span>
 						</div>
 						<div>

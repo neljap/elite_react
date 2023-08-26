@@ -54,48 +54,58 @@ export default function FooterS() {
             </MDBCol>
 
             <MDBCol md='2' lg='2' xl='2' className='mx-auto '>
-              <h6 className='text-uppercase text-white fw-bold mb-0'>Products</h6>
-              <p className='text-white'>
-                <a href='#!' className='text-reset'>
-                  Angular
-                </a>
+              <h6 className='text-uppercase text-white fw-bold mb-0'>Packages</h6>
+              <p className='text-decoration-none text-white'>
+                <Link to='/' className='text-decoration-none text-reset'>
+                  Basic Pack
+                </Link>
               </p>
-              <p className='text-white'>
-                <a href='#!' className='text-reset'>
-                  React
-                </a>
+              <p className=' text-white'>
+                <Link to='/'  className='text-decoration-none text-reset'>
+                  Silver Pack
+                </Link>
               </p>
-              <p className='text-white'>
-                <a href='#!' className='text-reset'>
-                  Vue
-                </a>
+              <p className='text-decoration-none text-white'>
+                <Link to='/' className='text-decoration-none text-reset'>
+                  Gold Pack
+                </Link>
               </p>
-              <p className='text-white'>
-                <a href='#!' className='text-reset'>
-                  Laravel
-                </a>
+              <p className='text-decoration-none text-white'>
+                <Link to='/' className='text-decoration-none text-reset'>
+                  Diamond Pack
+                </Link>
+              </p>
+              <p className='text-decoration-none text-white'>
+                <Link to='/' className='text-decoration-none text-reset'>
+                  Platinum Pack
+                </Link>
+              </p>
+              <p className='text-decoration-none text-white'>
+                <Link to='/' className='text-decoration-none text-reset'>
+                  Ultimate Pack
+                </Link>
               </p>
             </MDBCol>
 
             <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-0'>
               <h6 className='text-uppercase fw-bold mb-4 text-white'>Useful links</h6>
               <p className='text-white'>
-                <Link to='/' className='text-reset'>
-                  Pricing
+                <Link to='/' className='text-reset text-decoration-none'>
+                  Packages
                 </Link>
               </p>
               <p className='text-white'>
-                <Link to='/' className='text-reset'>
-                  Settings
+                <Link to='/' className='text-reset text-decoration-none'>
+                  About Us
                 </Link>
               </p>
               <p className='text-white'>
-                <Link to='/' className='text-reset'>
+                <Link to='/' className='text-reset text-decoration-none'>
                   Orders
                 </Link>
               </p>
               <p className='text-white'>
-                <Link to='/' className='text-reset'>
+                <Link to='/' className='text-reset text-decoration-none'>
                   Help
                 </Link>
               </p>

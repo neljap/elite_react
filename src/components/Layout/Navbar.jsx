@@ -30,7 +30,7 @@ const Navbar = () => {
   
 
   return (
-    <div className={navbarHan ? 'd-flex justify-content-between align-items-center py-2 px-3 nav-active' : 'd-flex justify-content-between align-items-center py-2 px-3'}>
+    <div className={navbarHan ? 'd-flex justify-content-between align-items-center py-2 px-3 nav-active' : 'd-flex justify-content-between align-items-center py-2 px-3 bg-transparent'}>
       <Link to='/' className='d-flex justify-content-center align-items-center text-decoration-none'>
         <div style={{width: '50px', height: '50px'}}>
         <img src={Logo} alt="img"  className='w-100'/>

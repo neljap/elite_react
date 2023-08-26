@@ -1,4 +1,4 @@
-import AbtImg from '../../assests/abtImg.png'
+import AbtImg from '../../assests/meetImg.jpg'
 import '../../App.css'
 
 // https://res.cloudinary.com/dr6a80sph/video/upload/v1692919990/pexels-tima-miroshnichenko-7579953_2160p_hvfvbg.mp4
@@ -8,7 +8,7 @@ const AbtHmSect = () => {
     <div className='bg-dark text-white'>
     <div className='container d-flex justify-content-center align-items-center flex-wrap gap-5'>
       <div className='col-md-5'>
-        <img src={AbtImg} alt="image" className='w-100' />
+        <img src={AbtImg} alt="image" className='w-100 rounded' />
       </div>
       <div className='col-md-5'>
         <h2 className='all-headers'>Meet Our Company Unless Miss The Opportunity</h2>
