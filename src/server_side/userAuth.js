@@ -191,6 +191,7 @@
 //   await signOut(null)
 // }
 
+<<<<<<< HEAD
 // // onAuthStateChanged(auth, user => {
 // //   if (user) {
 // //     // updateAuntheticatedUser("true")
@@ -206,3 +207,23 @@
 // //     console.log('User is logged out');
 // //   }
 // // });
+=======
+onAuthStateChanged(auth, user => {
+  if (user) {
+    updateAuntheticatedUser("true")
+    let ob = sample;
+    ob.email = user.email;
+    ob.fullname = user.displayName;
+    updateInfo(ob);
+    console.log('User is logged in:', user);
+  } else {
+    updateAuntheticatedUser("false")
+    // User is signed out
+    deleteUserData();
+    console.log('User is logged out');
+    if (window.location.pathname.indexOf("/user/") != -1) {
+      window.location.href = '/login';
+    } 
+  }
+});
+>>>>>>> 7d7ff0aa23a7101dc0f8e273ff5fa46d55356c6d
