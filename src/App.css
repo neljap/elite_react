@@ -67,7 +67,7 @@ h2{
 
 /* Hero Section */
 .mainhero-container {
-  background: url("../src/assests/btcbg.jpg") rgb(0, 208, 10, 0.8);
+  background: url("../src/assests/btcbg.jpg") rgb(139, 139, 140);
   background-position: center;
   background-size: cover;
   background-blend-mode: multiply;
@@ -75,7 +75,7 @@ h2{
   width: 100%;
 }
 .abtHero-container {
-  background: url("../src/assests/btcbg.jpg") rgb(0, 208, 10, 0.8);
+  background: url("../src/assests/btcbg.jpg") rgb(139, 139, 140);
   background-position: center;
   background-size: cover;
   background-blend-mode: multiply;
