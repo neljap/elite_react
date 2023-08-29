@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../App.css'
 import { Link } from 'react-router-dom'
+import {IoIosCheckmarkCircle} from 'react-icons/io'
 const PricingSec = () => {
   return (
     <section id="pricing" class="pricing-content section-padding bg-dark text-light">
@@ -19,10 +20,10 @@ const PricingSec = () => {
 				<div class="pricing_design mb-4">
 					<div class="single-pricing">
 						<div class="price-head">		
-							<h2>BASIC PACKAGE</h2>
+							<h2>BRONZE PLAN</h2>
 							<div className='d-flex gap-3 justify-content-center align-items-center'>
-								<h1 className='text-success'>$200</h1>
-								<p className='text-success'>minimum</p>
+								<strong className='text-success text-3xl h2 font-extrabold'>$500</strong>
+								<small className='text-success h5'>minimum</small>
 							</div>
 							
 							<span>/14 days</span>
@@ -34,7 +35,7 @@ const PricingSec = () => {
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Max Deposit</p>
-							<p>$2599</p>
+							<p>$2999</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Return of Interest</p>
@@ -46,15 +47,22 @@ const PricingSec = () => {
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Full I.T Support</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Referral Bonus</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
+							
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Hedging Allowed</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						</div>
 						<div class="pricing-price">
@@ -70,18 +78,21 @@ const PricingSec = () => {
 				<div class="pricing_design mb-4">
 					<div class="single-pricing">
 						<div class="price-head">		
-							<h2>STANDARD PACKAGES</h2>
-							<h1 class="price text-success">$500</h1>
+							<h2>SILVER PLAN</h2>
+							<div className='d-flex gap-3 justify-content-center align-items-center'>
+								<strong className='text-success text-3xl h2 font-extrabold'>$3000</strong>
+								<small className='text-success h5'>minimum</small>
+							</div>
 							<span>/28 days</span>
 						</div>
 						<div>
 							<div className='d-flex justify-content-between align-items-center'>
 							<p>Min Deposit</p>
-							<p>$500</p>
+							<p>$3000</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Max Deposit</p>
-							<p>$2599</p>
+							<p>$4999</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Return of Interest</p>
@@ -93,15 +104,21 @@ const PricingSec = () => {
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Full I.T Support</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Referral Bonus</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Hedging Allowed</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						</div>
 						<div class="pricing-price">
@@ -118,18 +135,21 @@ const PricingSec = () => {
 				<div class="pricing_design mb-4">
 					<div class="single-pricing">
 						<div class="price-head">		
-							<h2>EXECUTIVE PACKAGE</h2>
-							<h1 class="price text-success">$1000</h1>
+							<h2>GOLD PLAN</h2>
+							<div className='d-flex gap-3 justify-content-center align-items-center'>
+								<strong className='text-success text-3xl h2 font-extrabold'>$5000</strong>
+								<small className='text-success h5'>minimum</small>
+							</div>
 							<span>/40 days</span>
 						</div>
 						<div>
 							<div className='d-flex justify-content-between align-items-center'>
 							<p>Min Deposit</p>
-							<p>$500</p>
+							<p>$5000</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Max Deposit</p>
-							<p>$2599</p>
+							<p>$9999</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Return of Interest</p>
@@ -141,15 +161,21 @@ const PricingSec = () => {
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Full I.T Support</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Referral Bonus</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Hedging Allowed</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						</div>
 						<div class="pricing-price">
@@ -165,18 +191,21 @@ const PricingSec = () => {
 				<div class="pricing_design mb-4">
 					<div class="single-pricing">
 						<div class="price-head">		
-							<h2>BASIC PACKAGE</h2>
-							<h1 className='text-success'>$200</h1>
+							<h2>DIAMOND PLAN</h2>
+							<div className='d-flex gap-3 justify-content-center align-items-center'>
+								<strong className='text-success text-3xl h2 font-extrabold'>$10000</strong>
+								<small className='text-success h5'>minimum</small>
+							</div>
 							<span>/14 days</span>
 						</div>
 						<div>
 							<div className='d-flex justify-content-between align-items-center'>
 							<p>Min Deposit</p>
-							<p>$500</p>
+							<p>$10000</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Max Deposit</p>
-							<p>$2599</p>
+							<p>$19999</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Return of Interest</p>
@@ -192,11 +221,15 @@ const PricingSec = () => {
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Referral Bonus</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Hedging Allowed</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						</div>
 						
@@ -213,18 +246,21 @@ const PricingSec = () => {
 				<div class="pricing_design mb-4">
 					<div class="single-pricing">
 						<div class="price-head">		
-							<h2>STANDARD PACKAGES</h2>
-							<h1 class="price text-success">$500</h1>
+							<h2>PLATINUM PLAN</h2>
+							<div className='d-flex gap-3 justify-content-center align-items-center'>
+								<strong className='text-success text-3xl h2 font-extrabold'>$200</strong>
+								<small className='text-success h5'>minimum</small>
+							</div>
 							<span>/28 days</span>
 						</div>
 						<div>
 							<div className='d-flex justify-content-between align-items-center'>
 							<p>Min Deposit</p>
-							<p>$500</p>
+							<p>$20000</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Max Deposit</p>
-							<p>$2599</p>
+							<p>$50000</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Return of Interest</p>
@@ -236,62 +272,21 @@ const PricingSec = () => {
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Full I.T Support</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Referral Bonus</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Hedging Allowed</p>
-							<p></p>
-						</div>
-						</div>
-						<div class="pricing-price">
-							
-						</div>
-						<Link to='/register'className=" text-decoration-none price_btn">
-							Select Package
-						</Link>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0" style={{visibility: 'visible', animationDuration: '1s', animationDelay: '0.3s', animationName: 'fadeInUp'}}>
-				<div class="pricing_design mb-4">
-					<div class="single-pricing">
-						<div class="price-head">		
-							<h2>EXECUTIVE PACKAGE</h2>
-							<h1 class="price text-success">$1000</h1>
-							<span>/40 days</span>
-						</div>
-						<div>
-							<div className='d-flex justify-content-between align-items-center'>
-							<p>Min Deposit</p>
-							<p>$500</p>
-						</div>
-						<div className='d-flex justify-content-between align-items-center'>
-							<p>Max Deposit</p>
-							<p>$2599</p>
-						</div>
-						<div className='d-flex justify-content-between align-items-center'>
-							<p>Return of Interest</p>
-							<p>25%</p>
-						</div>
-						<div className='d-flex justify-content-between align-items-center'>
-							<p>Base Currency</p>
-							<p>USD</p>
-						</div>
-						<div className='d-flex justify-content-between align-items-center'>
-							<p>Full I.T Support</p>
-							<p></p>
-						</div>
-						<div className='d-flex justify-content-between align-items-center'>
-							<p>Referral Bonus</p>
-							<p></p>
-						</div>
-						<div className='d-flex justify-content-between align-items-center'>
-							<p>Hedging Allowed</p>
-							<p></p>
+							<p>
+								<IoIosCheckmarkCircle color='green' size={20} />
+							</p>
 						</div>
 						</div>
 						<div class="pricing-price">

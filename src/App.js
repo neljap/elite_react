@@ -12,9 +12,12 @@ import FaqSecPg from "./pages/WebPages/FaqSecPg";
 import Example from "./pages/store_example";
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { FaWhatsapp} from 'react-icons/fa'
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import UserIndex from './pages/userPages/UserIndex'
+
+const WhatsLink ='https://api.whatsapp.com/send?phone=2347062181023&text=Hi%F0%9F%98%8A%2C%20I%20want%20to%20Invest%20under%20Spectrum%20Capitals%20Platform'
 
 AOS.init({
   // Global settings:
@@ -34,6 +37,12 @@ function App() {
     <BrowserRouter>
       <div style={{position: 'fixed', top: '50%', right: '10%'}}>
         <Link to='/user/home'>Dashboard</Link>
+      </div>
+      <div style={{position: 'fixed', bottom: '25%', right: '5%', zIndex: '10', backgroundColor: 'green', padding: '10px', borderRadius: "50%"}}>
+        <Link to={WhatsLink} target="_blank" className="text-decoration-none">
+          <FaWhatsapp size={35} color="white" />
+        </Link>
+        
       </div>
       <Routes>
         <Route path="/" element={<HomePage />}/>

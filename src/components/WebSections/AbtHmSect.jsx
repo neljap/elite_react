@@ -5,8 +5,8 @@ import '../../App.css'
 
 const AbtHmSect = () => {
   return (
-    <div className='bg-dark text-white'>
-    <div className='container d-flex justify-content-center align-items-center flex-wrap gap-5'>
+    <div className='bg-dark text-white py-5'>
+    <div className='container d-flex justify-content-center align-items-center flex-wrap-reverse gap-5'>
       <div className='col-md-5'>
         <img src={AbtImg} alt="image" className='w-100 rounded' />
       </div>
