@@ -20,7 +20,7 @@ import AuthProRoutes from "./components/Protect/AuthProRoutes";
 import AuthIndex from "./pages/authPages/AuthIndex";
 
 const WhatsLink ='https://api.whatsapp.com/send?phone=2347062181023&text=Hi%F0%9F%98%8A%2C%20I%20want%20to%20Invest%20under%20Spectrum%20Capitals%20Platform'
-
+const WhatsLinkUs = 'https://wa.link/hgu451'
 AOS.init({
   // Global settings:
   disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -38,7 +38,7 @@ function App() {
   return (
     <BrowserRouter>
       <div style={{position: 'fixed', bottom: '25%', right: '5%', zIndex: '10', backgroundColor: 'green', padding: '10px', borderRadius: "50%"}}>
-        <Link to={WhatsLink} target="_blank" className="text-decoration-none">
+        <Link to={WhatsLinkUs} target="_blank" className="text-decoration-none">
           <FaWhatsapp size={35} color="white" />
         </Link>
       </div>

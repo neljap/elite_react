@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Accordion } from "react-bootstrap";
 import { FaTimes, FaBars, FaAddressCard } from "react-icons/fa";
 import "../../App.css";
+import { Link } from "react-router-dom";
 
 const UserWallAcc = () => {
   const WallRef = useRef();
@@ -92,11 +93,17 @@ const UserWallAcc = () => {
                   </div>
                   <div className="col-md-2 d-flex gap-2">
                     <div>
-                      <button className="btn btn-success">Deposit</button>
+                      <button className="btn btn-success">
+                       <Link to='/user/deposit' className="text-decoration-none text-white">
+                        Deposit
+                        </Link> 
+                        </button>
                     </div>
                     <div>
                       <button className="btn btn-transparent border border-light text-light">
-                        Exchange
+                        <Link to='/user/withdraw' className="text-decoration-none text-white">
+                          Withdraw
+                        </Link>
                       </button>
                     </div>
                   </div>
@@ -127,11 +134,17 @@ const UserWallAcc = () => {
                     </div>
                     <div className="d-flex">
                       <div>
-                        <button className="btn btn-success">Deposit</button>
+                        <button className="btn btn-success">
+                          <Link to='/user/deposit' className="text-decoration-none text-white">
+                            Deposit
+                          </Link>
+                        </button>
                       </div>
                       <div>
                         <button className="btn btn-transparent border border-light text-light">
-                          Exchange
+                          <Link to='/user/withdraw' className="text-decoration-none text-white">
+                            Withdraw
+                          </Link>
                         </button>
                       </div>
                     </div>

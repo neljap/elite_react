@@ -13,10 +13,10 @@ const Navbar = () => {
   const [navbarHan, setNavbarHan] = useState(false);
 
   useEffect(() => {
-    const currentState = window.localStorage.getItem('user')
+    const currentState = window.localStorage.getItem("user");
 
-      setCurrentUser(currentState)
-  }, [])
+    setCurrentUser(currentState);
+  }, []);
 
   const showNavRef = () => {
     NavRef.current.classList.toggle("switch");
@@ -30,7 +30,7 @@ const Navbar = () => {
       setNavbarHan(false);
     }
   };
-  console.log('current user', currentUser)
+  console.log("current user", currentUser);
   window.addEventListener("scroll", changeBackground);
 
   return (
@@ -81,16 +81,26 @@ const Navbar = () => {
           FAQ
         </Link>
         <div className="nav-btn-mob">
-          <Link to="/login">
-            <button className="btn btn-success" onClick={showNavRef}>
-              Login
-            </button>
-          </Link>
-          <Link to="/register">
-            <button className="btn btn-success" onClick={showNavRef}>
-              Register
-            </button>
-          </Link>
+          {!currentUser ? (
+            <div>
+              <Link to="/login">
+                <button className="btn btn-success" onClick={showNavRef}>
+                  Login
+                </button>
+              </Link>
+              <Link to="/register">
+                <button className="btn btn-success" onClick={showNavRef}>
+                  Register
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <Link to="/user/home">
+              <button className="btn btn-success">
+                {userDataInfo.fullname}
+              </button>
+            </Link>
+          )}
         </div>
         <FaTimes
           color="white"
@@ -102,19 +112,19 @@ const Navbar = () => {
       <div className="nav-btn-desk">
         {!currentUser ? (
           <div>
-          <Link to="/login">
-            <button className="btn btn-success" onClick={showNavRef}>
-              Login
-            </button>
-          </Link>
-          <Link to="/register">
-            <button className="btn btn-success" onClick={showNavRef}>
-              Register
-            </button>
-          </Link>
-        </div>  
+            <Link to="/login">
+              <button className="btn btn-success" onClick={showNavRef}>
+                Login
+              </button>
+            </Link>
+            <Link to="/register">
+              <button className="btn btn-success" onClick={showNavRef}>
+                Register
+              </button>
+            </Link>
+          </div>
         ) : (
-          <Link to='/user/home'>
+          <Link to="/user/home">
             <button className="btn btn-success">{userDataInfo.fullname}</button>
           </Link>
         )}

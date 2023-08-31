@@ -13,7 +13,7 @@ const UserHome = () => {
   return (
     <div>
       <UserGreetings />
-      <UserText />
+      {/* <UserText /> */}
       <UserHmTop />
       <UserWallAcc />
     </div>
