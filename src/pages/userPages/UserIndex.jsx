@@ -17,14 +17,15 @@ import { DepConProvider } from "../../components/UsersDashSection/context/DepCon
 import UserWithDrawF from "./UserWithDrawF";
 import UserPayData from "./UserPayData";
 import UserFooterCy from "../../components/UsersDashSection/UserFooterCy";
-import ProtectedRoutes from "../../components/ProtectedRoutes";
+import ProtectedRoutes from "../../components/Protect/ProtectedRoutes";
+import UserPayProofPg from "./UserPayProofPg";
 
 const UserIndex = () => {
   return (
-    <ProtectedRoutes>
+    <>
+  <ProtectedRoutes>
       <Sidebar>
       <UserTopNot />
-      <DepConProvider>
         <Routes>
           <Route path="home" element={<UserHome />} />
           <Route path="investment" element={<UserInvest />} />
@@ -33,7 +34,8 @@ const UserIndex = () => {
           <Route path="overview" element={<UserOverPg />} />
           <Route path="my-wallet" element={<UserWallet />} />
           <Route path="deposit" element={<UserDepositSec />} />
-          <Route path="payment" element={<UserPayData />} />
+          <Route path="payment/proof" element={<UserPayProofPg />} />
+          <Route path="payment/:wallet/:amount" element={<UserPayData />} />
           <Route path="withdraw" element={<UserWithdrawPg />} />
           <Route path="withdraw-funds" element={<UserWithDrawF />} />
           <Route path="coin-swap" element={<UserSwapPg />} />
@@ -41,11 +43,10 @@ const UserIndex = () => {
           <Route path="kyc-verify" element={<UserKycVerify />} />
           <Route path="kyc-data" element={<UserKycVData />} />
         </Routes>
-      </DepConProvider>
       {/* <UserFooterCy /> */}
     </Sidebar>
-    </ProtectedRoutes>
-    
+  </ProtectedRoutes> 
+    </>
   );
 };
 

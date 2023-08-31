@@ -1,13 +1,14 @@
 import { Accordion } from "react-bootstrap";
 import FaqImg from "../../assests/faqi.png";
+import '../../App.css'
 
 const FaqSection = () => {
   return (
     <div className="bg-dark text-light ">
       <h2 className="text-success text-center all-headers">FAQ</h2>
       <p className="text-center">Answers to Common Questions: Your Ultimate FAQ Guide</p>
-      <div className="container row py-5 d-flex justify-content-center align-items-center flex-wrap gap-3 w-100">
-        <div className="col-md-5">
+      <div className="container py-5 d-flex justify-content-center align-items-center flex-wrap gap-3 w-100">
+        <div className="faqacc">
           <Accordion className="w-100">
             <Accordion.Item eventKey="0" className="bg-dark text-light">
               <Accordion.Header className="bg-dark text-light">Accordion Item #1</Accordion.Header>
@@ -59,9 +60,9 @@ const FaqSection = () => {
             </Accordion.Item>
           </Accordion>
         </div>
-        <div className="col-md-5">
+        {/* <div className="col-md-5">
           <img src={FaqImg} alt="img" className="w-100" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

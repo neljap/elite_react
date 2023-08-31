@@ -16,6 +16,8 @@ import { FaWhatsapp} from 'react-icons/fa'
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import UserIndex from './pages/userPages/UserIndex'
+import AuthProRoutes from "./components/Protect/AuthProRoutes";
+import AuthIndex from "./pages/authPages/AuthIndex";
 
 const WhatsLink ='https://api.whatsapp.com/send?phone=2347062181023&text=Hi%F0%9F%98%8A%2C%20I%20want%20to%20Invest%20under%20Spectrum%20Capitals%20Platform'
 
@@ -35,14 +37,10 @@ AOS.init({
 function App() {
   return (
     <BrowserRouter>
-      <div style={{position: 'fixed', top: '50%', right: '10%'}}>
-        <Link to='/user/home'>Dashboard</Link>
-      </div>
       <div style={{position: 'fixed', bottom: '25%', right: '5%', zIndex: '10', backgroundColor: 'green', padding: '10px', borderRadius: "50%"}}>
         <Link to={WhatsLink} target="_blank" className="text-decoration-none">
           <FaWhatsapp size={35} color="white" />
         </Link>
-        
       </div>
       <Routes>
         <Route path="/" element={<HomePage />}/>
@@ -50,13 +48,9 @@ function App() {
         <Route path="/contact" element={<ContactPg />} />
         <Route path="/packages" element={<Packages />} />
         <Route path="/faq" element={<FaqSecPg />} />
-        <Route path="/login" element={<LoginPg />} />
-        <Route path="/register" element={<RegisterPg />} />
-        <Route path="/forgot-password" element={<ForgotPasswordPg />} />
-        <Route path="/reset-password" element={<ResetPassPg />}/>
         <Route path="/test" element={<Example/>}/>
         <Route path="/user/*" element={<UserIndex />} />
-
+        <Route path="*" element={<AuthIndex />} />
       </Routes>
       <ToastContainer />
     </BrowserRouter>

@@ -501,3 +501,11 @@ a {
 .heroimg-item{
   width: 85%;
 }
+.faqacc{
+  width: 80%;
+}
+@media screen and (max-width: 767px) {
+  .faqacc{
+    width: 100%;
+  }
+}

@@ -1,10 +1,12 @@
-// import { getInfo } from "../../store-service/store"
+import { useContext } from "react"
+import { UserContext } from "../../context/UserContext"
 
 const UserGreetings = () => {
-  // let user = getInfo()
+  const {currentUser} = useContext(UserContext)
+  
   return (
     <div>
-        <h1 className='display-6'>Welcome, name</h1>
+        <h1 className='display-6'>Welcome, {currentUser?.userData?.fullname}</h1>
     </div>
   )
 }

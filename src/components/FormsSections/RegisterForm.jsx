@@ -1,79 +1,72 @@
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../App.css";
 import { useState } from "react";
-import { createUser } from "../../server_side/userAuth";
-import { googleProvider } from "../../server_side/userAuth";
+import { auth, db } from "../../server";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Timestamp, doc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 
 const RegisterForm = () => {
-  const defaultData = {
-    email: "",
-    fullname: "",
-    ["referred by"]: "",
-    number: "",
-    password: "",
-    passwordConfirm: "",
-  };
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [fullname, setFullName] = useState('')
+  const [number, setNumber] = useState('')
+  const [passwordConfirm, setPasswordConfirm] = useState('')
+  const [referId, setReferId] = useState('')
 
-  const [formData, setFormData] = useState(defaultData);
-  const { email, fullname, number, password, passwordConfirm } = formData;
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (password !== passwordConfirm) {
-      alert("Password do not match");
-      return;
-    }
+    // if (password !== passwordConfirm) {
+    //   alert("Password do not match");
+    //   return;
+    // }
 
     try {
-      const data = await createUser({ fullname, email, number, password });
-      setFormData(defaultData);
-      console.log(data);
-      toast.success("User Registered Successfully", {
-        position: "bottom-left",
-      });
-    } catch (error) {
-      toast.error(error, {
+      const dataUse = await createUserWithEmailAndPassword(auth, email, password)
+
+      const userEmail = dataUse.user.email
+      const userUid = dataUse.user.uid
+      const profilePics = ''
+      const totalDeposit = ''
+      const dob = ''
+      const totalRefferals = ''
+      const verified = false
+      const totalWithDraw = ''
+      const createdAt = Timestamp.now()
+    
+      const userData = {userEmail, userUid, number, fullname, profilePics, totalDeposit, totalRefferals, totalWithDraw, dob, verified, createdAt}
+      const userDocRef = doc(db, 'users', userUid)
+      const newData = await setDoc(userDocRef, {userData})
+      console.log(newData)
+      console.log(userEmail)
+      console.log(dataUse.user)
+      
+      toast.success('Registration Successfully, Login to Get Started', {
         position: 'bottom-left'
       })
-      // switch (error.code) {
-      //   case "auth/wrong-password":
-      //     toast.error("Incorrect password or email", {
-      //       position: "bottom-left",
-      //     });
-      //     break;
-      //   case "auth/user-not-found":
-      //     alert("no user associated with this email");
-      //     break;
-      //   case "auth/email-already-in-use":
-      //     toast.error("Email already Exist", {
-      //       position: "bottom-left",
-      //     });
-      //   default:
-      //     console.log(error);
-      // }
+      navigate('/login')
+      // setFormData(defaultData);
+      // console.log(data);
+      // toast.success("User Registered Successfully", {
+      //   position: "bottom-left",
+      // });
+    } catch (error) {
+      console.log(error)
     }
   };
 
-  const googleProviderHandler = async() => {
-    try{
-      await googleProvider()
-    }catch(err){
-      console.log(err)
-    }
+  // const googleProviderHandler = async() => {
+  //   try{
+  //     await googleProvider()
+  //   }catch(err){
+  //     console.log(err)
+  //   }
     
-  }
+  // }
 
   return (
     <div className="container">
@@ -87,8 +80,8 @@ const RegisterForm = () => {
                 type="text"
                 value={fullname}
                 name="fullname"
-                required
-                onChange={handleChange}
+                // required
+                onChange={(e) => setFullName(e.target.value)}
                 placeholder="Enter your First Name"
                 className="w-100 rounded shadow p-1"
               />
@@ -100,9 +93,9 @@ const RegisterForm = () => {
                 type="email"
                 value={email}
                 name="email"
-                required
+                // required
                 placeholder="Enter your email"
-                onChange={handleChange}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-100 rounded shadow p-1"
               />
             </div>
@@ -113,10 +106,10 @@ const RegisterForm = () => {
               <input
                 type="text"
                 name="number"
-                required
+                // required
                 value={number}
                 placeholder="Enter username"
-                onChange={handleChange}
+                onChange={(e) => setNumber(e.target.value)}
                 className="w-100 rounded shadow p-1"
               />
             </div>
@@ -125,8 +118,9 @@ const RegisterForm = () => {
               <input
                 type="text"
                 name="referred"
+                value={referId}
                 placeholder="Enter username"
-                onChange={handleChange}
+                onChange={(e) => setReferId(e.target.value)}
                 className="w-100 rounded shadow p-1"
               />
             </div>
@@ -138,8 +132,8 @@ const RegisterForm = () => {
                 type="password"
                 name="password"
                 value={password}
-                required
-                onChange={handleChange}
+                // required
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your Password"
                 className="w-100 rounded shadow p-1"
               />
@@ -150,8 +144,8 @@ const RegisterForm = () => {
                 type="password"
                 name="passwordConfirm"
                 value={passwordConfirm}
-                required
-                onChange={handleChange}
+                // required
+                onChange={(e) => setPasswordConfirm(e.target.value)}
                 placeholder="Re-Enter your Password"
                 className="w-100 rounded shadow p-1"
               />
@@ -169,7 +163,7 @@ const RegisterForm = () => {
             variant="primary"
             type="button"
             className="w-100 btn btn-primary"
-            onClick={googleProviderHandler}
+            // onClick={googleProviderHandler}
           >
             Sign In With Google
           </button>

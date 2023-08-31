@@ -4,37 +4,27 @@ import { useState } from "react";
 import { storage } from "../../server_side/userUpdate";
 import { ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { addressData } from "./UserInvData";
 
 const UserPayDataInfo = () => {
+  const navigate = useNavigate()
+  const {wallet} = useParams()
+  const {amount} = useParams()
   const [fileUp, setFileUp] = useState(null)
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const uploadFile = (e) => {
-    e.preventDefault();
-    try{
-      if(fileUp === null) return;
-      const fileUploadRef = ref(storage, `payments/${fileUp.name * v4()}`)
-      uploadBytes(fileUploadRef, fileUp).then(() => {
-        alert('Image Uploaded')
-        setFileUp(null)
-      }).catch((err) => {
-        console.log(err)
-      })
-
-    }catch(err){
-
-    }
-  };
+  const selectedAddress = addressData.find((item) => item.name === wallet)
 
   return (
     <div className="bg-dark mx-auto">
       <h3>Make Payment</h3>
       <div className="d-flex justify-content-between align-items-center p-3">
         <div></div>
-        <h2>$500</h2>
+        <h2>${amount}</h2>
       </div>
       <div className="rounded shadow bg-dark ">
         <p>Scan the barcode below to make Payment</p>
@@ -43,39 +33,20 @@ const UserPayDataInfo = () => {
         ></div>
         <p>Or Send $500 to the address below</p>
         <div className="d-flex">
-          <input type="text" name="" id="" />
+          <input type="text" name="" value={selectedAddress.address} id="" />
           <div>
             <FaRegClipboard />
           </div>
         </div>
-        <p>Network Type: TRC20</p>
-        <button onClick={handleShow} className="btn btn-success">
-          Mark as Completed
-        </button>
+        <p>Network Type: {selectedAddress.unit}</p>
+        {/* <Link to='proof'> */}
+          <button className="btn btn-success" onClick={() => navigate('/user/payment/proof')}>
+            Mark as Completed
+          </button>
+        {/* </Link> */}
+        
       </div>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-          <div>
-            <input type="file" name="fileUp" onChange={(e) => setFileUp(e.target.files[0])} />
-            <button className="btn btn-success" onClick={uploadFile}>Submit</button>
-          </div>
-        </Modal.Header>
-        {/* <Modal.Body>
-          <form>
-            <label>Files</label>
-            <input type="file" name="" value={fileUp} onChange={(e) => setFileUp(e.target.file[0])} id="" />
-          </form>
-        </Modal.Body> */}
-        {/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer> */}
-      </Modal>
+      
     </div>
   );
 };

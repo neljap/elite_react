@@ -1,7 +1,40 @@
+import { useState } from "react";
 import "../../App.css";
-import Form from "react-bootstrap/Form";
+import { storage } from "../../server";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { toast } from "react-toastify";
 
 const UserKycUpload = () => {
+  const [file, setFile] = useState('')
+  const [percent, setPercent] = useState(0)
+
+  const uploadFile = (e) => {
+    e.preventDefault()
+    if(!file){
+      toast.error('Please Upload a file', {
+        position: 'bottom-left'
+      })
+    }
+
+    try{
+      const storageRef = ref(storage, `/kyc/${file.name}`)
+      
+      const uploadTask = uploadBytesResumable(storageRef, file)
+      
+      uploadTask.on("state_changed", (snapshot) => {
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+        setPercent(progress)
+      }, (err) => console.log(err),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => console.log(url))
+      }
+      )
+      setFile('')
+    }catch(err){
+      console.log(err)
+    }
+  }
+
   return (
     <div>
       <h2>TIER TWO VERIFICATION</h2>
@@ -17,17 +50,14 @@ const UserKycUpload = () => {
         </p>
         <div className="flex justify-content-center align-items-center flex-wrap gap-2">
           <div className="verify-box">
-            <form>
-              <input type="file" name="" accept="" id="" />
-            </form>
-            {/* <Form.Group
-              controlId="formFileMultiple"
-              className="mb-3"
-              style={{ height: "300px", backgroundColor: '#000' }}
-            >
-              <Form.Label>Multiple files input example</Form.Label>
-              <Form.Control type="file" style={{backgroundColor: '#000'}} className="w-100 h-100" multiple />
-            </Form.Group> */}
+            <div>
+               <input type="file" name="" accept="/image/*" id="" onChange={(e) => setFile(e.target.files[0])}/>
+                <p>{percent} % done</p>
+               <button className="btn btn-success" onClick={uploadFile}>Upload</button>
+            </div>
+             
+            
+           
           </div>
           <div></div>
         </div>

@@ -21,12 +21,9 @@ const HomePage = () => {
       <PricingSec />
       <UserFxData />
       <UserCyptData />
-      {/* <CryptoSection /> */}
       <FaqSection />
       <SubFooter />
-      {/* <TestimSect /> */}
       <FooterS />
-      {/* <FooterSection /> */}
     </div>
   )
 }
