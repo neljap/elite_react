@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AbtHeroSection from '../../components/HeroSections/AbtHeroSection'
 import FooterS from '../../components/WebSections/FooterS'
 import AbtHmSect from '../../components/WebSections/AbtHmSect'
@@ -7,14 +7,30 @@ import AbtTopImg from '../../components/WebSections/AbtTopImg'
 import SubFooter from '../../components/WebSections/SubFooter'
 
 const AboutPg = () => {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [])
   return (
+
+
     <div>
+      {loading ? (<p>Loading....</p>):
+      (
+        <div>
         <AbtHeroSection />
-        <AbtTopImg />
-        <AbtHmSect />
-        <AbtWhySect />
-        <SubFooter />
-        <FooterS />
+                <AbtTopImg />
+                <AbtHmSect />
+                <AbtWhySect />
+                <SubFooter />
+                <FooterS />
+        </div>
+      )
+      }
+        
     </div>
   )
 }

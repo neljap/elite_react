@@ -7,9 +7,11 @@ const ContactForm = () => {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       const conData = await addDoc(collection(db, 'contact'), {name, email, subject, message})
       console.log(conData)
@@ -17,6 +19,7 @@ const ContactForm = () => {
       setMessage('')
       setName('')
       setSubject('')
+      setLoading(false)
     } catch (err) {
       console.log(err);
     }
@@ -81,7 +84,7 @@ const ContactForm = () => {
             style={{height: '250px'}}
           />
         </div>
-        <button className="btn btn-success w-100">Send</button>
+        <button className="btn btn-success w-100">{loading ? (<p>sending...</p>):(<p>SEND</p>)}</button>
       </form>
       </div>
       
