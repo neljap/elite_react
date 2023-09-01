@@ -1,17 +1,34 @@
 import React, { useState } from 'react'
 import '../../App.css'
+import { addDoc, collection } from 'firebase/firestore'
+import { db } from '../../server'
+import { useContext } from 'react'
+import { UserContext } from '../../context/UserContext'
 
 const UserSupportFm = () => {
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
   const [select, setSelect] = useState('')
   const options = ['Select Categories', 'My Wallet', 'Verification', 'Change Phone Number', 'Profile', 'Referral', 'Withdrawal', 'Payment complaint', 'Investment', 'Contract', 'Others' ]
+
+  const {currentUser} = useContext(UserContext)
+
+  const UserId = currentUser?.userData?.userUid
    
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    try{
+      const data = await addDoc(collection(db, 'support', {subject, message, select, UserId}))
+      console.log(data)
+    }catch(err){
+      console.log(err)
+    }
+  }
 
   return (
     <div>
         <h2>SUPPORT</h2>
-        <form className='main-contactFm-con bg-dark w-lg-50 w-100 d-flex flex-column p-3 gap-3 text-white rounded'>
+        <form className='main-contactFm-con bg-dark w-lg-50 w-100 d-flex flex-column p-3 gap-3 text-white rounded' onSubmit={handleSubmit}>
             <h4>Support Ticket</h4>
             <div>
                 <label>Subject</label>
