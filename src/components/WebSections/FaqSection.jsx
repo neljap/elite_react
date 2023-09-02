@@ -11,7 +11,7 @@ const FaqSection = () => {
         <div className="faqacc">
           <Accordion className="w-100">
             <Accordion.Item eventKey="0" className="bg-dark text-light">
-              <Accordion.Header className="bg-dark text-light">Accordion Item #1</Accordion.Header>
+              <Accordion.Header className="bg-dark text-light"><strong>What is the minimum amount to start an investment</strong></Accordion.Header>
               <Accordion.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

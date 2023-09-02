@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ProofImg from "../../assests/tra.png";
+import ProofImg from "../../assests/proimg.png";
 import ProofPdf from "../../assests/tradehood.pdf";
 
 const ProofSection = () => {
@@ -8,7 +8,8 @@ const ProofSection = () => {
       <div className="container py-5 d-flex justify-content-center align-items-center gap-5 flex-wrap">
         <div className="col-md-5">
           <h2 className="text-success font-weight-bold all-headers">
-            Licensed and Certified Trading Platform
+          Spectrum Capitals operates as an authorized and certified trading platform.
+            
           </h2>
           <p className="text-white ">
             Spectrum Capitals is a Licensed and Certified Trading Platform.{" "}
