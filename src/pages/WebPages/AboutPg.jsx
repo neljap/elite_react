@@ -5,6 +5,7 @@ import AbtHmSect from '../../components/WebSections/AbtHmSect'
 import AbtWhySect from '../../components/WebSections/AbtWhySect'
 import AbtTopImg from '../../components/WebSections/AbtTopImg'
 import SubFooter from '../../components/WebSections/SubFooter'
+import SpinnerLoad from '../SpinnerLoad'
 
 const AboutPg = () => {
   const [loading, setLoading] = useState(true)
@@ -18,7 +19,7 @@ const AboutPg = () => {
 
 
     <div>
-      {loading ? (<p>Loading....</p>):
+      {loading ? (<><SpinnerLoad /></>):
       (
         <div>
         <AbtHeroSection />
