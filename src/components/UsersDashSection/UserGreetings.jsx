@@ -6,7 +6,7 @@ const UserGreetings = () => {
   
   return (
     <div>
-        <h1 className='display-6'>Welcome, {currentUser?.userData?.fullname}</h1>
+        <h3>Welcome, {currentUser?.userData?.fullname}</h3>
     </div>
   )
 }

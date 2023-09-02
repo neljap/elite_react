@@ -14,6 +14,7 @@ const RegisterForm = () => {
   const [number, setNumber] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [referId, setReferId] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
 
@@ -26,6 +27,7 @@ const RegisterForm = () => {
     // }
 
     try {
+      setLoading(true)
       const dataUse = await createUserWithEmailAndPassword(auth, email, password)
 
       const userEmail = dataUse.user.email
@@ -82,7 +84,7 @@ const RegisterForm = () => {
                 name="fullname"
                 // required
                 onChange={(e) => setFullName(e.target.value)}
-                placeholder="Enter your First Name"
+                placeholder="Enter your Full Name"
                 className="w-100 rounded shadow p-1"
               />
             </div>
@@ -94,7 +96,7 @@ const RegisterForm = () => {
                 value={email}
                 name="email"
                 // required
-                placeholder="Enter your email"
+                placeholder="Enter your email address"
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-100 rounded shadow p-1"
               />
@@ -108,7 +110,7 @@ const RegisterForm = () => {
                 name="number"
                 // required
                 value={number}
-                placeholder="Enter username"
+                placeholder="Enter your Phone Number"
                 onChange={(e) => setNumber(e.target.value)}
                 className="w-100 rounded shadow p-1"
               />
@@ -119,7 +121,7 @@ const RegisterForm = () => {
                 type="text"
                 name="referred"
                 value={referId}
-                placeholder="Enter username"
+                placeholder="Enter your Referral Id"
                 onChange={(e) => setReferId(e.target.value)}
                 className="w-100 rounded shadow p-1"
               />
@@ -157,16 +159,19 @@ const RegisterForm = () => {
             type="submit"
             className="w-100 mb-3 btn btn-success"
           >
-            Sign Up
+            {loading ? (<>Signing Up...</>):(
+              <>Sign Up</>
+            )}
+            {/* Sign Up */}
           </button>
-          <button
+          {/* <button
             variant="primary"
             type="button"
             className="w-100 btn btn-primary"
-            // onClick={googleProviderHandler}
-          >
+          onClick={googleProviderHandler}>
+          
             Sign In With Google
-          </button>
+          </button> */}
           <div className="d-flex justify-content-between align-items-center py-3">
             <Link to="/login" className="text-decoration-none text-white">
               Already have an account?

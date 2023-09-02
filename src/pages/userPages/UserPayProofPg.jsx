@@ -3,6 +3,7 @@ import { storage } from '../../server'
 import { getDownloadURL, ref, uploadBytesResumable,  } from 'firebase/storage'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import '../../App.css'
 
 const UserPayProofPg = () => {
     const [percent, setPercent] = useState(0)
@@ -36,11 +37,15 @@ const UserPayProofPg = () => {
     }
 
   return (
-    <div>
+    <div className='user-depo-top'>
         <div>
-            <input type="file" name="" id="" accept='/image/*' onChange={(e) => setFile(e.target.files[0])}/>
-            <p>{percent} % done</p>
-            <button onClick={handleUpload}>Upload</button>
+            <div>
+               <input type="file" name="" id="" accept='/image/*' onChange={(e) => setFile(e.target.files[0])}/>
+                <p>{percent} % done</p> 
+            </div>
+            
+
+            <button className='btn btn-success' onClick={handleUpload}>Upload File</button>
         </div>
     </div>
   )

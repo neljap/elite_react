@@ -7,12 +7,10 @@ import { useNavigate } from "react-router-dom";
 import { addressData } from "./UserInvData";
 import DepoPay from "./models/DepoPay";
 import { toast } from "react-toastify";
+import '../../App.css'
 const UserDepForm = () => {
   const navigate = useNavigate();
-  // const [DepData, setDepData] =  useState({
-  //     amount: '',
-  //     currency: ''
-  // })
+
   const [amount, setAmount] = useState(0);
   const [select, setSelect] = useState('');
   const [display, setDisplay] = useState(false);
@@ -20,10 +18,6 @@ const UserDepForm = () => {
   const SelectChange = (e) => {
     setSelect(e.target.value);
   };
-
-  // const openModal =() => {
-  //     setDisplay(true)
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,55 +27,58 @@ const UserDepForm = () => {
       })
       // alert('Amount is too low')
       return;
+    }else if(select === 'Select Payment Option'){
+      toast.error('Please ', {
+        position: 'bottom-left'
+      })
     }
     try {
         // alert(select)
-      if (select === "ethereum") {
-        navigate(`/user/payment/ethereum/${amount}`)
+      if (select === "Ethereum") {
+        navigate(`/user/payment/Ethereum/${amount}`)
         // alert("eth");
-      } else if (select === "bitcoin") {
-        navigate(`/user/payment/bitcoin/${amount}`)
+      } else if (select === "Bitcoin") {
+        navigate(`/user/payment/Bitcoin/${amount}`)
         // alert("Btc");
-      } else if (select === "litecoin") {
-        navigate(`/user/payment/litecoin/${amount}`)
+      } else if (select === "Litecoin") {
+        navigate(`/user/payment/Litecoin/${amount}`)
         // alert("ltc");
-      } else if (select === "usdt") {
-        navigate(`/user/payment/usdt/${amount}`)
+      } else if (select === "USDT") {
+        navigate(`/user/payment/USDT/${amount}`)
         // alert("usdt");
       } else {
-        toast.error('No Address')
-        // alert("No address");
+        toast.error('Kindly Select a Payment Options', {
+          position: 'bottom-left'
+        })
       }
-      {display && <DepoPay closedModal={setDisplay(true)}  />}
-      // console.log(DepData)
-      // navigate('/user/payment')
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <div>
+    <div className="user-depo-top">
       <h3>DEPOSIT</h3>
-      <div>
+      <div className="d-flex flex-column justify-content-center align-items-center">
         <p>Choose your Prefer Option</p>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="d-flex flex-column gap-5 user-depo-form border border-success rounded">
           <div>
-            <label>Enter Amount</label>
+            <label>Enter Amount</label> <br />
             <input
               type="number"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               name="amount"
+              className="w-100 p-2 rounded"
             />
           </div>
-          <select value={select} id="select" onChange={SelectChange}>
+          <select value={select} id="select" onChange={SelectChange} className="w-100 p-2 rounded">
             {addressData.map((option) => (
               <option key={option.name} value={option.name}>
                 {option.name}
               </option>
             ))}
-          </select>
+          </select> 
           <button className="btn btn-success" type="submit">
             Proceed to Payment
           </button>

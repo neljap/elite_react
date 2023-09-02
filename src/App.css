@@ -538,3 +538,15 @@ a {
   /* backdrop-filter: blur(4px); */
   opacity: 0.7;
 }
+/* User Deposit */
+.user-depo-top{
+  height: 75vh;
+}
+.user-depo-form{
+  width: 700px;
+  padding: 20px;
+}
+.user-pay-form{
+  max-width: 600px;
+  padding: 20px;
+}

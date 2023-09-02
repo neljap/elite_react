@@ -36,7 +36,7 @@ const UserKycUpload = () => {
   }
 
   return (
-    <div>
+    <div className="user-depo-top">
       <h2>TIER TWO VERIFICATION</h2>
       <div>
         <h3>Tier two Verification (KYC)</h3>

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import KycDa from "../../assests/sss.png";
+import KycDa from "../../assests/kyc.jpg";
 
 const UserKycDa = () => {
   return (
-    <div className="h-100">
-      <img src={KycDa} alt="" />
+    <div className="user-depo-top d-flex justify-content-center align-items-center flex-column gap-3">
+       <img src={KycDa} alt="" width={300} height={300} className="rounded" />
       <p>
         With tier verification you stand a chance to increase your daily
         withdrawal limit.
@@ -15,8 +15,9 @@ const UserKycDa = () => {
       </p>
       <Link to="/user/kyc-data">
         <button className="btn btn-success">Click here for Verification</button>
-      </Link>
-    </div>
+      </Link> 
+      </div>
+      
   );
 };
 

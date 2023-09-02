@@ -18,6 +18,7 @@ const UserSupportFm = () => {
   const handleSubmit = async(e) => {
     e.preventDefault()
     try{
+      const UserId = currentUser?.userData?.userUid
       const data = await addDoc(collection(db, 'support', {subject, message, select, UserId}))
       console.log(data)
     }catch(err){

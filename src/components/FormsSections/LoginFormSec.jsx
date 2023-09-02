@@ -11,7 +11,7 @@ import { db } from "../../server";
 // import { loginUser } from "../../context/UserReduce";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
-import { current } from "@reduxjs/toolkit";
+import { signInWithGoogle } from "../../server";
 
 const LoginFormSec = () => {
   const [email, setEmail] = useState('')
@@ -37,13 +37,40 @@ const LoginFormSec = () => {
   const navigate = useNavigate()
   // const dispatch = useDispatch()
 
+  const googleSignInHandler = async() => {
+    try{
+      const res = await signInWithGoogle()
+    const dInfoUid = res.user.uid
+      console.log(dInfoUid)
+      const userDocRef = doc(db, 'users', dInfoUid)
+      const userDocSnap = await getDoc(userDocRef)
+      console.log(userDocSnap)
+      if(userDocSnap.exists()){
+        const response = userDocSnap.data()
+        console.log(response)
+        localStorage.setItem('user', JSON.stringify(response))
+        setCurrentUser(response)
+      }else{
+        console.log('No Document Found in the Database')
+      }
+      setEmail('')
+      setPassword('')
+      toast.success('Login Successfully', {
+        position: 'bottom-left'
+      })
+      navigate('/user/home')
+    }catch(err){
+      console.log(err)
+    }
+    
+  }
+
   const handleSubmit = async(e) => {
     e.preventDefault()
     if(!email || !password) return;
 
     try{
-      // let credential = {email, password}
-      // dispatch(loginUser(credential))
+
       const authInfo = await signInWithEmailAndPassword(auth, email, password)
       const dataInfo = authInfo.user
       setCurrentUser(dataInfo)
@@ -86,13 +113,6 @@ const LoginFormSec = () => {
     }
   }
 
-  const googleProviderHandler = async() => {
-    try{
-      await googleProvider()
-    }catch(err){
-      console.log(err)
-    }
-  }
 
   return (
     <div className="container">
@@ -111,7 +131,7 @@ const LoginFormSec = () => {
             <Button variant="success" type="submit" className="w-100 mb-3" >
              Login
             </Button>
-            <Button variant="primary" type="button" className="w-100" onClick={googleProviderHandler}>Sign In With Google</Button>
+            {/* <Button variant="primary" type="button" className="w-100" onClick={googleSignInHandler}>Sign In With Google</Button> */}
             <div className="d-flex justify-content-between align-items-center py-3">
               <Link to="/register" className="text-decoration-none text-white">
                 Don't have an account?

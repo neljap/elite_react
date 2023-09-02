@@ -1,10 +1,11 @@
 import {
   FaClipboard
 } from "react-icons/fa";
+import '../../App.css'
 
 const UseReferSect = () => {
   return (
-    <div className="bg-dark text-light">
+    <div className="bg-dark text-light user-depo-top">
       <h2>REFFERALS</h2>
       <div className="container">
       <div className="d-flex justify-content-between align-items-center flex-wrap">
