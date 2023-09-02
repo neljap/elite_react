@@ -13,10 +13,8 @@ import UserWallet from "./UserWallet";
 import UserDepositSec from "./UserDepositSec";
 import UserWithdrawPg from "./UserWithdrawPg";
 import UserSwapPg from "./UserSwapPg";
-import { DepConProvider } from "../../components/UsersDashSection/context/DepContext";
 import UserWithDrawF from "./UserWithDrawF";
 import UserPayData from "./UserPayData";
-import UserFooterCy from "../../components/UsersDashSection/UserFooterCy";
 import ProtectedRoutes from "../../components/Protect/ProtectedRoutes";
 import UserPayProofPg from "./UserPayProofPg";
 

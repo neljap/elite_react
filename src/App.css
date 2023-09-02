@@ -168,7 +168,7 @@ a {
 }
 
 .section-title {
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 .text-center {
   text-align: center !important;
@@ -546,7 +546,31 @@ a {
   width: 700px;
   padding: 20px;
 }
+@media screen and (max-width:767px) {
+  .user-depo-form{
+    width: 300px;
+  }
+}
 .user-pay-form{
   max-width: 600px;
   padding: 20px;
+}
+
+/* Page Text */
+.font-text{
+  font-size: 17px;
+}
+@media screen and (max-width: 767px) {
+  .font-text{
+    font-size: 15px;
+  }
+}
+
+.all-subheaders{
+  font-size: 44px;
+}
+@media screen and (max-width: 767px) {
+  .all-subheaders{
+    font-size: 25px;
+  }
 }

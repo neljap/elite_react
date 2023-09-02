@@ -60,20 +60,20 @@ const UserWallAcc = () => {
       <div ref={WallRef} className="user-wall-desk">
           <div className="row">
             <div className="col-md-2">
-              <p>Icon</p>
+              <p className="font-text">Icon</p>
             </div>
             <div className="col-md-2">
-              <p>Currency</p>
+              <p className="font-text">Currency</p>
             </div>
             <div className="col-md-4">
-              <p>Balance</p>
+              <p className="font-text">Balance</p>
             </div>
             <div className="col-md-2">
               <h6>Total Deposit</h6>
-              <p>$0.00 USD</p>
+              <p className="font-text">$0.00 USD</p>
             </div>
           </div>
-          <div style={{ backgroundColor: "#2A3042" }} className="">
+          <div style={{ backgroundColor: "#2A3042" }} className="p-3 rounded">
             {WallDetails.map((item) => {
               return (
                 <div className="row mb-2" key={item.id}>
@@ -85,11 +85,11 @@ const UserWallAcc = () => {
                     />
                   </div>
                   <div className="col-md-2">
-                    <h4>Bitcoin</h4>
+                    <h6>{item.curr}</h6>
                   </div>
                   <div className="col-md-4">
-                    <h2>0.00USD</h2>
-                    <p>0.00000000BTC</p>
+                    <h4>0.00USD</h4>
+                    <p>0.0000{item.unit}</p>
                   </div>
                   <div className="col-md-2 d-flex gap-2">
                     <div>

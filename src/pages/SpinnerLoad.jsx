@@ -7,7 +7,7 @@ const SpinnerLoad = () => {
     <div className='loader-main'>
         
         <div className='flex justify-content-center align-items-center gap-3'>
-          <img src={Logo} alt="logo" style={{height: '50px', width: '50px'}} />
+          {/* <img src={Logo} alt="logo" style={{height: '50px', width: '50px'}} /> */}
           <Spinner animation='grow' variant='dark'/>
           <Spinner animation='grow' variant='primary'/>
           <Spinner animation='grow' variant='success'/>

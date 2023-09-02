@@ -58,9 +58,9 @@ const UserDepForm = () => {
 
   return (
     <div className="user-depo-top">
-      <h3>DEPOSIT</h3>
+      <h3 className="all-subheaders text-center text-success">DEPOSIT</h3>
       <div className="d-flex flex-column justify-content-center align-items-center">
-        <p>Choose your Prefer Option</p>
+        <p className="font-text text-center">Choose your Prefer Option</p>
         <form onSubmit={handleSubmit} className="d-flex flex-column gap-5 user-depo-form border border-success rounded">
           <div>
             <label>Enter Amount</label> <br />

@@ -33,11 +33,11 @@ const RegisterForm = () => {
       const userEmail = dataUse.user.email
       const userUid = dataUse.user.uid
       const profilePics = ''
-      const totalDeposit = ''
+      const totalDeposit = 0
       const dob = ''
-      const totalRefferals = ''
+      const totalRefferals = 0
       const verified = false
-      const totalWithDraw = ''
+      const totalWithDraw = 0
       const createdAt = Timestamp.now()
     
       const userData = {userEmail, userUid, number, fullname, profilePics, totalDeposit, totalRefferals, totalWithDraw, dob, verified, createdAt}
@@ -60,15 +60,6 @@ const RegisterForm = () => {
       console.log(error)
     }
   };
-
-  // const googleProviderHandler = async() => {
-  //   try{
-  //     await googleProvider()
-  //   }catch(err){
-  //     console.log(err)
-  //   }
-    
-  // }
 
   return (
     <div className="container">

@@ -1,6 +1,7 @@
 import Navbar from '../Layout/Navbar'
 import '../../App.css'
 import HeroImg from '../../assests/dow.png'
+import { Link } from 'react-router-dom'
 
 const MainHero = () => {
   return (
@@ -13,7 +14,10 @@ const MainHero = () => {
                 <h1 className='text-white font-bold all-headers'>Invest Your <br /> Money With Higher Return</h1>
                 <p className='text-white'>Anyone can invest money to different currency to increase their earnings by the help of Bitrader through online.</p>
                 <button className='btn btn-success'>
-                    Get Started
+                    <Link to='/register' className='text-decoration-none text-white'>
+                        Get Started
+                    </Link>
+                    
                 </button>
             </div>
             <div className='col-md-5'>

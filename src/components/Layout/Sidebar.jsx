@@ -36,11 +36,11 @@ const Sidebar = ({children}) => {
       name: "Wallet",
       icon: <FaWallet />
     },
-    {
-      path: "/user/investment",
-      name: "Investment",
-      icon: <FaRegChartBar />,
-    },
+    // {
+    //   path: "/user/investment",
+    //   name: "Investment",
+    //   icon: <FaRegChartBar />,
+    // },
     {
       path: "/user/refferals",
       name: "Refferals",

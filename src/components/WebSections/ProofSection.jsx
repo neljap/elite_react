@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 import ProofImg from "../../assests/proimg.png";
-import ProofPdf from "../../assests/tradehood.pdf";
+import ProofPdf from "../../assests/tesxt.pdf";
+import '../../App.css'
 
 const ProofSection = () => {
   return (
     <div className="bg-dark">
       <div className="container py-5 d-flex justify-content-center align-items-center gap-5 flex-wrap">
         <div className="col-md-5">
-          <h2 className="text-success font-weight-bold all-headers">
-          Spectrum Capitals operates as an authorized and certified trading platform.
+          <h6 className="text-success font-weight-bold all-headers">
+          Licensed and Certified Trading Platform
             
-          </h2>
-          <p className="text-white ">
-            Spectrum Capitals is a Licensed and Certified Trading Platform.{" "}
+          </h6>
+          <p className="text-white font-text">
+          Spectrum Capitals operates as an authorized and certified trading platform.
           </p>
           <div>
             <Link to={ProofPdf} target="_blank" className="text-success">

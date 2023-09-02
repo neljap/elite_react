@@ -10,11 +10,11 @@ const UserSetHm = () => {
   }
 
   return (
-    <div className="h-100 bg-dark">
-      <div className="mx-auto">
-        <div className="d-flex">
+    <div className="user-depo-top bg-dark d-flex justify-content-center align-items-center">
+      <div className="border border-success p-2">
+        <div className="d-flex justify-content-between">
           <div>
-            <h3>Full Name</h3>
+            <h5>Full Name</h5>
             <p>Nelson Jason</p>
           </div>
           <Link to="/user/settings/change-fullname">Edit</Link>
@@ -23,7 +23,7 @@ const UserSetHm = () => {
           <div>
             <div className="d-flex">
               <div>
-                <h3>Email Address</h3>
+                <h5>Email Address</h5>
                 <p>neljason@gmail.com</p>
               </div>
               <div>
@@ -47,11 +47,11 @@ const UserSetHm = () => {
           </div>
           <Link to="/user/settings/change-profile-picture">Edit</Link>
         </div>
-        <div className="d-flex">
-          <h3>Change Password</h3>
+        <div className="d-flex justify-content-between align-items-center">
+          <h5 className="all-subheaders">Change Password</h5>
           <Link to="/user/settings/change-password">
             <button className="btn btn-success">
-              Click here to Change Password
+              Click here
             </button>
           </Link>
         </div>
