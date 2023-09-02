@@ -4,11 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { getDoc, doc } from "firebase/firestore";
 import { auth } from "../../server";
 import { signInWithEmailAndPassword } from "firebase/auth"; 
-import { signInWithEmailAndPasswordHandler, googleProvider } from "../../server_side/userAuth";
 import {toast} from 'react-toastify'
 import { db } from "../../server";
-// import { useDispatch } from "react-redux";
-// import { loginUser } from "../../context/UserReduce";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { signInWithGoogle } from "../../server";
@@ -29,7 +26,6 @@ const LoginFormSec = () => {
     const savedData = window.localStorage.getItem('user')
 
     if(savedData){
-        console.dir(savedData, {depth: null})
         setUserDataInfo(savedData.userData)
     }    
 }, [currentUser])
@@ -41,17 +37,12 @@ const LoginFormSec = () => {
     try{
       const res = await signInWithGoogle()
     const dInfoUid = res.user.uid
-      console.log(dInfoUid)
       const userDocRef = doc(db, 'users', dInfoUid)
       const userDocSnap = await getDoc(userDocRef)
-      console.log(userDocSnap)
       if(userDocSnap.exists()){
         const response = userDocSnap.data()
-        console.log(response)
         localStorage.setItem('user', JSON.stringify(response))
         setCurrentUser(response)
-      }else{
-        console.log('No Document Found in the Database')
       }
       setEmail('')
       setPassword('')
@@ -60,7 +51,7 @@ const LoginFormSec = () => {
       })
       navigate('/user/home')
     }catch(err){
-      console.log(err)
+      throw new Error(err)
     }
     
   }
@@ -74,19 +65,15 @@ const LoginFormSec = () => {
       const authInfo = await signInWithEmailAndPassword(auth, email, password)
       const dataInfo = authInfo.user
       setCurrentUser(dataInfo)
-      console.log('data info', dataInfo)
       const dInfoUid = authInfo.user.uid
-      console.log(dInfoUid)
       const userDocRef = doc(db, 'users', dInfoUid)
       const userDocSnap = await getDoc(userDocRef)
-      console.log(userDocSnap)
       if(userDocSnap.id){
         const response = userDocSnap.data()
-        console.log(response)
         localStorage.setItem('user', JSON.stringify(response))
         setCurrentUser(response)
       }else{
-        console.log('No Document Found in the Database')
+        // console.log('No Document Found in the Database')
       }
       setEmail('')
       setPassword('')
@@ -95,12 +82,10 @@ const LoginFormSec = () => {
       })
       navigate('/user/home')
     }catch(err){
-      console.log(err)
       if(err.code === 'auth/user-not-found'){
         toast.error('User Not Found', {
           position: 'bottom-left'
         })
-        // alert('User Not Found')
       }else if (err.code === 'auth/network-request-failed'){
         toast.error('No Network, Please Check your Internet Connection', {
           position: 'bottom-left'

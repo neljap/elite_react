@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-import BtcImg from "../../assests/bitcoin.png";
-import LtcImg from "../../assests/litecoin.png";
-import EthImg from "../../assests/ethereum.png";
-import UtImg from "../../assests/dollar.png";
 import { useNavigate } from "react-router-dom";
 import { addressData } from "./UserInvData";
-import DepoPay from "./models/DepoPay";
 import { toast } from "react-toastify";
 import '../../App.css'
 const UserDepForm = () => {

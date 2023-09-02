@@ -7,6 +7,7 @@ h2{
 .nav-mob-div{
   display: flex;
   gap: 1em;
+  z-index: 3;
 }
 .nav-active{
   background-color: #000;
@@ -79,14 +80,10 @@ h2{
   background-position: center;
   background-size: cover;
   background-blend-mode: multiply;
-  height: 70vh;
+  height: 50vh;
   width: 100%;
   /* padding-top: 50px; */
 }
-/* body {
-  margin-top: 20px;
-  background: #dcdcdc;
-} */
 .pricing-content {
   position: relative;
 }
@@ -499,7 +496,7 @@ a {
 }
 
 .heroimg-item{
-  width: 85%;
+  width: 100%;
 }
 .faqacc{
   width: 80%;

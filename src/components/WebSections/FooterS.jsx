@@ -1,4 +1,4 @@
-import React from 'react';
+import Logo from "../../assests/logosc.png"
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import {FaFacebook, FaTwitter, FaGoogle, FaInstagram, FaLinkedin, FaGithub} from 'react-icons/fa'
 import { Link } from 'react-router-dom';
@@ -43,13 +43,28 @@ export default function FooterS() {
         <MDBContainer className='text-center text-md-start'>
           <MDBRow className='mt-3'>
             <MDBCol md='' lg='4' xl='3' className='mx-auto '>
-              <h6 className='text-uppercase text-white fw-bold mb-0'>
+            <div>
+            <Link
+        to="/"
+        className="d-flex justify-content-center align-items-center text-decoration-none"
+      >
+        <div style={{ width: "50px", height: "50px" }}>
+          <img src={Logo} alt="img" className="w-100" />
+        </div>
+        <div>
+          <span className="text-white font-weight-bold">Spectrum</span>
+          <br />
+          <span className="text-success font-weight-bold">Capitals</span>
+        </div>
+      </Link>
+            </div>
+            
+              {/* <h6 className='text-uppercase text-white fw-bold mb-0'>
                 <MDBIcon color='secondary' icon='gem' className='me-3' />
                 Company name
-              </h6>
+              </h6> */}
               <p className='text-white'>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit.
+              Spectrum Capitals offers a variety of trading accounts to match every trading style across all levels of experience.
               </p>
             </MDBCol>
 
@@ -113,19 +128,16 @@ export default function FooterS() {
 
             <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-0'>
               <h6 className='text-uppercase fw-bold mb-4 text-white'>Contact</h6>
-              <p className='text-white'>
+              <p className='text-white font-text'>
                 <MDBIcon color='secondary' icon='home' className='me-2' />
-                New York, NY 10012, US
+                Aberdeen Avenue, California, Santa Rosa, US
               </p>
-              <p className='text-white'>
+              <p className='text-white font-text'>
                 <MDBIcon color='secondary' icon='envelope' className='me-3' />
-                info@example.com
+                support@spectrumcapitals.com
               </p>
               <p className='text-white'>
-                <MDBIcon color='secondary' icon='phone' className='me-3' /> + 01 234 567 88
-              </p>
-              <p className='text-white'>
-                <MDBIcon color='secondary' icon='print' className='me-3' /> + 01 234 567 89
+                <MDBIcon color='secondary' icon='phone' className='me-3' />+1 916 857 3164
               </p>
             </MDBCol>
           </MDBRow>

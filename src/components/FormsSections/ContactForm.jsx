@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { db } from "../../server_side/userAuth";
-import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../server";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
 import '../../App.css'
+import { toast } from "react-toastify";
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,15 +14,19 @@ const ContactForm = () => {
     e.preventDefault();
     setLoading(true)
     try {
-      const conData = await addDoc(collection(db, 'contact'), {name, email, subject, message})
-      console.log(conData)
+      const sendAt = Timestamp.now()
+      const conData = await addDoc(collection(db, 'contact'), {name, email, subject, message, sendAt})
+      
       setEmail('')
       setMessage('')
       setName('')
       setSubject('')
       setLoading(false)
+      toast.success('Message Received, We will get back to you Shortly', {
+        position: 'bottom-left'
+      })
     } catch (err) {
-      console.log(err);
+      throw new Error(err)
     }
   };
   return (
@@ -84,7 +89,7 @@ const ContactForm = () => {
             style={{height: '250px'}}
           />
         </div>
-        <button className="btn btn-success w-100">{loading ? (<p>sending...</p>):(<p>SEND</p>)}</button>
+        <button className="btn btn-success w-100">{loading ? (<>sending...</>):(<>SEND</>)}</button>
       </form>
       </div>
       

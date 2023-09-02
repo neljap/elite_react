@@ -2,8 +2,8 @@ import { FaPhoneAlt, FaEnvelope, FaLocationArrow } from "react-icons/fa";
 
 const Condetails = () => {
   return (
-    <div className="bg-dark">
-      <div className="container row gap-5 py-3 mx-auto">
+    <div className="bg-dark d-flex justify-content-center align-items-center">
+      <div className="container row gap-5 py-3">
         <div className="col-md-3">
           <div className="bg-light border border-green d-flex justify-content-center align-items-center  rounded" style={{width: '70px', height: '70px'}}>
             <FaPhoneAlt color="green" size={30} />

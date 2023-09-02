@@ -30,7 +30,6 @@ const Navbar = () => {
       setNavbarHan(false);
     }
   };
-  console.log("current user", currentUser);
   window.addEventListener("scroll", changeBackground);
 
   return (

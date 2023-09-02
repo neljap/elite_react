@@ -16,7 +16,6 @@ export const UserProvider = ({children}) => {
         const savedData = JSON.parse(localStorage.getItem('user'))
 
         if(savedData){
-            console.dir(savedData, {depth: null})
             setUserDataInfo(savedData.userData)
         }
     }, [])

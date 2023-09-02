@@ -3,20 +3,14 @@ import HomePage from "./pages/WebPages/HomePage";
 import AboutPg from "./pages/WebPages/AboutPg";
 import ContactPg from "./pages/WebPages/ContactPg";
 import Packages from "./pages/WebPages/Packages";
-import LoginPg from "./pages/authPages/LoginPg";
-import RegisterPg from "./pages/authPages/RegisterPg";
-import ForgotPasswordPg from "./pages/authPages/ForgotPasswordPg";
-import ResetPassPg from "./pages/authPages/ResetPassPg";
 import "bootstrap/dist/css/bootstrap.min.css"
 import FaqSecPg from "./pages/WebPages/FaqSecPg";
-import Example from "./pages/store_example";
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { FaWhatsapp} from 'react-icons/fa'
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import UserIndex from './pages/userPages/UserIndex'
-import AuthProRoutes from "./components/Protect/AuthProRoutes";
 import AuthIndex from "./pages/authPages/AuthIndex";
 
 const WhatsLink ='https://api.whatsapp.com/send?phone=2347062181023&text=Hi%F0%9F%98%8A%2C%20I%20want%20to%20Invest%20under%20Spectrum%20Capitals%20Platform'
@@ -51,7 +45,6 @@ function App() {
         <Route path="/contact" element={<ContactPg />} />
         <Route path="/packages" element={<Packages />} />
         <Route path="/faq" element={<FaqSecPg />} />
-        <Route path="/test" element={<Example/>}/>
         <Route path="/user/*" element={<UserIndex />} />
         <Route path="*" element={<AuthIndex />} />
       </Routes>

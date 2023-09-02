@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { FaBars } from "react-icons/fa";
 import { BiMoneyWithdraw } from "react-icons/bi";
 import { RiRefund2Fill } from "react-icons/ri";
 import BtcIcon from "../../assests/bitcoin.png";
@@ -40,14 +39,6 @@ const UserWallSec = () => {
                 <button className="btn btn-success">Proceed</button>
               </Link>
             </div>
-            {/* <div className='d-flex flex-column justify-content-center align-items-center'>
-                    <FaBars />
-                    <p>Coin Swap</p>
-                    <Link to='/user/coin-swap'>
-                       <button className='btn btn-success'>Get Started</button> 
-                    </Link>
-                    
-                </div> */}
             <div className="d-flex flex-column justify-content-center align-items-center">
               <BiMoneyWithdraw size={30} />
               <p>Withdraw</p>

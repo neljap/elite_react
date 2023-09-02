@@ -10,8 +10,7 @@ const ProtectedRoutes = ({ children }) => {
 
     setCurrentUser(JSON.parse(currentState));
   }, []);
-
-  console.log('pro current', currentUser)
+  
   if (currentUser === null) {
     return <Navigate to="/login" />;
   }
