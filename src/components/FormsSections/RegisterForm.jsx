@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../App.css";
 import { useState } from "react";
 import { auth, db } from "../../server";
+import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Timestamp, doc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
@@ -15,6 +16,8 @@ const RegisterForm = () => {
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [referId, setReferId] = useState('')
   const [loading, setLoading] = useState(false)
+  const [visible, setVisble] = useState(false)
+  const [showPass, setShowPass] = useState(false)
 
   const navigate = useNavigate()
 
@@ -119,10 +122,10 @@ const RegisterForm = () => {
             </div>
           </div>
           <div className="row w-100">
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-6" style={{position: 'relative'}}>
               <label>Password</label>
               <input
-                type="password"
+                type={visible ? 'text' : 'password'}
                 name="password"
                 value={password}
                 // required
@@ -130,11 +133,18 @@ const RegisterForm = () => {
                 placeholder="Enter your Password"
                 className="w-100 rounded shadow p-1"
               />
+              <div style={{position: 'absolute', right: '15px', top: '30px', cursor: 'pointer'}}>
+                {visible ? (
+                  <AiOutlineEye color="black" size={25} onClick={() => setVisble(false)}/>
+                ):(
+                  <AiOutlineEyeInvisible color="black" size={25} onClick={() => setVisble(true)}/>
+                )}
+              </div>
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-6" style={{position: 'relative'}}>
               <label>Confirm Password</label>
               <input
-                type="password"
+                type={showPass ? 'text' : 'password'}
                 name="passwordConfirm"
                 value={passwordConfirm}
                 // required
@@ -142,6 +152,14 @@ const RegisterForm = () => {
                 placeholder="Re-Enter your Password"
                 className="w-100 rounded shadow p-1"
               />
+              <div style={{position: 'absolute', right: '15px', top: '30px', cursor: 'pointer'}}>
+                {showPass ? (
+                <AiOutlineEye color="black" size={25} onClick={() => setShowPass(false)} />
+              ):(
+                <AiOutlineEyeInvisible color="black" size={25} onClick={() => setShowPass(true)} />
+              )}
+              </div>
+              
             </div>
           </div>
 

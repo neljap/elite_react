@@ -81,7 +81,7 @@ const Navbar = () => {
         </Link>
         <div className="nav-btn-mob">
           {!currentUser ? (
-            <div>
+            <div className="d-flex gap-4">
               <Link to="/login">
                 <button className="btn btn-success" onClick={showNavRef}>
                   Login
@@ -110,7 +110,7 @@ const Navbar = () => {
       </nav>
       <div className="nav-btn-desk">
         {!currentUser ? (
-          <div>
+          <div className="d-flex gap-4">
             <Link to="/login">
               <button className="btn btn-success" onClick={showNavRef}>
                 Login

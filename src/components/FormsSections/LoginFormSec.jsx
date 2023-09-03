@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getDoc, doc } from "firebase/firestore";
 import { auth } from "../../server";
 import { signInWithEmailAndPassword } from "firebase/auth"; 
+import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai'
 import {toast} from 'react-toastify'
 import { db } from "../../server";
 import { useContext } from "react";
@@ -13,7 +14,8 @@ import { signInWithGoogle } from "../../server";
 const LoginFormSec = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  // const [loading, setLoading] = useState(false)
+  const [visible, setVisible] = useState(false)
+  const [loading, setLoading] = useState(false)
   const {setCurrentUser, currentUser, setUserDataInfo, userDataInfo} = useContext(UserContext)
 
   useEffect(() => {
@@ -58,10 +60,11 @@ const LoginFormSec = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault()
+    
     if(!email || !password) return;
 
     try{
-
+      setLoading(true)
       const authInfo = await signInWithEmailAndPassword(auth, email, password)
       const dataInfo = authInfo.user
       setCurrentUser(dataInfo)
@@ -80,6 +83,7 @@ const LoginFormSec = () => {
       toast.success('Login Successfully', {
         position: 'bottom-left'
       })
+      setLoading(false)
       navigate('/user/home')
     }catch(err){
       if(err.code === 'auth/user-not-found'){
@@ -105,16 +109,23 @@ const LoginFormSec = () => {
         <h1 className='text-center'>Sign In</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Username</Form.Label>
-              <Form.Control type="email" placeholder="Enter username" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <Form.Label>Email Address</Form.Label>
+              <Form.Control type="email" placeholder="Enter your email address" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" style={{position: 'relative'}} controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+              <Form.Control type={visible ? 'text' : 'password'} placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+              <div style={{position: 'absolute', right: '10px', top: '35px', cursor: 'pointer'}}>
+                {visible ? (
+                  <AiOutlineEye size={25} color="black" onClick={() => setVisible(false)}/>
+                ):(
+                  <AiOutlineEyeInvisible color="black" size={25} onClick={() => setVisible(true)} />
+                )}
+              </div>
             </Form.Group>
             <Button variant="success" type="submit" className="w-100 mb-3" >
-             Login
+             {loading ? (<>Logining...</>) : (<>Login</>) }
             </Button>
             {/* <Button variant="primary" type="button" className="w-100" onClick={googleSignInHandler}>Sign In With Google</Button> */}
             <div className="d-flex justify-content-between align-items-center py-3">
