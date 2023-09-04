@@ -36,7 +36,7 @@ function App() {
           <FaWhatsapp size={35} color="white" />
         </Link>
       </div>
-      <div style={{position: 'fixed', top: '25%', right: '1px', zIndex: '10', backgroundColor: 'green', padding: '10px', width: "200px", height: "100px"}}>
+      <div style={{position: 'fixed', top: '25%', right: '1px', zIndex: '10', backgroundColor: 'transparent', padding: '10px', width: "200px", height: "100px"}}>
         
       </div>
       <Routes>
