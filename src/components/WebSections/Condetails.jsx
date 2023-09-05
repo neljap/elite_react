@@ -10,7 +10,7 @@ const Condetails = () => {
             
           </div>
           <p className="text-light">Phone Number</p>
-            <p className="text-success">+1 (859) 652-3309</p>
+            <p className="text-success">+1 (916) 857-3164</p>
         </div>
         <div className="col-md-3">
         <div className="bg-light border border-green d-flex justify-content-center align-items-center rounded" style={{width: '70px', height: '70px'}}>
