@@ -26,7 +26,7 @@ const PricingSec = () => {
 								<small className='text-success h5'>minimum</small>
 							</div>
 							
-							<span>/14 days</span>
+							<span>/7 days</span>
 						</div>
 						<div>
 							<div className='d-flex justify-content-between align-items-center'>
@@ -83,7 +83,7 @@ const PricingSec = () => {
 								<strong className='text-success text-3xl h2 font-extrabold'>$2500</strong>
 								<small className='text-success h5'>minimum</small>
 							</div>
-							<span>/28 days</span>
+							<span>/14 days</span>
 						</div>
 						<div>
 							<div className='d-flex justify-content-between align-items-center'>
@@ -96,7 +96,7 @@ const PricingSec = () => {
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Return of Interest</p>
-							<p>25%</p>
+							<p>40%</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Base Currency</p>
@@ -140,7 +140,7 @@ const PricingSec = () => {
 								<strong className='text-success text-3xl h2 font-extrabold'>$5000</strong>
 								<small className='text-success h5'>minimum</small>
 							</div>
-							<span>/40 days</span>
+							<span>/14 days</span>
 						</div>
 						<div>
 							<div className='d-flex justify-content-between align-items-center'>
@@ -153,7 +153,7 @@ const PricingSec = () => {
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Return of Interest</p>
-							<p>25%</p>
+							<p>55%</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Base Currency</p>
@@ -209,7 +209,7 @@ const PricingSec = () => {
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Return of Interest</p>
-							<p>25%</p>
+							<p>70%</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Base Currency</p>
@@ -248,10 +248,10 @@ const PricingSec = () => {
 						<div class="price-head">		
 							<h2>PLATINUM PLAN</h2>
 							<div className='d-flex gap-3 justify-content-center align-items-center'>
-								<strong className='text-success text-3xl h2 font-extrabold'>$200</strong>
+								<strong className='text-success text-3xl h2 font-extrabold'>$20000</strong>
 								<small className='text-success h5'>minimum</small>
 							</div>
-							<span>/28 days</span>
+							<span>/14 days</span>
 						</div>
 						<div>
 							<div className='d-flex justify-content-between align-items-center'>
@@ -264,7 +264,7 @@ const PricingSec = () => {
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Return of Interest</p>
-							<p>25%</p>
+							<p>85%</p>
 						</div>
 						<div className='d-flex justify-content-between align-items-center'>
 							<p>Base Currency</p>
