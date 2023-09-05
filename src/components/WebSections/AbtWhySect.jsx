@@ -1,30 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../../App.css'
 
 const AbtWhySect = () => {
   return (
     <div className="bg-dark text-light">
       <div className="container">
-        <div className="flex-row d-flex justify-content-center align-items-center flex-wrap-reverse py-3">
-          <div className="col-md-6">
-            <h1>
+        <div className="flex-row d-flex justify-content-between align-items-center flex-wrap-reverse py-3 gap-3">
+          <div className="col-md-5 mb-3">
+            <h3 className="all-subheaders">
               Why are so many people investing Digital currencies like BitCoin?
-            </h1>
-            <p>
-              Since 2022 Deep Margins opens access to professional financial
-              services on the cryptocurrency market in order to increase your
-              savings. We are engaged in trust management of finances on
-              cryptocurrency exchanges. We offer the most favorable conditions
-              on the market, combining high profits with stable investments. The
-              main advantages of our company are its profitability, convenience
-              for clients and low risks. Thanks to the experience of our traders
-              and developed trading strategies we can guarantee a significant
-              growth of your capital in a short period of time. By taking
-              advantage of our services you become a member of the world`s
-              largest financial market
+            </h3>
+            <p className="font-text">
+            Since 2015, Spectrum Capitals has been providing access to professional financial services in the cryptocurrency market to enhance your savings. We specialize in trust management of cryptocurrency finances, offering the most advantageous terms, combining high returns with stability. Our strengths lie in profitability, client convenience, and minimal risks. Our experienced traders and advanced strategies ensure substantial capital growth in a brief span, making you a part of the world's largest financial market.
             </p>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-5">
             <iframe
               className="w-100"
               height="315"
