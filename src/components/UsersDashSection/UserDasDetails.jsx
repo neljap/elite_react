@@ -8,15 +8,23 @@ import {AiOutlineAccountBook} from 'react-icons/ai'
 import "../../App.css";
 import { auth } from "../../server";
 import { FaWallet } from "react-icons/fa";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 const UserDasDetails = () => {
-  const user = auth.currentUser
+  // const user = auth.currentUser
+  const {currentUser} = useContext(UserContext)
+
+  const tBal = currentUser?.userData?.totalDeposit
+  const tWithDraw = currentUser?.userData?.totalWithdraw
+  const tRefer = currentUser?.userData?.totalRefferals
+  const tBonus = currentUser?.userData?.tBonus
   return (
     <div className="row gap-3 gap-md-5 mx-auto mt-5">
       <div className="col-lg-2 col-md-3 col-sm-12 p-3 user-dash-box text-light border border-success rounded" style={{backgroundColor: '#2A3042'}}>
         <div className="d-flex justify-content-between align-items-center">
           <h5>Account Balance</h5> <FaWallet size={40} />
         </div>
-        <h2>$12.00</h2>
+        <h2>${tBal}.00</h2>
         {/* <Link to="/user/deposit" className="text-success text-decoration-none">
           Deposit - Transfer
         </Link> */}
@@ -25,7 +33,7 @@ const UserDasDetails = () => {
         <div className="d-flex justify-content-between align-items-center">
           <h5>Total Profit</h5> <GiProfit size={40} />
         </div>
-        <h2>$0.00</h2>
+        <h2>${tBal}.00</h2>
         {/* <Link to="/user/deposit" className="text-success text-decoration-none">
           Deposit - Transfer
         </Link> */}
@@ -34,7 +42,7 @@ const UserDasDetails = () => {
         <div className="d-flex justify-content-between align-items-center">
           <h5>Total Bonus</h5> <AiOutlineGift size={40} />
         </div>
-        <h2>$0.00</h2>
+        <h2>${tBonus}.00</h2>
         {/* <Link to="/user/deposit" className="text-success text-decoration-none">
           Deposit - Transfer
         </Link> */}
@@ -43,7 +51,7 @@ const UserDasDetails = () => {
         <div className="d-flex justify-content-between align-items-center">
           <h5>TOTAL WITHDRAWAL</h5> <BiMoneyWithdraw size={40} />
         </div>
-        <h2>$0.00</h2>
+        <h2>${tWithDraw}.00</h2>
         {/* <Link to="/user/deposit" className="text-success text-decoration-none">
           Deposit - Transfer
         </Link> */}
@@ -52,7 +60,7 @@ const UserDasDetails = () => {
         <div className="d-flex justify-content-between align-items-center">
           <h5>REFERRALS</h5> <BsPersonAdd size={40} />
         </div>
-        <h2>0</h2>
+        <h2>{tRefer}</h2>
         {/* <Link to="/user/deposit" className="text-success text-decoration-none">
           Deposit - Transfer
         </Link>  */}
@@ -61,29 +69,11 @@ const UserDasDetails = () => {
         <div className="d-flex justify-content-between align-items-center">
           <h5>TOTAL DEPOSIT</h5> <RiRefund2Fill size={40} />
         </div>
-        <h2>$0.00</h2>
+        <h2>${tBal}.00</h2>
         <Link to="/user/deposit" className="text-success text-decoration-none">
           Deposit - Transfer
         </Link>
       </div>
-      {/* <div className="col-lg-2 col-md-3 col-sm-12 p-3 user-dash-box text-light border border-success rounded" style={{backgroundColor: '#2A3042'}}>
-        <div className="d-flex justify-content-between align-items-center">
-          <h5>MANAGE ACCOUNTS</h5> <AiOutlineAccountBook size={25} />
-        </div>
-        <h1>$12.00</h1>
-        <Link to="/user/deposit" className="text-success text-decoration-none">
-          Deposit - Transfer
-        </Link>
-      </div> */}
-      {/* <div className="col-lg-2 col-md-3 col-sm-12 p-3 user-dash-box text-light border border-success rounded" style={{backgroundColor: '#2A3042'}}>
-        <div className="d-flex justify-content-between align-items-center">
-          <h5>Account Balance</h5> <FaWallet size={25} />
-        </div>
-        <h1>$12.00</h1>
-        <Link to="/user/deposit" className="text-success text-decoration-none">
-          Deposit - Transfer
-        </Link>
-      </div> */}
     </div>
   );
 };

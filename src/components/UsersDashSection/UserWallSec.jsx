@@ -10,6 +10,12 @@ import { UserContext } from "../../context/UserContext";
 
 const UserWallSec = () => {
   const { currentUser } = useContext(UserContext);
+
+  const tBal = currentUser?.userData?.totalDeposit
+  const tEth = currentUser?.userData?.totalEth
+  const tBtc = currentUser?.userData?.totalBtc 
+  const tLtc = currentUser?.userData?.totalLtc
+  const tUSD = currentUser?.userData?.totalUSD
   return (
     <div>
       <div className="row">
@@ -24,11 +30,11 @@ const UserWallSec = () => {
           <div className="d-flex justify-content-between align-items-center p-2">
             <div>
               <h4>Account Balance</h4>
-              <h2>$0.00</h2>
+              <h2>${tBal}.00</h2>
             </div>
             <div>
               <h4>Total Profit</h4>
-              <h2>$0.00</h2>
+              <h2>${tBal}.00</h2>
             </div>
           </div>
           <div className="d-flex gap-2 justify-content-between align-items-center px-3">
@@ -59,7 +65,7 @@ const UserWallSec = () => {
               <div>
                 <h6>Bitcoin Wallet</h6>
                 <h5>0.0000BTC</h5>
-                <h4>$0.00</h4>
+                <h4>${tBtc}.00</h4>
               </div>
             </div>
             <div className="d-flex justify-content-between align-items-center gap-2 border border-success p-2 rounded" style={{width: '200px', height: '120px'}}>
@@ -71,7 +77,7 @@ const UserWallSec = () => {
               <div>
                 <h6>Ethereum Wallet</h6>
                 <h5>0.0000ETH</h5>
-                <h4>$0.00</h4>
+                <h4>${tEth}.00</h4>
               </div>
             </div>
             <div className="d-flex justify-content-center align-items-center gap-2 border border-success p-2 rounded" style={{width: '200px', height: '120px'}}>
@@ -83,7 +89,7 @@ const UserWallSec = () => {
               <div>
                 <h6>Litecoin Wallet</h6>
                 <h5>0.0000LTC</h5>
-                <h4>$0.00</h4>
+                <h4>${tLtc}.00</h4>
               </div>
             </div>
             <div className="d-flex justify-content-center align-items-center gap-2 border border-success p-2 rounded" style={{width: '200px', height: '120px'}}>
@@ -95,7 +101,7 @@ const UserWallSec = () => {
               <div>
                 <h6>USDC Wallet</h6>
                 <h5>0.0000USDC</h5>
-                <h4>$0.00</h4>
+                <h4>${tUSD}.00</h4>
               </div>
             </div>
           </div>

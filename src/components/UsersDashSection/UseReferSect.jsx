@@ -4,12 +4,18 @@ import {
 import '../../App.css'
 import { useState } from "react";
 import {CopyToClipboard} from "react-copy-to-clipboard"
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 const UseReferSect = () => {
   const [refer, setRefer] = useState('https://spectrumcapitals.com/register')
   const [copied, setCopied] = useState(false)
 
   const RegLink = 'https://spectrumcapitals.com/register'
+
+  const {currentUser} = useContext(UserContext)
+
+  const tRefer = currentUser?.userData?.totalRefferals
 
   return (
     <div className="bg-dark text-light user-depo-top">
@@ -32,11 +38,11 @@ const UseReferSect = () => {
         </div>
         <div className="col-md-3 p-3 border border-success rounded" style={{backgroundColor: '#2A3042'}}>
           <h4>Total Referral</h4>
-          <h1>0</h1>
+          <h1>{tRefer}</h1>
         </div>
         <div className="col-md-3 p-3 border border-success rounded" style={{backgroundColor: '#2A3042'}}>
           <h4>Active Referral</h4>
-          <h1>0</h1>
+          <h1>{tRefer}</h1>
         </div>
       </div>
       </div>

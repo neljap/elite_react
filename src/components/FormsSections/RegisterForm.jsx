@@ -43,11 +43,12 @@ const RegisterForm = () => {
       const totalBtc = 0
       const totalLtc = 0
       const totalUSD = 0
+      const tBonus = 0
       const verified = false
       const totalWithDraw = 0
       const createdAt = Timestamp.now()
     
-      const userData = {userEmail, userUid, number, fullname, profilePics, totalDeposit, totalRefferals, totalWithDraw, dob, verified, createdAt, totalBtc, totalEth, totalLtc, totalUSD}
+      const userData = {userEmail, userUid, number, fullname, profilePics, totalDeposit, totalRefferals, totalWithDraw, dob, verified, createdAt, totalBtc, totalEth, totalLtc, totalUSD, tBonus}
       const userDocRef = doc(db, 'users', userUid)
       const newData = await setDoc(userDocRef, {userData})
       console.log(newData)
