@@ -7,7 +7,6 @@ const Condetails = () => {
         <div className="col-md-3">
           <div className="bg-light border border-green d-flex justify-content-center align-items-center  rounded" style={{width: '70px', height: '70px'}}>
             <FaPhoneAlt color="green" size={30} />
-            
           </div>
           <p className="text-light">Phone Number</p>
             <p className="text-success">+1 (916) 857-3164</p>
