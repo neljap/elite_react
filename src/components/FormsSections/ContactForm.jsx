@@ -58,13 +58,13 @@ const ContactForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              placeholder="Full Name"
+              placeholder="Email Address"
               className="w-100 rounded p-2 mb-3"
             />
           </div>
         </div>
 
-        <div className="d-flex flex-column w-100">
+        <div className="d-flex flex-column w-1qa  00">
           <label>Subject</label>
           <input
             type="text"
@@ -72,7 +72,7 @@ const ContactForm = () => {
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             required
-            placeholder="Full Name"
+            placeholder="Subject"
             className="w-100 rounded p-2 mb-3"
             
           />
@@ -81,7 +81,7 @@ const ContactForm = () => {
           <label className="font-weight-bold ">Message</label>
           <textarea
             required
-            placeholder="Full Name"
+            placeholder="Messages"
             name="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}

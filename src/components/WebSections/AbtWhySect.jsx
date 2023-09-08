@@ -9,10 +9,10 @@ const AbtWhySect = () => {
         <div className="flex-row d-flex justify-content-between align-items-center flex-wrap-reverse py-3 gap-3">
           <div className="col-md-5 mb-3">
             <h3 className="all-subheaders">
-              Why are so many people investing Digital currencies like BitCoin?
+            Why are so many people investing in STOCKS, BLOCKCHAIN TECHNOLOGY, WEB3, FOREIGN EXCHANGE MARKET?
             </h3>
             <p className="font-text">
-            Since 2015, Spectrum Capitals has been providing access to professional financial services in the cryptocurrency market to enhance your savings. We specialize in trust management of cryptocurrency finances, offering the most advantageous terms, combining high returns with stability. Our strengths lie in profitability, client convenience, and minimal risks. Our experienced traders and advanced strategies ensure substantial capital growth in a brief span, making you a part of the world's largest financial market.
+            Since 2015, Spectrum Capitals has been providing access to professional financial services in the trade market to enhance your savings and investments. We specialize in trust management of various digital finances, offering the most advantageous terms, combining high returns with stability. Our strengths lie in profitability, client convenience, and minimal risks. Our experienced traders and advanced strategies ensure substantial capital growth in a brief span, making you a part of the world's largest financial market.
             </p>
           </div>
           <div className="col-md-5">
