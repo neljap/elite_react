@@ -4,7 +4,7 @@ import "../../App.css";
 import { useState } from "react";
 import { auth, db } from "../../server";
 import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai'
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { Timestamp, doc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 
@@ -51,9 +51,9 @@ const RegisterForm = () => {
       const userData = {userEmail, userUid, number, fullname, profilePics, totalDeposit, totalRefferals, totalWithDraw, dob, verified, createdAt, totalBtc, totalEth, totalLtc, totalUSD, tBonus}
       const userDocRef = doc(db, 'users', userUid)
       const newData = await setDoc(userDocRef, {userData})
-      console.log(newData)
-      console.log(userEmail)
-      console.log(dataUse.user)
+      // console.log(newData)
+      // console.log(userEmail)
+      // console.log(dataUse.user)
       
       toast.success('Registration Successfully, Login to Get Started', {
         position: 'bottom-left'

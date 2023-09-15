@@ -1,11 +1,15 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { Accordion } from "react-bootstrap";
 import { FaTimes, FaBars, FaAddressCard } from "react-icons/fa";
 import "../../App.css";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const UserWallAcc = () => {
   const WallRef = useRef();
+  const {currentUser} = useContext(UserContext)
+
+  const tDepos = currentUser?.userData?.totalDeposit
 
   const showRecord = () => {
     WallRef.current.classList.toggle("record");
@@ -70,7 +74,7 @@ const UserWallAcc = () => {
             </div>
             <div className="col-md-2">
               <h6>Total Deposit</h6>
-              <p className="font-text">$0.00 USD</p>
+              <p className="font-text">${tDepos}.00 USD</p>
             </div>
           </div>
           <div style={{ backgroundColor: "#2A3042" }} className="p-3 rounded">
@@ -88,7 +92,7 @@ const UserWallAcc = () => {
                     <h6>{item.curr}</h6>
                   </div>
                   <div className="col-md-4">
-                    <h4>0.00USD</h4>
+                    <h4>{tDepos}.00USD</h4>
                     <p>0.0000{item.unit}</p>
                   </div>
                   <div className="col-md-2 d-flex gap-2">
@@ -130,7 +134,7 @@ const UserWallAcc = () => {
                 <Accordion.Body>
                   <div className="d-flex justify-content-between align-items-center">
                     <div>
-                      <p>$0.00USD</p>
+                      <p>${tDepos}.00USD</p>
                     </div>
                     <div className="d-flex">
                       <div>

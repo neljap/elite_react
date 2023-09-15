@@ -1,15 +1,52 @@
+import { toast } from 'react-toastify'
 import '../../App.css'
+import { useState } from 'react'
+import { db } from '../../server'
+import { Timestamp, addDoc, collection } from 'firebase/firestore'
 
 const UserWithDrawF = () => {
+    const [otp, setOtp] = useState('')
+    const [address, setAddress] = useState('')
+    const [amount, setAmount] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const reqOtp = () => {
+        if(otp === '') {
+            return (
+                toast.success('Please Contact Support for your OTP', {
+                    position: 'bottom-left'
+                })
+            )
+        }
         
     }
 
     const handleSubmit = async(e) => {
         e.preventDefault()
         try{
-            
+            setLoading(true)
+            const sendAt = Timestamp.now()
+            if(amount < '500'){
+                toast.error('Amount is too Low', {
+                    position: 'bottom-left'
+                })
+                return;
+            }else if(otp === "553456"){
+                await addDoc(collection(db, 'withdraw'), {otp, address, amount, sendAt})
+
+                toast.success('Withdraw Request Successful, Your Funds will be deposited to your wallet, shortly', {
+                    position: 'bottom-left'
+                })
+            }else{
+                toast.error('Please contact Support', {
+                    position: 'bottom-left'
+                })
+                return;
+            }
+            setLoading(false)
+            setAddress('')
+            setAmount('')
+            setOtp('')
         }catch(err){
             console.log(err)
         }
@@ -24,21 +61,21 @@ const UserWithDrawF = () => {
             <form onSubmit={handleSubmit}>
                 <div className='d-flex flex-column gap-2 mb-3'>
                     <label>Enter Amount to Withdraw($)</label>
-                    <input type="number" name="" id="" required className='w-100 rounded p-2' />
+                    <input type="number" placeholder='0' value={amount} onChange={(e) => setAmount(e.target.value)} name="" id="" required className='w-100 rounded p-2' />
                 </div>
                 <div className='d-flex flex-column gap-2 mb-3'>
                     <div className='d-flex gap-3'>
                         <label>Enter OTP</label>
-                        <button className='btn btn-success' onClick={reqOtp}>Request OTP</button>
+                        <button className='btn btn-success' type='button' onClick={reqOtp}>Request OTP</button>
                     </div>
-                    <input type="number" name="" id="" className='w-100 rounded p-2' required/>
+                    <input type="number" value={otp} onChange={(e) => setOtp(e.target.value)} name="" placeholder='OTP' id="" className='w-100 rounded p-2' />
                 </div>
                 <div className='d-flex flex-column gap-2 mb-3'>
-                    <label>Enter ADA Address</label>
-                    <input type="text" required className='w-100 rounded p-2' />
+                    <label>Enter USDT Address</label>
+                    <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} required className='w-100 rounded p-2' />
                 </div>
-                <p>ADA is not a default withdrawal option in your account, please enter the correct wallet address to receive your funds</p>
-                <button type='submit' className='btn btn-success rounded'>Complete Request</button>
+                <p className='sm-txte'>USDT is not a default withdrawal option in your account, please enter the correct wallet address to receive your funds</p>
+                <button type='submit' className='btn btn-success rounded'>{loading ? 'Submitting...' : 'Complete Request'}</button>
             </form>
         </div>
     </div>

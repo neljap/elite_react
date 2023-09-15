@@ -411,6 +411,11 @@ a {
   .switch{
     transform: none;
   }
+  .nav-times-mob{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
 }
 
 /* Contact Form */
@@ -570,4 +575,7 @@ a {
   .all-subheaders{
     font-size: 25px;
   }
+}
+.sm-txte{
+  font-size: 10px;
 }

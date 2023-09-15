@@ -47,6 +47,11 @@ const UserNavSec = () => {
       icon: <FaShoppingBag />,
     },
     {
+      path: "/user/kyc-verify",
+      name: "KYC Verification",
+      icon: <FaThList />,
+    },
+    {
       path: "/user/support",
       name: "Help",
       icon: <FaThList />,
@@ -75,20 +80,20 @@ const UserNavSec = () => {
           <NavLink
             to={item.path}
             key={index}
-            className="link"
-            activeclassName="active"
+            className="text-decoration-none text-white"
+            // activeclassName="active"
             onClick={showNavRef}
           >
-            <div className="icon">{item.icon}</div>
+            {/* <div className="icon">{item.icon}</div> */}
             <div
               //   style={{ display: isOpen ? "block" : "none" }}
-              className="link_text"
+              className="text-decoration-none text-white"
             >
               {item.name}
             </div>
           </NavLink>
         ))}
-        <FaTimes color="white" size={25} onClick={showNavRef} />
+        <FaTimes color="white" className="nav-times-mob" size={25} onClick={showNavRef} />
       </nav>
       <FaBars color="white" size={25} onClick={showNavRef}/>
     </div>
