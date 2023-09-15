@@ -37,6 +37,8 @@ const RegisterForm = () => {
       const userUid = dataUse.user.uid
       const profilePics = ''
       const totalDeposit = 0
+      const totalProfit = 0
+      const totalAmount = 0
       const dob = ''
       const totalRefferals = 0
       const totalEth = 0
@@ -48,7 +50,7 @@ const RegisterForm = () => {
       const totalWithDraw = 0
       const createdAt = Timestamp.now()
     
-      const userData = {userEmail, userUid, number, fullname, profilePics, totalDeposit, totalRefferals, totalWithDraw, dob, verified, createdAt, totalBtc, totalEth, totalLtc, totalUSD, tBonus}
+      const userData = {userEmail, userUid, number, fullname, profilePics, totalDeposit, totalRefferals, totalWithDraw, dob, verified, createdAt, totalBtc, totalEth, totalLtc, totalUSD, tBonus, totalAmount, totalProfit}
       const userDocRef = doc(db, 'users', userUid)
       const newData = await setDoc(userDocRef, {userData})
       // console.log(newData)
