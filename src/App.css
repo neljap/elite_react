@@ -534,7 +534,7 @@ a {
   width: 500px;
 }
 @media screen and (max-width: 767px) {
-  .hero-amm-container > .image > .img{
+  .hero-amm-container .image .img{
     height: 300px;
   }
 }
