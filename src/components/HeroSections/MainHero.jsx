@@ -7,9 +7,9 @@ const MainHero = () => {
   return (
     <div className="mainhero-container w-100">
         <Navbar />
-        <div className="container d-flex justify-content-between align-items-center flex-wrap pt-5 md:pt-3 gap-3">
-          <div className="col-md-5">
-            <h1 className="text-white font-bold all-headers">
+        <div className="hero-amm-container container">
+          <div className="details">
+          <h1 className="text-white font-bold all-headers">
               Invest Your <br /> Money With Higher Return
             </h1>
             <p className="text-white text-semibold">
@@ -22,14 +22,11 @@ const MainHero = () => {
               </Link>
             </button>
           </div>
-          <div className="col-md-5">
-            {/* <div className="rgt-bg-img w-100"></div> */}
-            <div className="left-img-gg">
-              <img src={HeroImg} alt="image" className="heroimg-item rounded" />
-            </div>
-            
+          <div className="image">
+            <img src={HeroImg} alt="image" className="w-100 rounded"/>
           </div>
         </div>
+        
     </div>
   );
 };
