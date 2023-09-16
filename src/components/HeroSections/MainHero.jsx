@@ -1,6 +1,6 @@
 import Navbar from "../Layout/Navbar";
 import "../../App.css";
-import HeroImg from "../../assests/heroTre.png";
+import HeroImg from "../../assests/heroTr.jpg";
 import { Link } from "react-router-dom";
 
 const MainHero = () => {
@@ -23,7 +23,11 @@ const MainHero = () => {
             </button>
           </div>
           <div className="col-md-5">
-            <img src={HeroImg} alt="image" className="heroimg-item rounded" />
+            {/* <div className="rgt-bg-img w-100"></div> */}
+            <div className="left-img-gg">
+              <img src={HeroImg} alt="image" className="heroimg-item rounded" />
+            </div>
+            
           </div>
         </div>
     </div>

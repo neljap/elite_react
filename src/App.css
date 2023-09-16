@@ -505,6 +505,20 @@ a {
   width: 100%;
   /* height: 100%; */
 }
+.left-img-gg{
+  width: 500px;
+}
+@media screen and (max-width: 767px) {
+  .left-img-gg{
+    width: 300px;
+  }
+}
+.rgt-bg-img{
+  /* width: 100%; */
+  background-image: url('../src/assests/heroTr.jpg');
+  background-position: center;
+  background-size: cover;
+}
 .faqacc{
   width: 80%;
 }
