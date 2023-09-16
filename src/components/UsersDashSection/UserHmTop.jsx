@@ -1,4 +1,3 @@
-// import { getInfo } from "../../store-service/store"
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
@@ -10,7 +9,7 @@ const UserHmTop = () => {
   return (
     <div className="row gap-3 mx-auto my-3">
       <div className="col-md-5 p-3 border border-success shadow rounded">
-        <p>Total Funds</p>
+        <p>Accout Balance</p>
         <h2>${tFunds}.00</h2>
         <div className="d-flex gap-2">
           <button className="btn btn-success">

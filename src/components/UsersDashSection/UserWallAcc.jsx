@@ -99,7 +99,7 @@ const UserWallAcc = () => {
                   </div>
                   <div className="col-md-4">
                     <h4>{tDepos}.00USD</h4>
-                    <p>0.0000USD</p>
+                    
                   </div>
                   <div className="col-md-2 d-flex gap-2">
                     <div>
@@ -131,7 +131,7 @@ const UserWallAcc = () => {
                 </div>
                 <div className="col-md-4">
                   <h4>{tBtc}.00USD</h4>
-                  <p>0.0000BTC</p>
+            
                 </div>
                 <div className="col-md-2 d-flex gap-2">
                   <div>
@@ -163,7 +163,6 @@ const UserWallAcc = () => {
               </div>
               <div className="col-md-4">
                 <h4>{tEth}.00USD</h4>
-                <p>0.0000ETH</p>
               </div>
               <div className="col-md-2 d-flex gap-2">
                 <div>
@@ -195,7 +194,7 @@ const UserWallAcc = () => {
           </div>
           <div className="col-md-4">
             <h4>{tLtc}.00USD</h4>
-            <p>0.0000LTC</p>
+        
           </div>
           <div className="col-md-2 d-flex gap-2">
             <div>

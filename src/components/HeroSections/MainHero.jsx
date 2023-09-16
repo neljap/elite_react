@@ -1,6 +1,6 @@
 import Navbar from '../Layout/Navbar'
 import '../../App.css'
-import HeroImg from '../../assests/dow.png'
+import HeroImg from '../../assests/heroTr.jpeg'
 import { Link } from 'react-router-dom'
 
 const MainHero = () => {
@@ -21,7 +21,7 @@ const MainHero = () => {
                 </button>
             </div>
             <div className='col-md-5'>
-                <img src={HeroImg} alt="image" className='heroimg-item' />
+                <img src={HeroImg} alt="image" className='heroimg-item rounded' />
             </div>
         </div> 
         </div>

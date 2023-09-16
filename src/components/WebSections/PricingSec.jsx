@@ -68,9 +68,7 @@ const PricingSec = () => {
 						<div class="pricing-price">
 							
 						</div>
-						<Link to='/register'className=" text-decoration-none price_btn">
-							Select Package
-						</Link>
+						
 					</div>
 				</div>
 			</div>
@@ -124,9 +122,7 @@ const PricingSec = () => {
 						<div class="pricing-price">
 							
 						</div>
-						<Link to='/register'className=" text-decoration-none price_btn">
-							Select Package
-						</Link>
+						
 						
 					</div>
 				</div>
@@ -181,9 +177,7 @@ const PricingSec = () => {
 						<div class="pricing-price">
 							
 						</div>
-						<Link to='/register'className=" text-decoration-none price_btn">
-							Select Package
-						</Link>
+						
 					</div>
 				</div>
 			</div>
@@ -236,9 +230,7 @@ const PricingSec = () => {
 						<div class="pricing-price">
 							
 						</div>
-						<Link to='/register'className=" text-decoration-none price_btn">
-							Select Package
-						</Link>
+						
 					</div>
 				</div>
 			</div>
@@ -251,7 +243,7 @@ const PricingSec = () => {
 								<strong className='text-success text-3xl h2 font-extrabold'>$20000</strong>
 								<small className='text-success h5'>minimum</small>
 							</div>
-							<span>/14 days</span>
+							<span>/20 days</span>
 						</div>
 						<div>
 							<div className='d-flex justify-content-between align-items-center'>
@@ -292,9 +284,7 @@ const PricingSec = () => {
 						<div class="pricing-price">
 							
 						</div>
-						<Link to='/register'className=" text-decoration-none price_btn">
-							Select Package
-						</Link>
+						
 					</div>
 				</div>
 			</div>	  
