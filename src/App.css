@@ -501,7 +501,9 @@ a {
 }
 
 .heroimg-item{
+  object-fit: cover;
   width: 100%;
+  /* height: 100%; */
 }
 .faqacc{
   width: 80%;
