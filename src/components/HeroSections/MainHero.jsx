@@ -23,7 +23,7 @@ const MainHero = () => {
             </button>
           </div>
           <div className="image">
-            <img src={HeroImg} alt="image" className="w-100 rounded"/>
+            <img src={HeroImg} alt="image" className="w-100 rounded img"/>
           </div>
         </div>
         
