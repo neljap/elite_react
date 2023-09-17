@@ -10,11 +10,11 @@ const MainHero = () => {
         <div className="hero-amm-container container">
           <div className="details">
           <h1 className="text-white font-bold all-headers">
-              Invest Your <br /> Money With Higher Return
+          Invest Your Capitals with Higher Returns
             </h1>
             <p className="text-white text-semibold">
-              Anyone can invest money to different currency to increase their
-              earnings by the help of Bitrader through online.
+            We offer the best technology, education and personal support to help you achieve your business and financial goals.
+
             </p>
             <button className="btn btn-success">
               <Link to="/register" className="text-decoration-none text-white">
