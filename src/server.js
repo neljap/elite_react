@@ -15,13 +15,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDNzmyPGWAGhC_1ugk-yGGExJg7EnoN-bE",
-  authDomain: "elite-25ede.firebaseapp.com",
-  projectId: "elite-25ede",
-  storageBucket: "elite-25ede.appspot.com",
-  messagingSenderId: "118731321843",
-  appId: "1:118731321843:web:bdacd58eb9fb0f43622286",
-  measurementId: "G-FWKTWKHZ1Q" 
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
 // InitializeApp
@@ -32,9 +32,9 @@ export const storage = getStorage(app)
 
 const provider = new GoogleAuthProvider();
 
-provider.setCustomParameters({
-  prompt: "select_account",
-});
+export const gProvider = provider.setCustomParameters({prompt: "select_account"})
+// export const googleSignInWithPopup = async () => await signInWithPopup(provider)
+
 
 // Google Sign In
 export const signInWithGoogle = () => signInWithPopup(auth, provider);

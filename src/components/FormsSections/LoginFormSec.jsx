@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { getDoc, doc } from "firebase/firestore";
-import { auth } from "../../server";
-import { signInWithEmailAndPassword } from "firebase/auth"; 
+import { auth, gProvider, googleSignInWithPopup } from "../../server";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"; 
 import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai'
 import {toast} from 'react-toastify'
 import { db } from "../../server";
@@ -33,29 +33,27 @@ const LoginFormSec = () => {
 }, [currentUser])
 
   const navigate = useNavigate()
-  // const dispatch = useDispatch()
 
-  const googleSignInHandler = async() => {
-    try{
-      const res = await signInWithGoogle()
-    const dInfoUid = res.user.uid
-      const userDocRef = doc(db, 'users', dInfoUid)
-      const userDocSnap = await getDoc(userDocRef)
-      if(userDocSnap.exists()){
-        const response = userDocSnap.data()
-        localStorage.setItem('user', JSON.stringify(response))
-        setCurrentUser(response)
-      }
-      setEmail('')
-      setPassword('')
-      toast.success('Login Successfully', {
-        position: 'bottom-left'
-      })
-      navigate('/user/home')
-    }catch(err){
-      throw new Error(err)
-    }
-    
+  const handleSignInwithGoogle = async() => {
+   const result = await signInWithPopup(auth, gProvider)
+   const resUid = result.user.uid
+   const docId = doc(db, 'users', resUid)
+   const docSnapSnot = await getDoc(docId)
+   console.log(docSnapSnot.exists())
+   if(docSnapSnot.exists()){
+    const response = docSnapSnot.data()
+    localStorage.setItem('user', JSON.stringify(response))
+    setCurrentUser(response)
+    toast.success("Login Successfully", {
+      position: "bottom-left"
+    })
+   }else{
+    toast.error('Your Data does not exist, Please Register', {
+      position: 'bottom-left'
+    })
+    return;
+   }
+   navigate('/user/home')
   }
 
   const handleSubmit = async(e) => {
@@ -127,7 +125,7 @@ const LoginFormSec = () => {
             <Button variant="success" type="submit" className="w-100 mb-3" >
              {loading ? (<>Logining...</>) : (<>Login</>) }
             </Button>
-            {/* <Button variant="primary" type="button" className="w-100" onClick={googleSignInHandler}>Sign In With Google</Button> */}
+            <Button variant="primary" type="button" className="w-100" onClick={handleSignInwithGoogle}>Sign In With Google</Button>
             <div className="d-flex justify-content-between align-items-center py-3">
               <Link to="/register" className="text-decoration-none text-white">
                 Don't have an account?

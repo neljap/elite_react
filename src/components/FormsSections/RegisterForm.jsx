@@ -2,11 +2,14 @@ import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "../../App.css";
 import { useState } from "react";
-import { auth, db } from "../../server";
+import { auth, db, gProvider } from "../../server";
 import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai'
-import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
-import { Timestamp, doc, setDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword, sendEmailVerification, signInWithPopup } from "firebase/auth";
+import { Timestamp, doc, getDoc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
+import ReCaptha from "./ReCaptha";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 const RegisterForm = () => {
   const [email, setEmail] = useState('')
@@ -18,19 +21,57 @@ const RegisterForm = () => {
   const [loading, setLoading] = useState(false)
   const [visible, setVisble] = useState(false)
   const [showPass, setShowPass] = useState(false)
+  const [checked, setChecked] = useState(false)
+  const [isRecapVerify, setIsRecapVerify] = useState(false)
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const {setCurrentUser} = useContext(UserContext);
+
+  const handleRecapChange = (value) => {
+    setIsRecapVerify(true)
+  }
+
+  // google signInWithPopup
+  const handleSignInwithGoogle = async() => {
+    const result = await signInWithPopup(auth, gProvider)
+    const resUid = result.user.uid
+    const docId = doc(db, 'users', resUid)
+    const docSnapSnot = await getDoc(docId)
+    console.log(docSnapSnot.exists())
+    if(docSnapSnot.exists()){
+     const response = docSnapSnot.data()
+     localStorage.setItem('user', JSON.stringify(response))
+     setCurrentUser(response)
+     toast.success("Login Successfully", {
+       position: "bottom-left"
+     })
+    }else{
+     toast.error('Your Data does not exist, Please Register', {
+       position: 'bottom-left'
+     })
+     return;
+    }
+    navigate('/user/home')
+   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // if (password !== passwordConfirm) {
-    //   alert("Password do not match");
-    //   return;
-    // }
+    
 
     try {
-      setLoading(true)
+      if (password !== passwordConfirm) {
+        toast.error('Password do not match, Try Again', {
+          position: "bottom-left"
+        })
+        return;
+      }else if(!isRecapVerify){
+        toast.error('Verify that you are not a bot', {
+          position: "bottom-left"
+        })
+      }else{
+        setLoading(true)
       const dataUse = await createUserWithEmailAndPassword(auth, email, password)
 
       const userEmail = dataUse.user.email
@@ -53,21 +94,13 @@ const RegisterForm = () => {
       const userData = {userEmail, userUid, number, fullname, profilePics, totalDeposit, totalRefferals, totalWithDraw, dob, verified, createdAt, totalBtc, totalEth, totalLtc, totalUSD, tBonus, totalAmount, totalProfit}
       const userDocRef = doc(db, 'users', userUid)
       const newData = await setDoc(userDocRef, {userData})
-      // console.log(newData)
-      // console.log(userEmail)
-      // console.log(dataUse.user)
-      
       toast.success('Registration Successfully, Login to Get Started', {
         position: 'bottom-left'
       })
       navigate('/login')
-      // setFormData(defaultData);
-      // console.log(data);
-      // toast.success("User Registered Successfully", {
-      //   position: "bottom-left",
-      // });
+      }
     } catch (error) {
-      console.log(error)
+      console.log(error.code)
     }
   };
 
@@ -83,7 +116,7 @@ const RegisterForm = () => {
                 type="text"
                 value={fullname}
                 name="fullname"
-                // required
+                required
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="Enter your Full Name"
                 className="w-100 rounded shadow p-1"
@@ -96,7 +129,7 @@ const RegisterForm = () => {
                 type="email"
                 value={email}
                 name="email"
-                // required
+                required
                 placeholder="Enter your email address"
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-100 rounded shadow p-1"
@@ -109,7 +142,7 @@ const RegisterForm = () => {
               <input
                 type="text"
                 name="number"
-                // required
+                required
                 value={number}
                 placeholder="Enter your Phone Number"
                 onChange={(e) => setNumber(e.target.value)}
@@ -135,7 +168,7 @@ const RegisterForm = () => {
                 type={visible ? 'text' : 'password'}
                 name="password"
                 value={password}
-                // required
+                required
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your Password"
                 className="w-100 rounded shadow p-1"
@@ -169,25 +202,27 @@ const RegisterForm = () => {
               
             </div>
           </div>
-
+                <Form.Check type="checkbox" label="I agree to the terms and conditions of Spectrum Capitals Limited" required={true} onChange={(e) => setChecked(e.target.checked)} />
+                <ReCaptha onChange={handleRecapChange} />
           <button
             variant="success"
             type="submit"
-            className="w-100 mb-3 btn btn-success"
+            className="w-100 my-3 btn btn-success"
           >
             {loading ? (<>Signing Up...</>):(
               <>Sign Up</>
             )}
             {/* Sign Up */}
           </button>
-          {/* <button
+          <button
             variant="primary"
             type="button"
             className="w-100 btn btn-primary"
-          onClick={googleProviderHandler}>
+          onClick={handleSignInwithGoogle}
+          >
           
             Sign In With Google
-          </button> */}
+          </button>
           <div className="d-flex justify-content-between align-items-center py-3">
             <Link to="/login" className="text-decoration-none text-white">
               Already have an account?
