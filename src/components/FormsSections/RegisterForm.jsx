@@ -72,10 +72,15 @@ const RegisterForm = () => {
         })
       }else{
         setLoading(true)
-      const dataUse = await createUserWithEmailAndPassword(auth, email, password)
-
-      const userEmail = dataUse.user.email
-      const userUid = dataUse.user.uid
+      const {user} = await createUserWithEmailAndPassword(auth, email, password)
+      if(user){
+        const dlog = await sendEmailVerification(auth.currentUser)
+        console.log(dlog)
+      }else{
+        console.log("done")
+      }
+      const userEmail = user.email
+      const userUid = user.uid
       const profilePics = ''
       const totalDeposit = 0
       const totalProfit = 0

@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { getDoc, doc } from "firebase/firestore";
 import { auth, gProvider, googleSignInWithPopup } from "../../server";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"; 
+import { signInWithEmailAndPassword, signInWithPopup, sendEmailVerification } from "firebase/auth"; 
 import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai'
 import {toast} from 'react-toastify'
 import { db } from "../../server";
@@ -63,10 +63,11 @@ const LoginFormSec = () => {
 
     try{
       setLoading(true)
-      const authInfo = await signInWithEmailAndPassword(auth, email, password)
-      const dataInfo = authInfo.user
-      setCurrentUser(dataInfo)
-      const dInfoUid = authInfo.user.uid
+      const {user} = await signInWithEmailAndPassword(auth, email, password)
+      
+      setCurrentUser(user)
+      
+      const dInfoUid = user.uid
       const userDocRef = doc(db, 'users', dInfoUid)
       const userDocSnap = await getDoc(userDocRef)
       if(userDocSnap.id){
