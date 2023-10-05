@@ -1,6 +1,6 @@
 import Logo from "../../assests/logosc.png"
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
-import {FaFacebook, FaTwitter, FaGoogle, FaInstagram, FaLinkedin, FaGithub} from 'react-icons/fa'
+import {FaFacebook, FaTwitter, FaGoogle, FaInstagram, FaLinkedin, FaGithub, FaHome, FaPhone, FaEnvelope} from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 
 export default function FooterS() {
@@ -128,17 +128,19 @@ export default function FooterS() {
 
             <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-0'>
               <h6 className='text-uppercase fw-bold mb-4 text-white'>Contact</h6>
-              <p className='text-white font-text'>
-                <MDBIcon color='secondary' icon='home' className='me-2' />
-                Aberdeen Avenue, California, Santa Rosa, US
-              </p>
-              <p className='text-white font-text'>
-                <MDBIcon color='secondary' icon='envelope' className='me-3' />
-                support@spectrumcapitals.com
-              </p>
-              <p className='text-white'>
-                <MDBIcon color='secondary' icon='phone' className='me-3' />+1 916 857 3164
-              </p>
+              <div>
+                <div className="d-flex justify-content-start align-items-center gap-2">
+                  <FaHome color="white" size={40}  style={{marginBottom: "10px"}}/> <p className="text-white">Aberdeen Avenue, Capfornia, Santa Rosa, US</p>
+                </div>
+                <div className="d-flex justify-content-start align-items-center gap-2">
+                  <FaEnvelope color="white" size={40}  style={{marginBottom: "10px"}}/><p className="text-white">support@spectrumcapitals.com</p>
+                </div>
+                <div className="d-flex justify-content-start align-items-center gap-2">
+                  <FaPhone color="white" size={20} style={{marginBottom: "10px"}}/>
+                  <p className="text-white">+1 916 857 3164</p>
+                </div>
+                
+              </div>
             </MDBCol>
           </MDBRow>
         </MDBContainer>

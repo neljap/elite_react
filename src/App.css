@@ -116,8 +116,8 @@ h2{
   right: 0;
   z-index: -1;
 }
-.price-head {
-}
+/* .price-head {
+} */
 .price-head h2 {
   margin-bottom: 20px;
   font-size: 26px;
@@ -128,8 +128,8 @@ h2{
   margin-top: 30px;
   margin-bottom: 5px;
 }
-.price-head span {
-}
+/* .price-head span {
+} */
 
 .single-pricing ul {
   list-style: none;
@@ -149,8 +149,8 @@ h2{
   line-height: 20px;
   margin-right: 6px;
 }
-.pricing-price {
-}
+/* .pricing-price {
+} */
 
 .price_btn {
   background: rgb(0, 208, 10);
