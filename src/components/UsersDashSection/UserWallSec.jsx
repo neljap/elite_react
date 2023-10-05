@@ -11,7 +11,7 @@ import { UserContext } from "../../context/UserContext";
 const UserWallSec = () => {
   const { currentUser } = useContext(UserContext);
 
-  const tBal = currentUser?.userData?.totalDeposit
+  const tBal = currentUser?.userData?.totalProfit
   const tAmount = currentUser?.userData?.totalAmount
   const tEth = currentUser?.userData?.totalEth
   const tBtc = currentUser?.userData?.totalBtc 
