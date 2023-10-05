@@ -51,27 +51,26 @@ const RegisterForm = () => {
        position: 'bottom-left'
      })
      return;
+     setLoading(false)
     }
     navigate('/user/home')
    }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    
-
     try {
+      setLoading(true)
       if (password !== passwordConfirm) {
         toast.error('Password do not match, Try Again', {
           position: "bottom-left"
         })
-        return;
+        setLoading(false)
       }else if(!isRecapVerify){
         toast.error('Verify that you are not a bot', {
           position: "bottom-left"
         })
+        setLoading(false)
       }else{
-        setLoading(true)
       const {user} = await createUserWithEmailAndPassword(auth, email, password)
       if(user){
         const dlog = await sendEmailVerification(auth.currentUser)
@@ -103,6 +102,7 @@ const RegisterForm = () => {
         position: 'bottom-left'
       })
       navigate('/login')
+      setLoading(false)
       }
     } catch (error) {
       console.log(error.code)

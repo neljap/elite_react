@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const UserHmTop = () => {
   const {currentUser} = useContext(UserContext)
 
-  const tFunds = currentUser?.userData?.totalDeposit
+  const tFunds = currentUser?.userData?.totalAmount
   return (
     <div className="row gap-3 mx-auto my-3">
       <div className="col-md-5 p-3 border border-success shadow rounded">

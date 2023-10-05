@@ -31,7 +31,7 @@ AOS.init({
 function App() {
   return (
     <BrowserRouter>
-      <div style={{position: 'fixed', bottom: '25%', right: '5%', zIndex: '10', backgroundColor: 'green', padding: '10px', borderRadius: '50%'}}>
+      <div style={{position: 'fixed', bottom: '7%', left: '5%', zIndex: '10', backgroundColor: 'green', padding: '10px', borderRadius: '50%'}}>
         <Link to={WhatsLinkUs} target="_blank" className="text-decoration-none">
           <FaWhatsapp size={35} color="white" />
         </Link>

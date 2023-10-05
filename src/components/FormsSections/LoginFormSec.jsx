@@ -89,14 +89,17 @@ const LoginFormSec = () => {
         toast.error('User Not Found', {
           position: 'bottom-left'
         })
+        setLoading(false)
       }else if (err.code === 'auth/network-request-failed'){
         toast.error('No Network, Please Check your Internet Connection', {
           position: 'bottom-left'
         })
+        setLoading(false)
       }else if (err.code === 'auth/wrong-password'){
         toast.error('Incorrect Password', {
           position: 'bottom-left'
         })
+        setLoading(false)
       }
     }
   }

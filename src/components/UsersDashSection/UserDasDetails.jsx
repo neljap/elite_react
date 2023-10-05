@@ -4,9 +4,7 @@ import {AiOutlineGift} from 'react-icons/ai'
 import {BiMoneyWithdraw} from 'react-icons/bi'
 import {BsPersonAdd} from 'react-icons/bs'
 import {RiRefund2Fill} from 'react-icons/ri'
-import {AiOutlineAccountBook} from 'react-icons/ai'
 import "../../App.css";
-import { auth } from "../../server";
 import { FaWallet } from "react-icons/fa";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
@@ -18,7 +16,7 @@ const UserDasDetails = () => {
   const tWithDraw = currentUser?.userData?.totalWithdraw
   const tRefer = currentUser?.userData?.totalRefferals
   const tBonus = currentUser?.userData?.tBonus
-  const tProfit = currentUser?.userData?.totalAmount
+  const tProfit = currentUser?.userData?.totalProfit
   const tAmount = currentUser?.userData?.totalAmount
 
   return (

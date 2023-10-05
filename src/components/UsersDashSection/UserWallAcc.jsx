@@ -23,32 +23,32 @@ const UserWallAcc = () => {
   };
 
   const WallDetails = [
+    // {
+    //   id: 1,
+    //   icon: require("../../assests/dollar.png"),
+    //   curr: "Dollar (USD)",
+    //   unit: "USD",
+    // },
     {
       id: 1,
-      icon: require("../../assests/dollar.png"),
-      curr: "Dollar (USD)",
-      unit: "USD",
-    },
-    {
-      id: 2,
       icon: require("../../assests/bitcoin.png"),
       curr: "Bitcoin (BTC)",
       unit: "BTC",
     },
     {
-      id: 3,
+      id: 2,
       icon: require("../../assests/ethereum.png"),
       curr: "Ethereum (ETH)",
       unit: "ETH",
     },
     {
-      id: 4,
+      id: 3,
       icon: require("../../assests/dollar.png"),
       curr: "Tether (USDT)",
       unit: "USDT",
     },
     {
-      id: 5,
+      id: 4,
       icon: require("../../assests/litecoin.png"),
       curr: "Litecoin (LTC)",
       unit: "LTC",
@@ -86,7 +86,7 @@ const UserWallAcc = () => {
           </div>
           <div style={{ backgroundColor: "#2A3042" }} className="p-3 rounded">
 
-                <div className="row mb-2">
+                {/* <div className="row mb-2">
                   <div className="col-md-2">
                     <img
                       src={DolUSD}
@@ -117,7 +117,7 @@ const UserWallAcc = () => {
                       </button>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <div className="row mb-2">
                 <div className="col-md-2">
                   <img
@@ -218,7 +218,7 @@ const UserWallAcc = () => {
         </div>
         
         <div className="my-3 user-wall-mob">
-            <Accordion className="w-100 bg-dark">
+            {/* <Accordion className="w-100 bg-dark">
               <Accordion.Item eventKey="0" className="bg-dark text-light">
                 <Accordion.Header className="bg-dark text-light">
                   <div className="d-flex justify-content-center align-items-center gap-2">
@@ -254,7 +254,7 @@ const UserWallAcc = () => {
                   </div>
                 </Accordion.Body>
               </Accordion.Item>
-            </Accordion>
+            </Accordion> */}
             <Accordion className="w-100 bg-dark">
             <Accordion.Item eventKey="0" className="bg-dark text-light">
               <Accordion.Header className="bg-dark text-light">

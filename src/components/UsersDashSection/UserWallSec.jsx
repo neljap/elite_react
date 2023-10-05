@@ -12,6 +12,7 @@ const UserWallSec = () => {
   const { currentUser } = useContext(UserContext);
 
   const tBal = currentUser?.userData?.totalDeposit
+  const tAmount = currentUser?.userData?.totalAmount
   const tEth = currentUser?.userData?.totalEth
   const tBtc = currentUser?.userData?.totalBtc 
   const tLtc = currentUser?.userData?.totalLtc
@@ -30,7 +31,7 @@ const UserWallSec = () => {
           <div className="d-flex justify-content-between align-items-center p-2">
             <div>
               <h4>Account Balance</h4>
-              <h2>${tBal}.00</h2>
+              <h2>${tAmount}.00</h2>
             </div>
             <div>
               <h4>Total Profit</h4>
@@ -90,18 +91,6 @@ const UserWallSec = () => {
                 <h6>Litecoin Wallet</h6>
                 <h5>0.0000LTC</h5>
                 <h4>${tLtc}.00</h4>
-              </div>
-            </div>
-            <div className="d-flex justify-content-center align-items-center gap-2 border border-success p-2 rounded" style={{width: '200px', height: '120px'}}>
-              <img
-                src={DollIcon}
-                alt=""
-                style={{ width: "50px", height: "50px" }}
-              />
-              <div>
-                <h6>USDC Wallet</h6>
-                <h5>0.0000USDC</h5>
-                <h4>${tUSD}.00</h4>
               </div>
             </div>
           </div>
