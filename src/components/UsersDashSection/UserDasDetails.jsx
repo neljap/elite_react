@@ -71,9 +71,9 @@ const UserDasDetails = () => {
           <h5>TOTAL DEPOSIT</h5> <RiRefund2Fill size={40} />
         </div>
         <h2>${tBal}.00</h2>
-        <Link to="/user/deposit" className="text-success text-decoration-none">
+        {/* <Link to="/user/deposit" className="text-success text-decoration-none">
           Deposit - Transfer
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

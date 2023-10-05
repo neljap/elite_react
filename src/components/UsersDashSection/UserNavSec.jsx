@@ -9,6 +9,7 @@ import {
   FaShoppingBag,
   FaUserAlt,
   FaRegChartBar,
+  FaWallet,
   FaTh,
 } from "react-icons/fa";
 import "../../App.css";
@@ -31,6 +32,11 @@ const UserNavSec = () => {
       name: "Overview",
       icon: <FaUserAlt />,
     },
+    {
+      path: "/user/my-wallet",
+      name: "Wallet",
+      icon: <FaWallet />
+    },
     // {
     //   path: "/user/investment",
     //   name: "Investment",
@@ -41,11 +47,11 @@ const UserNavSec = () => {
       name: "Refferals",
       icon: <FaCommentAlt />,
     },
-    {
-      path: "/user/settings",
-      name: "Settings",
-      icon: <FaShoppingBag />,
-    },
+    // {
+    //   path: "/user/settings",
+    //   name: "Settings",
+    //   icon: <FaShoppingBag />,
+    // },
     {
       path: "/user/kyc-verify",
       name: "KYC Verification",
