@@ -65,7 +65,6 @@ const UserWallSec = () => {
               />
               <div>
                 <h6>Bitcoin Wallet</h6>
-                <h5>0.0000BTC</h5>
                 <h4>${tBtc}.00</h4>
               </div>
             </div>
@@ -77,7 +76,6 @@ const UserWallSec = () => {
               />
               <div>
                 <h6>Ethereum Wallet</h6>
-                <h5>0.0000ETH</h5>
                 <h4>${tEth}.00</h4>
               </div>
             </div>
@@ -89,7 +87,6 @@ const UserWallSec = () => {
               />
               <div>
                 <h6>Litecoin Wallet</h6>
-                <h5>0.0000LTC</h5>
                 <h4>${tLtc}.00</h4>
               </div>
             </div>

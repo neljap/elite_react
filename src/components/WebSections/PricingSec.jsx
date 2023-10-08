@@ -66,7 +66,9 @@ const PricingSec = () => {
 						</div>
 						</div>
 						<div class="pricing-price">
-							
+							<button className='btn btn-success btn-lg'>
+								<Link to="/register" className='text-decoration-none text-white'>Get Started</Link>
+							</button>
 						</div>
 						
 					</div>
@@ -120,7 +122,9 @@ const PricingSec = () => {
 						</div>
 						</div>
 						<div class="pricing-price">
-							
+							<button className='btn btn-success btn-lg'>
+								<Link to="/register" className='text-decoration-none text-white'>Get Started</Link>
+							</button>
 						</div>
 						
 						
@@ -175,7 +179,9 @@ const PricingSec = () => {
 						</div>
 						</div>
 						<div class="pricing-price">
-							
+							<button className='btn btn-success btn-lg'>
+								<Link to="/register" className='text-decoration-none text-white'>Get Started</Link>
+							</button>
 						</div>
 						
 					</div>
@@ -228,7 +234,9 @@ const PricingSec = () => {
 						</div>
 						
 						<div class="pricing-price">
-							
+							<button className='btn btn-success btn-lg'>
+								<Link to="/register" className='text-decoration-none text-white'>Get Started</Link>
+							</button>
 						</div>
 						
 					</div>
@@ -282,7 +290,9 @@ const PricingSec = () => {
 						</div>
 						</div>
 						<div class="pricing-price">
-							
+							<button className='btn btn-success btn-lg'>
+								<Link to="/register" className='text-decoration-none text-white'>Get Started</Link>
+							</button>
 						</div>
 						
 					</div>
