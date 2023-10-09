@@ -65,9 +65,6 @@ const LoginFormSec = () => {
       setLoading(true)
       const {user} = await signInWithEmailAndPassword(auth, email, password)
 
-      if(user){
-        sendEmailVerification(auth).then(() => console.log("Email Sent")).catch((err) => console.log(err))
-      }
       
       setCurrentUser(user)
       
