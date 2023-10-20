@@ -46,11 +46,11 @@ const Sidebar = ({children}) => {
       name: "Refferals",
       icon: <FaCommentAlt />,
     },
-    // {
-    //   path: "/user/settings",
-    //   name: "Settings",
-    //   icon: <FaShoppingBag />,
-    // },
+    {
+      path: "/user/settings",
+      name: "Settings",
+      icon: <FaShoppingBag />,
+    },
     {
       path: "/user/kyc-verify",
       name: "KYC Verification",

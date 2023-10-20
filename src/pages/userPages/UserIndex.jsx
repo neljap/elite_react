@@ -17,6 +17,7 @@ import UserWithDrawF from "./UserWithDrawF";
 import UserPayData from "./UserPayData";
 import ProtectedRoutes from "../../components/Protect/ProtectedRoutes";
 import UserPayProofPg from "./UserPayProofPg";
+import UserWdwSuccess from "./UserWdwSuccess";
 
 const UserIndex = () => {
   return (
@@ -36,6 +37,7 @@ const UserIndex = () => {
           <Route path="payment/:wallet/:amount" element={<UserPayData />} />
           <Route path="withdraw" element={<UserWithdrawPg />} />
           <Route path="withdraw-funds" element={<UserWithDrawF />} />
+          <Route path="withdraw-success" element={<UserWdwSuccess />} />
           <Route path="coin-swap" element={<UserSwapPg />} />
           <Route path="settings" element={<UserSettings />} />
           <Route path="kyc-verify" element={<UserKycVerify />} />

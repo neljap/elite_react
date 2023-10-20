@@ -3,13 +3,15 @@ import "../../App.css";
 import { useState } from "react";
 import { db } from "../../server";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const UserWithDrawF = () => {
-  const [otp, setOtp] = useState(0);
+  const [otp, setOtp] = useState("");
   const [address, setAddress] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate()
   const reqOtp = () => {
     if (otp === "") {
       return toast.success("Please Contact Support for your OTP", {
@@ -27,12 +29,12 @@ const UserWithDrawF = () => {
         toast.error("Amount is too Low", {
           position: "bottom-left",
         });
-        return;
         setLoading(false);
         setAddress("");
-        setAmount(0);
-        setOtp(0);
-      } else if (otp === 553456) {
+        setAmount("");
+        setOtp("");
+        return;
+      } else if (otp === "553456") {
         await addDoc(collection(db, "withdraw"), {
           otp,
           address,
@@ -50,19 +52,21 @@ const UserWithDrawF = () => {
         setAddress("");
         setAmount(0);
         setOtp(0);
-      } else {
+        navigate("/user/withdraw-success")
+      } 
+      else {
         toast.error("Please contact Support", {
           position: "bottom-left",
         });
         setLoading(false);
         setAddress("");
-        setAmount(0);
-        setOtp(0);
+        setAmount("");
+        setOtp("");
       }
       setLoading(false);
       setAddress("");
-      setAmount(0);
-      setOtp(0);
+      setAmount("");
+      setOtp("");
     } catch (err) {
       console.log(err);
     }
@@ -92,7 +96,7 @@ const UserWithDrawF = () => {
               <button
                 className="btn btn-success"
                 type="button"
-                onClick={reqOtp}
+                onClick={() => toast.info("Contact Support for your OTP", {position: "bottom-left"})}
               >
                 Request OTP
               </button>
@@ -103,6 +107,7 @@ const UserWithDrawF = () => {
               onChange={(e) => setOtp(e.target.value)}
               name=""
               placeholder="OTP"
+              required
               id=""
               className="w-100 rounded p-2"
             />

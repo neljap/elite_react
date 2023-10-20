@@ -3,7 +3,7 @@ import KycDa from "../../assests/kyc.jpg";
 
 const UserKycDa = () => {
   return (
-    <div className="user-depo-top d-flex justify-content-center align-items-center flex-column gap-3">
+    <div className="d-flex justify-content-center align-items-center flex-column gap-3 mt-3">
        <img src={KycDa} alt="" width={300} height={300} className="rounded" />
       <p>
         With tier verification you stand a chance to increase your daily
