@@ -160,6 +160,7 @@ const UserSetHm = () => {
       const userUpdateInfo = doc(db, "users", userUidInfo);
       const result = await updateDoc(userUpdateInfo, { userData: updatedDocs });
       setIsUpdatePassword(false);
+      toast.success("Updated Successfully", {position: "bottom-left"})
       console.log(result);
     } catch (err) {
       console.log(err);
