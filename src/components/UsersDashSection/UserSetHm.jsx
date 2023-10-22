@@ -254,8 +254,8 @@ const UserSetHm = () => {
               )}
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <span>John Doe</span>
-              <span>johndoe@gmail.com</span>
+              <span>{fullName}</span>
+              <span>{email}</span>
             </div>
             <div>
               <button
