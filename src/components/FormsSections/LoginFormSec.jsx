@@ -9,6 +9,7 @@ import {toast} from 'react-toastify'
 import { db } from "../../server";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import ReCaptha from "./ReCaptha";
 import { signInWithGoogle } from "../../server";
 
 const LoginFormSec = () => {
@@ -16,6 +17,7 @@ const LoginFormSec = () => {
   const [password, setPassword] = useState('')
   const [visible, setVisible] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [isRecapVerify, setIsRecapVerify] = useState(false)
   const {setCurrentUser, currentUser, setUserDataInfo, userDataInfo} = useContext(UserContext)
 
   useEffect(() => {
@@ -56,11 +58,20 @@ const LoginFormSec = () => {
    navigate('/user/home')
   }
 
+  const handleRecapChange = (value) => {
+    setIsRecapVerify(true)
+  }
+
   const handleSubmit = async(e) => {
     e.preventDefault()
     
     if(!email || !password) return;
-
+    if(!isRecapVerify){
+        toast.error('Verify that you are not a bot', {
+          position: "bottom-left"
+        })
+        return;
+    }
     try{
       setLoading(true)
       const {user} = await signInWithEmailAndPassword(auth, email, password)
@@ -127,10 +138,14 @@ const LoginFormSec = () => {
                 )}
               </div>
             </Form.Group>
+            <div>
+             <ReCaptha onChange={handleRecapChange} /> 
+            </div>
             <Button variant="success" type="submit" className="w-100 mb-3" >
              {loading ? (<>Logining...</>) : (<>Login</>) }
             </Button>
             <Button variant="primary" type="button" className="w-100" onClick={handleSignInwithGoogle}>Sign In With Google</Button>
+
             <div className="d-flex justify-content-between align-items-center py-3">
               <Link to="/register" className="text-decoration-none text-white">
                 Don't have an account?
