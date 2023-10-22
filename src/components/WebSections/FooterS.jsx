@@ -130,7 +130,7 @@ export default function FooterS() {
               <h6 className='text-uppercase fw-bold mb-4 text-white'>Contact</h6>
               <div>
                 <div className="d-flex justify-content-start align-items-center gap-2">
-                  <FaHome color="white" size={40}  style={{marginBottom: "10px"}}/> <p className="text-white">Aberdeen Avenue, Capfornia, Santa Rosa, US</p>
+                  <FaHome color="white" size={40}  style={{marginBottom: "10px"}}/> <p className="text-white">Aberdeen Avenue, California, Santa Rosa, US</p>
                 </div>
                 <div className="d-flex justify-content-start align-items-center gap-2">
                   <FaEnvelope color="white" size={40}  style={{marginBottom: "10px"}}/><p className="text-white">support@spectrumcapitals.com</p>

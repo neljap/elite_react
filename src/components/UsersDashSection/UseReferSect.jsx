@@ -19,7 +19,7 @@ const UseReferSect = () => {
 
   return (
     <div className="bg-dark text-light user-depo-top">
-      <h2>REFFERALS</h2>
+      <h2>REFERRALS</h2>
       <div className="container">
       <div className="d-flex justify-content-between align-items-center flex-wrap">
         <div className="col-md-3" >

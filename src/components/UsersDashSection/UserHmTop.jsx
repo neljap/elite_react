@@ -22,7 +22,7 @@ const UserHmTop = () => {
       </div>
       <div className="col-md-5 p-3 border border-success shadow rounded">
         <h2>
-          Invite Friends & get <br /> extra Income!
+          Invite a Friend & get <br /> extra bonus
         </h2>
         <button className="btn btn-success">
           <Link to='/user/refferals' className="text-decoration-none text-white">

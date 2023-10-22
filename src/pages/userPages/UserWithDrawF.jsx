@@ -123,7 +123,7 @@ const UserWithDrawF = () => {
             />
           </div>
           <p className="sm-txte">
-            USDT is not a default withdrawal option in your account, please
+            USDT is a default withdrawal option in your account, please
             enter the correct wallet address to receive your funds
           </p>
           <button type="submit" className="btn btn-success rounded">
