@@ -234,7 +234,7 @@ const UserSetHm = () => {
       </Modal>
 
       <div className="h-75 w-75 mx-auto p-3 rounded my-3 bg-danger">
-        <div className="d-flex justify-content-between align-items-center py-2">
+        <div className="d-flex justify-content-between align-items-center py-2 flex-wrap">
           <div className=" d-flex">
             <div>
               {profilePics === "" ? (
