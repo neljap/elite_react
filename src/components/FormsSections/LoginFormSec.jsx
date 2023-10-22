@@ -142,7 +142,7 @@ const LoginFormSec = () => {
              <ReCaptha onChange={handleRecapChange} /> 
             </div>
             <Button variant="success" type="submit" className="w-100 mb-3" >
-             {loading ? (<>Logining...</>) : (<>Login</>) }
+             {loading ? (<>Logging...</>) : (<>Login</>) }
             </Button>
             <Button variant="primary" type="button" className="w-100" onClick={handleSignInwithGoogle}>Sign In With Google</Button>
 
