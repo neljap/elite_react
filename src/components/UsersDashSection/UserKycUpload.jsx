@@ -16,6 +16,7 @@ const UserKycUpload = () => {
       toast.error('Please Upload a file', {
         position: 'bottom-left'
       })
+      return;
     }
 
     try{
