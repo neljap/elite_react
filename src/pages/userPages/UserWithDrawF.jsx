@@ -25,7 +25,7 @@ const UserWithDrawF = () => {
     try {
       setLoading(true);
       const sendAt = Timestamp.now();
-      if (amount < 500) {
+      if (amount < 10000) {
         toast.error("Amount is too Low", {
           position: "bottom-left",
         });

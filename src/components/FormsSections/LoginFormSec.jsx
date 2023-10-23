@@ -10,7 +10,6 @@ import { db } from "../../server";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import ReCaptha from "./ReCaptha";
-import { signInWithGoogle } from "../../server";
 
 const LoginFormSec = () => {
   const [email, setEmail] = useState('')

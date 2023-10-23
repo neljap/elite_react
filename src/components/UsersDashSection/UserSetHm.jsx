@@ -103,6 +103,7 @@ const UserSetHm = () => {
     totalProfit,
     totalAmount,
     totalRefferals,
+    totalBtc,
     totalEth,
     totalLtc,
     totalUSD,
@@ -367,7 +368,7 @@ const UserSetHm = () => {
               <Form.Label className="text-black">Post Code</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter your email address"
+                placeholder="Postal Code"
                 name="postCode"
                 required
                 value={postCode}

@@ -113,7 +113,7 @@ const UserTopNot = () => {
     ):(null)}
     <Modal size='sm' show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Hi</Modal.Title>
+        <Modal.Title>Hi {fullNameInfo} </Modal.Title>
         </Modal.Header>
         <Modal.Body>Do you want to Log Out?</Modal.Body>
         <Modal.Footer>
