@@ -85,9 +85,9 @@ const UserTopNot = () => {
                         <div style={{display: "flex", flexDirection: "column"}}>
                             <span>{fullNameInfo}</span>
                             {userVerify ? (
-                                 <span>Verified <IoCheckmarkDoneCircle color='yellow'size={20}/></span>
+                                 <span>Verified <IoCheckmarkDoneCircle color='blue'size={20}/></span>
                             ): (
-                                <span>not verified <FaUserXmark color='yellow'size={20}/></span>
+                                <span>not verified <FaUserXmark color='blue'size={20}/></span>
                             )}
                            
                         </div>

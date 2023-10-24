@@ -156,15 +156,15 @@ const UserSetHm = () => {
       });
       return;
     }
-    console.log("firebase docs info", updatedDocs);
+    // console.log("firebase docs info", updatedDocs);
     try {
       const userUpdateInfo = doc(db, "users", userUidInfo);
       const result = await updateDoc(userUpdateInfo, { userData: updatedDocs });
       setIsUpdatePassword(false);
-      toast.success("Updated Successfully", {position: "bottom-left"})
-      console.log(result);
+       toast.success("Updated Successfully", {position: "bottom-left"}) 
     } catch (err) {
-      console.log(err);
+      toast.error(err.code, {position: "bottom-left"})
+      // console.log(err);
     }
   };
 
