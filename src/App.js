@@ -1,10 +1,6 @@
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
-import HomePage from "./pages/WebPages/HomePage";
-import AboutPg from "./pages/WebPages/AboutPg";
-import ContactPg from "./pages/WebPages/ContactPg";
-import Packages from "./pages/WebPages/Packages";
+import {HomePage, AboutPg, ContactPg, FaqSecPg, Packages} from "./pages/WebPages"
 import "bootstrap/dist/css/bootstrap.min.css"
-import FaqSecPg from "./pages/WebPages/FaqSecPg";
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { FaWhatsapp} from 'react-icons/fa'

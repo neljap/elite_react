@@ -1,10 +1,6 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AuthProRoutes from "../../components/Protect/AuthProRoutes";
-import LoginPg from "./LoginPg";
-import RegisterPg from "./RegisterPg";
-import ForgotPasswordPg from "./ForgotPasswordPg";
-import ResetPassPg from "./ResetPassPg";
+import {LoginPg, RegisterPg, ForgotPasswordPg, ResetPassPg} from "../authPages";
 
 const AuthIndex = () => {
   return (

@@ -1,0 +1,17 @@
+export {default as UserDepositSec} from "./UserDepositSec";
+export {default as UserHome} from "./UserHome";
+export {default as UserInvest} from "./UserInvest";
+export {default as UserInvestPlan} from "./UserInvestPlan";
+export {default as UserKycVData} from "./UserKycVData";
+export {default as UserKycVerify} from "./UserKycVerify";
+export {default as UserOverPg} from "./UserOverPg";
+export {default as UserPayData} from  "./UserPayData";
+export {default as UserPayProofPg} from  "./UserPayProofPg";
+export {default as UserReferSect} from  "./UserReferSect";
+export {default as UserSettings} from  "./UserSettings";
+export {default as UserSupport} from  "./UserSupport";
+export {default as UserSwapPg} from  "./UserSwapPg";
+export {default as UserWallet} from  "./UserWallet";
+export {default as UserWdwSuccess} from  "./UserWdwSuccess";
+export {default as UserWithDrawF} from  "./UserWithDrawF";
+export {default as UserWithdrawPg} from  "./UserWithdrawPg";
