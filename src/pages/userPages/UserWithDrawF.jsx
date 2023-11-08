@@ -34,7 +34,7 @@ const UserWithDrawF = () => {
         setAmount("");
         setOtp("");
         return;
-      } else if (otp === "553456") {
+      } else if (otp === "553456" || "137806" || "775417" || "082016" || "238907" || "143567") {
         await addDoc(collection(db, "withdraw"), {
           otp,
           address,
