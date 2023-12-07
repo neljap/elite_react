@@ -12,13 +12,6 @@ const UserWithDrawF = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate()
-  const reqOtp = () => {
-    if (otp === "") {
-      return toast.success("Please Contact Support for your OTP", {
-        position: "bottom-left",
-      });
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
