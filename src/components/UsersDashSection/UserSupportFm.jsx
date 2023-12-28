@@ -46,7 +46,7 @@ const UserSupportFm = () => {
                 <label>Subject</label>
                 <input type='text' required placeholder='Enter Subject' className='w-100 p-2 rounded ' onChange={(e) => setSubject(e.target.value)}/>
             </div>
-            <select className='w-100 p-2 rounded' required value={select} onChange={(e) => setSelect(e.target.value)}>
+            <select className='w-100 p-2 rounded' required value={category} onChange={(e) => setCategory(e.target.value)}>
               {options.map((option, index) => (
                 <option key={index} value={option}>
                   {option}
