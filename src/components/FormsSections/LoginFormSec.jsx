@@ -16,9 +16,9 @@ const LoginFormSec = () => {
   const [loading, setLoading] = useState(false)
   const [isRecapVerify, setIsRecapVerify] = useState(false)
   const navigate = useNavigate()
-  const handleRecapChange = (value) => {
-    setIsRecapVerify(true)
-  }
+  // const handleRecapChange = (value) => {
+  //   setIsRecapVerify(true)
+  // }
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -40,7 +40,7 @@ const LoginFormSec = () => {
         .then((res) => {
           console.log(res.data);
           Cookies.set("token", res.data.token, { expires: 7 });
-          navigate("/user/dashboard");
+          navigate("/user/home");
           window.location.reload()
         })
         .catch((err) => {
@@ -82,7 +82,7 @@ const LoginFormSec = () => {
               </div>
             </Form.Group>
             <div>
-             <ReCaptha onChange={handleRecapChange} /> 
+             {/* <ReCaptha onChange={handleRecapChange} />  */}
             </div>
             <Button variant="success" type="submit" className="w-100 mb-3" >
              {loading ? (<>Logging...</>) : (<>Login</>) }
