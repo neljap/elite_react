@@ -3,7 +3,7 @@ import { Accordion } from "react-bootstrap";
 import { FaTimes, FaBars, FaAddressCard } from "react-icons/fa";
 import "../../App.css";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
+import {AuthContext} from "../context/AuthContext";
 import DolUSD from '../../assests/dollar.png'
 import BTCD from '../../assests/bitcoin.png'
 import ETHD from '../../assests/ethereum.png'
@@ -11,12 +11,7 @@ import USDT from '../../assests/dollar.png'
 import LTCD from '../../assests/litecoin.png'
 const UserWallAcc = () => {
   const WallRef = useRef();
-  const {currentUser} = useContext(UserContext)
-
-  const tDepos = currentUser?.userData?.totalDeposit
-  const tBtc = currentUser?.userData?.totalBtc
-  const tEth = currentUser?.userData?.totalEth
-  const tLtc = currentUser?.userData?.totalLtc
+  const {data} = useContext(AuthContext);
 
   const showRecord = () => {
     WallRef.current.classList.toggle("record");
@@ -81,7 +76,7 @@ const UserWallAcc = () => {
             </div>
             <div className="col-md-2">
               <h6>Total Deposit</h6>
-              <p className="font-text">${tDepos}.00 USD</p>
+              <p className="font-text">${data?.tAmount}.00 USD</p>
             </div>
           </div>
           <div style={{ backgroundColor: "#2A3042" }} className="p-3 rounded">
@@ -122,7 +117,7 @@ const UserWallAcc = () => {
                 <div className="col-md-2">
                   <img
                     src={BTCD}
-                    alt=""
+                    alt="image"
                     style={{ height: "50px", width: "50px" }}
                   />
                 </div>
@@ -130,7 +125,7 @@ const UserWallAcc = () => {
                   <h6>Bitcoin (BTC)</h6>
                 </div>
                 <div className="col-md-4">
-                  <h4>{tBtc}.00USD</h4>
+                  <h4>{data?.tBtc}.00USD</h4>
             
                 </div>
                 <div className="col-md-2 d-flex gap-2">
@@ -154,7 +149,7 @@ const UserWallAcc = () => {
               <div className="col-md-2">
                 <img
                   src={ETHD}
-                  alt=""
+                  alt="image"
                   style={{ height: "50px", width: "50px" }}
                 />
               </div>
@@ -162,7 +157,7 @@ const UserWallAcc = () => {
                 <h6>Ethereum (ETH)</h6>
               </div>
               <div className="col-md-4">
-                <h4>{tEth}.00USD</h4>
+                <h4>{data?.tEth}.00USD</h4>
               </div>
               <div className="col-md-2 d-flex gap-2">
                 <div>
@@ -193,7 +188,7 @@ const UserWallAcc = () => {
             <h6>Litecoin (LTC)</h6>
           </div>
           <div className="col-md-4">
-            <h4>{tLtc}.00USD</h4>
+            <h4>{data?.tLtc}.00USD</h4>
         
           </div>
           <div className="col-md-2 d-flex gap-2">
@@ -260,8 +255,8 @@ const UserWallAcc = () => {
               <Accordion.Header className="bg-dark text-light">
                 <div className="d-flex justify-content-center align-items-center gap-2">
                   <img
-                    src={BTCD}
-                    alt=""
+                    // src={BTCD}
+                    alt="image"
                     style={{ height: "30px", width: "30px" }}
                   />
                   <p>Bitcoin (BTC)</p>
@@ -270,7 +265,7 @@ const UserWallAcc = () => {
               <Accordion.Body>
                 <div className="d-flex justify-content-between align-items-center">
                   <div>
-                    <p>${tBtc}.00USD</p>
+                    {/* <p>${tBtc}.00USD</p> */}
                   </div>
                   <div className="d-flex">
                     <div>
@@ -297,8 +292,8 @@ const UserWallAcc = () => {
             <Accordion.Header className="bg-dark text-light">
               <div className="d-flex justify-content-center align-items-center gap-2">
                 <img
-                  src={ETHD}
-                  alt=""
+                  // src={ETHD}
+                  alt="image"
                   style={{ height: "30px", width: "30px" }}
                 />
                 <p>Ethereum (ETH)</p>
@@ -307,7 +302,7 @@ const UserWallAcc = () => {
             <Accordion.Body>
               <div className="d-flex justify-content-between align-items-center">
                 <div>
-                  <p>${tEth}.00USD</p>
+                  {/* <p>${tEth}.00USD</p> */}
                 </div>
                 <div className="d-flex">
                   <div>
@@ -334,8 +329,8 @@ const UserWallAcc = () => {
           <Accordion.Header className="bg-dark text-light">
             <div className="d-flex justify-content-center align-items-center gap-2">
               <img
-                src={LTCD}
-                alt=""
+                // src={LTCD}
+                alt="image"
                 style={{ height: "30px", width: "30px" }}
               />
               <p>Litecoin (LTC)</p>
@@ -344,7 +339,7 @@ const UserWallAcc = () => {
           <Accordion.Body>
             <div className="d-flex justify-content-between align-items-center">
               <div>
-                <p>${tLtc}.00USD</p>
+                {/* <p>${tLtc}.00USD</p> */}
               </div>
               <div className="d-flex">
                 <div>

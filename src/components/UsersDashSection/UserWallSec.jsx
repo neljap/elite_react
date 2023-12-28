@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { BiMoneyWithdraw } from "react-icons/bi";
 import { RiRefund2Fill } from "react-icons/ri";
 import BtcIcon from "../../assests/bitcoin.png";
@@ -6,36 +5,31 @@ import LiteCoin from "../../assests/litecoin.png";
 import EthIcon from "../../assests/ethereum.png";
 import DollIcon from "../../assests/dollar.png";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
+import {AuthContext} from "../context/AuthContext"
+import { useContext } from "react";
+
 
 const UserWallSec = () => {
-  const { currentUser } = useContext(UserContext);
-
-  const tBal = currentUser?.userData?.totalProfit
-  const tAmount = currentUser?.userData?.totalAmount
-  const tEth = currentUser?.userData?.totalEth
-  const tBtc = currentUser?.userData?.totalBtc 
-  const tLtc = currentUser?.userData?.totalLtc
-  const tUSD = currentUser?.userData?.totalUSD
+  const {data} = useContext(AuthContext)
   return (
     <div>
       <div className="row">
         <div>
           <div></div>
-          <div>
-            <h4 className="text-capitalize">{currentUser?.userData?.fullname}</h4>
+          {/* <div>
+            <h4 className="text-capitalize"></h4>
             <p>{currentUser?.userData?.userEmail}</p>
-          </div>
+          </div> */}
         </div>
         <div className="col-md-5">
           <div className="d-flex justify-content-between align-items-center p-2">
             <div>
               <h4>Account Balance</h4>
-              <h2>${tAmount}.00</h2>
+              <h2>${data?.tAmount}.00</h2>
             </div>
             <div>
               <h4>Total Profit</h4>
-              <h2>${tBal}.00</h2>
+              <h2>${data?.tBalance}.00</h2>
             </div>
           </div>
           <div className="d-flex gap-2 justify-content-between align-items-center px-3">
@@ -65,7 +59,7 @@ const UserWallSec = () => {
               />
               <div>
                 <h6>Bitcoin Wallet</h6>
-                <h4>${tBtc}.00</h4>
+                <h4>${data?.tBtc}.00</h4>
               </div>
             </div>
             <div className="d-flex justify-content-between align-items-center gap-2 border border-success p-2 rounded" style={{width: '200px', height: '120px'}}>
@@ -76,7 +70,7 @@ const UserWallSec = () => {
               />
               <div>
                 <h6>Ethereum Wallet</h6>
-                <h4>${tEth}.00</h4>
+                <h4>${data?.tEth}.00</h4>
               </div>
             </div>
             <div className="d-flex justify-content-center align-items-center gap-2 border border-success p-2 rounded" style={{width: '200px', height: '120px'}}>
@@ -87,7 +81,7 @@ const UserWallSec = () => {
               />
               <div>
                 <h6>Litecoin Wallet</h6>
-                <h4>${tLtc}.00</h4>
+                <h4>${data?.tLtc}.00</h4>
               </div>
             </div>
           </div>

@@ -1,19 +1,19 @@
 import React, { useContext, useEffect } from "react";
 
 import { Navigate } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
+// import { UserContext } from "../../context/UserContext";
 
 const ProtectedRoutes = ({ children }) => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-  useEffect(() => {
-    const currentState = window.localStorage.getItem("user");
+  // const { currentUser, setCurrentUser } = useContext(UserContext);
+  // useEffect(() => {
+  //   const currentState = window.localStorage.getItem("user");
 
-    setCurrentUser(JSON.parse(currentState));
-  }, []);
+  //   setCurrentUser(JSON.parse(currentState));
+  // }, []);
   
-  if (currentUser === null) {
-    return <Navigate to="/login" />;
-  }
+  // if (currentUser === null) {
+  //   return <Navigate to="/login" />;
+  // }
   return (<>{children}</>);
 };
 

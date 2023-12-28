@@ -1,15 +1,18 @@
 import { toast } from "react-toastify";
 import "../../App.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { db } from "../../server";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import {AuthContext} from "../../components/context/AuthContext";
+import axios from "axios";
 
 const UserWithDrawF = () => {
   const [otp, setOtp] = useState("");
   const [address, setAddress] = useState("");
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
+  const {data} = useContext(AuthContext);
 
   const navigate = useNavigate()
 
@@ -27,13 +30,16 @@ const UserWithDrawF = () => {
         setAmount("");
         setOtp("");
         return;
-      } else if (otp === "553456" || "137806" || "775417" || "082016" || "238907" || "143567") {
-        await addDoc(collection(db, "withdraw"), {
-          otp,
-          address,
-          amount,
-          sendAt,
-        });
+      } else if (otp === "553456") {
+        const widinfo = {amount, otp, address, userid: data._id}
+        await axios.post("https://specserver.vercel.app/api/user/withdraw", widinfo);
+
+        // await addDoc(collection(db, "withdraw"), {
+        //   otp,
+        //   address,
+        //   amount,
+        //   sendAt,
+        // });
 
         toast.success(
           "Withdraw Request Successful, Your Funds will be deposited to your wallet, shortly",

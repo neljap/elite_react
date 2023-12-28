@@ -3,20 +3,23 @@ import { db } from "../../server";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import '../../App.css'
 import { toast } from "react-toastify";
+import axios from "axios";
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false)
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true)
     try {
-      const sendAt = Timestamp.now()
-      const conData = await addDoc(collection(db, 'contact'), {name, email, subject, message, sendAt})
+      const condata = {fullname: name, email, subject, message}
+
+      const resp = await axios.post("https://specserver.vercel.app/api/user/contact", condata);
+
+      console.log(resp.data);
       
       setEmail('')
       setMessage('')

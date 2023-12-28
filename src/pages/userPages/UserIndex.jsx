@@ -19,13 +19,13 @@ UserWdwSuccess
 } from "../userPages";
 import Sidebar from "../../components/Layout/Sidebar";
 import UserTopNot from "../../components/UsersDashSection/UserTopNot";
-import ProtectedRoutes from "../../components/Protect/ProtectedRoutes";
+// import ProtectedRoutes from "../../components/Protect/ProtectedRoutes";
 
 
 const UserIndex = () => {
   return (
     <>
-      <ProtectedRoutes>
+      {/* <ProtectedRoutes> */}
         <Sidebar>
           <UserTopNot />
           <Routes>
@@ -48,7 +48,7 @@ const UserIndex = () => {
           </Routes>
           {/* <UserFooterCy /> */}
         </Sidebar>
-      </ProtectedRoutes>
+      {/* </ProtectedRoutes> */}
     </>
   );
 };

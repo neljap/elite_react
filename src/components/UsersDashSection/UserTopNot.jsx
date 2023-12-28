@@ -5,12 +5,13 @@ import {FaUserXmark} from "react-icons/fa6"
 import {IoCheckmarkDoneCircle} from "react-icons/io5"
 import { signOut } from 'firebase/auth'
 import { auth } from '../../server'
-import { useContext } from 'react'
-import { UserContext } from '../../context/UserContext'
+// import { useContext } from 'react'
+// import { UserContext } from '../../context/UserContext'
 import Logo from "../../assests/sclogo.png"
+import Cookies from 'js-cookie'
 import { useState } from 'react'
 import "../../App.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {BsBoxArrowInRight} from "react-icons/bs"
 import { Button, Modal } from 'react-bootstrap'
 
@@ -18,28 +19,29 @@ import { Button, Modal } from 'react-bootstrap'
 
 
 const UserTopNot = () => {
-    const {setUserDataInfo, setCurrentUser, currentUser} = useContext(UserContext)
+  //   const {setUserDataInfo, setCurrentUser, currentUser} = useContext(UserContext)
 
-    const userVerify = currentUser?.userData?.verified
-  const profilePicsInfo = currentUser?.userData?.profilePics;
-  const fullNameInfo = currentUser?.userData?.fullname;
-  const userEmailInfo = currentUser?.userData?.userEmail;
+  //   const userVerify = currentUser?.userData?.verified
+  // const profilePicsInfo = currentUser?.userData?.profilePics;
+  // const fullNameInfo = currentUser?.userData?.fullname;
+  // const userEmailInfo = currentUser?.userData?.userEmail;
+
+  const navigate = useNavigate()
 
 
 
     const [isOpen, setIsOpen] = useState(null)
     const [show, setShow] = useState(false)
-  const [profilePics, setProfilePics] = useState(profilePicsInfo);
+  // const [profilePics, setProfilePics] = useState(profilePicsInfo);
 
 
     const signOutFunc = async() => {
         try{
-            await signOut(auth)
+            // await signOut(auth)
             setIsOpen(!isOpen)
             setShow(false)
-            setUserDataInfo({})
-            setCurrentUser(null)
-            localStorage.removeItem('user')
+            Cookies.remove("token")
+            navigate("/")
         }catch(err){
             console.log(err)
         }
@@ -65,7 +67,7 @@ const UserTopNot = () => {
                 
                 <div className='bg-success rounded' style={{cursor: "pointer"}} onClick={() => setIsOpen(!isOpen)}>
                     <div className='d-flex gap-2 p-1 justify-content-center align-item-center'>
-                        <div>
+                        {/* <div>
               {profilePics === "" ? (
                 <BiUserCircle size={40} />
               ) : (
@@ -81,8 +83,8 @@ const UserTopNot = () => {
                   />
                 </div>
               )}
-            </div>
-                        <div style={{display: "flex", flexDirection: "column"}}>
+            </div> */}
+                        {/* <div style={{display: "flex", flexDirection: "column"}}>
                             <span>{fullNameInfo}</span>
                             {userVerify ? (
                                  <span>Verified <IoCheckmarkDoneCircle color='blue'size={20}/></span>
@@ -90,7 +92,7 @@ const UserTopNot = () => {
                                 <span>not verified <FaUserXmark color='blue'size={20}/></span>
                             )}
                            
-                        </div>
+                        </div> */}
                         <div>
                             <AiOutlineDown size={25} style={{marginTop: "15px"}} />
                         </div>
@@ -113,7 +115,7 @@ const UserTopNot = () => {
     ):(null)}
     <Modal size='sm' show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
-        <Modal.Title>Hi {fullNameInfo} </Modal.Title>
+        {/* <Modal.Title>Hi {fullNameInfo} </Modal.Title> */}
         </Modal.Header>
         <Modal.Body>Do you want to Log Out?</Modal.Body>
         <Modal.Footer>

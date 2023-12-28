@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import '../../App.css'
 import { Timestamp, addDoc, collection } from 'firebase/firestore'
 import { db } from '../../server'
-import { useContext } from 'react'
+// import { useContext } from 'react'
 import {toast} from 'react-toastify'
-import { UserContext } from '../../context/UserContext'
+// import { UserContext } from '../../context/UserContext'
 
 const UserSupportFm = () => {
   const [subject, setSubject] = useState('')
@@ -14,7 +14,7 @@ const UserSupportFm = () => {
 
   const options = ['Select Categories', 'My Wallet', 'Verification', 'Change Phone Number', 'Profile', 'Referral', 'Withdrawal', 'Payment complaint', 'Investment', 'Contract', 'Others' ]
 
-  const {currentUser} = useContext(UserContext)
+  // const {currentUser} = useContext(UserContext)
 
   // const UserId = currentUser?.userData?.userUid
    
@@ -23,8 +23,8 @@ const UserSupportFm = () => {
     try{
       setLoading(true)
       const sendAt = Timestamp.now()
-      const UserId = currentUser?.userData?.userUid
-      const data = await addDoc(collection(db, 'support'), {subject, message, select, UserId, sendAt})
+      // const UserId = currentUser?.userData?.userUid
+      const data = await addDoc(collection(db, 'support'), {subject, message, select, sendAt}) //add UserId
       setMessage('')
       setSubject('')
       setSelect('')
@@ -47,7 +47,6 @@ const UserSupportFm = () => {
                 <input type='text' required placeholder='Enter Subject' className='w-100 p-2 rounded ' onChange={(e) => setSubject(e.target.value)}/>
             </div>
             <select className='w-100 p-2 rounded' required value={select} onChange={(e) => setSelect(e.target.value)}>
-              <option>Select Categories</option>
               {options.map((option, index) => (
                 <option key={index} value={option}>
                   {option}

@@ -1,5 +1,5 @@
 import React from 'react'
-import ForgotPassSe from '../../components/FormsSections/ForgotPassSe'
+// import ForgotPassSe from '../../components/FormsSections/ForgotPassSe'
 import ForgHeroSec from '../../components/HeroSections/ForgHeroSec'
 import FooterS from '../../components/WebSections/FooterS'
 
@@ -7,7 +7,7 @@ const ForgotPasswordPg = () => {
   return (
     <div>
       <ForgHeroSec />
-      <ForgotPassSe />
+      {/* <ForgotPassSe /> */}
       <FooterS />
     </div>
   )

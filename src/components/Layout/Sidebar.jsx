@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import {
   FaTh,
   FaBars,
@@ -15,10 +15,44 @@ import Logo from "../../assests/sclogo.png";
 import '../../App.css'
 import UserNavSec from "../UsersDashSection/UserNavSec";
 import UserFooterCy from "../UsersDashSection/UserFooterCy";
+import Cookies from "js-cookie";
+import axios from "axios";
+import { hosturl } from "../utils/Apis";
+import { AuthContext } from "../context/AuthContext";
 
 const Sidebar = ({children}) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const navigate = useNavigate()
+
+  const {setData} = useContext(AuthContext);
+
+  useEffect(() => {
+    let cookietoken = Cookies.get("token");
+
+    if(!cookietoken){
+      navigate("/login")
+    }else{
+      console.log("there's token")
+    }
+
+  }, [])
+  //   const token = Cookies.get("token"); // => 'value'
+  //   let config = {
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   };
+  //   const getUserDetails = async () => {
+  //     await axios
+  //       .get(`${hosturl}/api/user/getuser`, config)
+  //       .then((res) => {
+  //         setData(res?.data);
+  //       })
+  //       .catch((err) => console.log(err.response.data));
+  //   };
+  //   getUserDetails();
+  // }, []);
 
   const menuItem = [
     {
@@ -46,11 +80,11 @@ const Sidebar = ({children}) => {
       name: "Refferals",
       icon: <FaCommentAlt />,
     },
-    {
-      path: "/user/settings",
-      name: "Settings",
-      icon: <FaShoppingBag />,
-    },
+    // {
+    //   path: "/user/settings",
+    //   name: "Settings",
+    //   icon: <FaShoppingBag />,
+    // },
     {
       path: "/user/kyc-verify",
       name: "KYC Verification",
@@ -92,7 +126,7 @@ const Sidebar = ({children}) => {
               to={item.path}
               key={index}
               className="link text-decoration-none"
-              activeclassName="active"
+              // activeclassName="active"
             >
               <div className="icon">{item.icon}</div>
               <div

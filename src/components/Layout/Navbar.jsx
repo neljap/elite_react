@@ -4,19 +4,19 @@ import { FaTimes, FaBars } from "react-icons/fa";
 import "../../App.css";
 import { useRef } from "react";
 import { useState, useEffect } from "react";
-import { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
+// import { useContext } from "react";
+// import { UserContext } from "../../context/UserContext";
 
 const Navbar = () => {
   const NavRef = useRef();
-  const { currentUser, setCurrentUser, userDataInfo } = useContext(UserContext);
+  // const { currentUser, setCurrentUser, userDataInfo } = useContext(UserContext);
   const [navbarHan, setNavbarHan] = useState(false);
 
-  useEffect(() => {
-    const currentState = window.localStorage.getItem("user");
+  // useEffect(() => {
+  //   const currentState = window.localStorage.getItem("user");
 
-    setCurrentUser(currentState);
-  }, []);
+  //   setCurrentUser(currentState);
+  // }, []);
 
   const showNavRef = () => {
     NavRef.current.classList.toggle("switch");
@@ -80,7 +80,6 @@ const Navbar = () => {
           FAQ
         </Link>
         <div className="nav-btn-mob">
-          {!currentUser ? (
             <div className="d-flex gap-4">
               <Link to="/login">
                 <button className="btn btn-success" onClick={showNavRef}>
@@ -93,13 +92,6 @@ const Navbar = () => {
                 </button>
               </Link>
             </div>
-          ) : (
-            <Link to="/user/home">
-              <button className="btn btn-success">
-                {userDataInfo.fullname}
-              </button>
-            </Link>
-          )}
         </div>
         <FaTimes
           color="white"
@@ -109,7 +101,6 @@ const Navbar = () => {
         />
       </nav>
       <div className="nav-btn-desk">
-        {!currentUser ? (
           <div className="d-flex gap-4">
             <Link to="/login">
               <button className="btn btn-success" onClick={showNavRef}>
@@ -122,11 +113,11 @@ const Navbar = () => {
               </button>
             </Link>
           </div>
-        ) : (
+        {/* ) : (
           <Link to="/user/home">
             <button className="btn btn-success">{userDataInfo.fullname}</button>
           </Link>
-        )}
+        )} */}
       </div>
       <FaBars
         color="white"

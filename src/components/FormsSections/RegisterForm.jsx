@@ -1,15 +1,11 @@
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "../../App.css";
 import { useState } from "react";
-import { auth, db, gProvider } from "../../server";
 import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai'
-import { createUserWithEmailAndPassword, sendEmailVerification, signInWithPopup } from "firebase/auth";
-import { Timestamp, doc, getDoc, setDoc } from "firebase/firestore";
+import axios from "axios"
 import { toast } from "react-toastify";
 import ReCaptha from "./ReCaptha";
-import { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
 
 const RegisterForm = () => {
   const [email, setEmail] = useState('')
@@ -26,38 +22,11 @@ const RegisterForm = () => {
 
   const navigate = useNavigate();
 
-  const {setCurrentUser} = useContext(UserContext);
-
-  const handleRecapChange = (value) => {
-    setIsRecapVerify(true)
-  }
-
-  // google signInWithPopup
-  const handleSignInwithGoogle = async() => {
-    const result = await signInWithPopup(auth, gProvider)
-    const resUid = result.user.uid
-    const docId = doc(db, 'users', resUid)
-    const docSnapSnot = await getDoc(docId)
-    console.log(docSnapSnot.exists())
-    if(docSnapSnot.exists()){
-     const response = docSnapSnot.data()
-     localStorage.setItem('user', JSON.stringify(response))
-     setCurrentUser(response)
-     toast.success("Login Successfully", {
-       position: "bottom-left"
-     })
-    }else{
-     toast.error('Your Data does not exist, Please Register', {
-       position: 'bottom-left'
-     })
-     return;
-     setLoading(false)
-    }
-    navigate('/user/home')
-   }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    
+
     try {
       setLoading(true)
       if (password !== passwordConfirm) {
@@ -65,43 +34,38 @@ const RegisterForm = () => {
           position: "bottom-left"
         })
         setLoading(false)
-      }else if(!isRecapVerify){
-        toast.error('Verify that you are not a bot', {
-          position: "bottom-left"
-        })
-        setLoading(false)
-      }else{
-      const {user} = await createUserWithEmailAndPassword(auth, email, password)
-      if(user){
-        const dlog = await sendEmailVerification(auth.currentUser)
-        console.log(dlog)
-      }else{
-        console.log("done")
       }
-      const userEmail = user.email
-      const userUid = user.uid
-      const profilePics = ''
-      const totalDeposit = 0
-      const totalProfit = 0
-      const totalAmount = 0
-      const dob = ''
-      const totalRefferals = 0
-      const totalEth = 0
-      const totalBtc = 0
-      const totalLtc = 0
-      const totalUSD = 0
-      const tBonus = 0
-      const userCountry = ''
-      const userCity = ''
-      const userPostcode = ''
-      const userState = ''
-      const verified = false
-      const totalWithDraw = 0
-      const createdAt = Timestamp.now()
-    
-      const userData = {userEmail, userUid, number, fullname, profilePics, totalDeposit, totalRefferals, totalWithDraw, dob, verified, createdAt, totalBtc, totalEth, totalLtc, totalUSD, tBonus, totalAmount, totalProfit, userCity, userCountry, userPostcode, userState}
-      const userDocRef = doc(db, 'users', userUid)
-      const newData = await setDoc(userDocRef, {userData})
+      // else if(!isRecapVerify){
+      //   toast.error('Verify that you are not a bot', {
+      //     position: "bottom-left"
+      //   })
+      //   setLoading(false)
+      // }
+      else{
+        const regdata = {
+          email,
+          password,
+          fullname,
+          number,
+          referId,
+          dob: "",
+          verified: false,
+          country: "",
+          state: "",
+          city: "",
+          twithd: "",
+          tAmount: 0,
+          profilePics: "",
+          tBonus: "",
+          postcode: "",
+        };
+      const regpro = await axios.post(
+        "https://specserver.vercel.app/api/user/register",
+        regdata
+      );
+
+      console.log(regpro.data);
+
       toast.success('Registration Successfully, Login to Get Started', {
         position: 'bottom-left'
       })
@@ -212,7 +176,7 @@ const RegisterForm = () => {
             </div>
           </div>
                 <Form.Check type="checkbox" label="I agree to the terms and conditions of Spectrum Capitals Limited" required={true} onChange={(e) => setChecked(e.target.checked)} />
-                <ReCaptha onChange={handleRecapChange} />
+                {/* <ReCaptha onChange={handleRecapChange} />/ */}
           <button
             variant="success"
             type="submit"
@@ -227,7 +191,7 @@ const RegisterForm = () => {
             variant="primary"
             type="button"
             className="w-100 btn btn-primary"
-          onClick={handleSignInwithGoogle}
+          // onClick={handleSignInwithGoogle}
           >
           
             Sign In With Google
