@@ -1,0 +1,1 @@
+export const hosturl = "https://specserver.vercel.app";
