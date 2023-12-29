@@ -16,21 +16,20 @@ const LoginFormSec = () => {
   const [loading, setLoading] = useState(false)
   const [isRecapVerify, setIsRecapVerify] = useState(false)
   const navigate = useNavigate()
-  // const handleRecapChange = (value) => {
-  //   setIsRecapVerify(true)
-  // }
+  const handleRecapChange = (value) => {
+    setIsRecapVerify(true)
+  }
 
   const handleSubmit = async(e) => {
     e.preventDefault()
     
     if(!email || !password) return;
-    // if(!isRecapVerify){
-    //     toast.error('Verify that you are not a bot', {
-    //       position: "bottom-left"
-    //     })
-    //     return;
-    // }
-    // try{
+    if(!isRecapVerify){
+        toast.error('Verify that you are not a bot', {
+          position: "bottom-left"
+        })
+        return;
+    }
       setLoading(true)
 
       const formData = {email, password}
@@ -38,26 +37,17 @@ const LoginFormSec = () => {
       await axios
         .post("https://specserver.vercel.app/api/user/login", formData)
         .then((res) => {
-          console.log(res.data);
           Cookies.set("token", res.data.token, { expires: 7 });
           navigate("/user/home");
           window.location.reload()
+          toast.success("Login Successfully", {position: "bottom-left"})
         })
         .catch((err) => {
           console.log(err);
+          toast.error(err.message, {position: "bottom-left"})
           setLoading(false);
-        });
-    //   setEmail('')
-    //   setPassword('')
-    //   toast.success('Login Successfully', {
-    //     position: 'bottom-left'
-    //   })
-    //   setLoading(false)
-    //   navigate('/user/home')
-    // }catch(err){
-    //   console.log(`Login Error, ${err}`)
-    //     setLoading(false)
-    //   }
+        }).finally(() => setLoading(false));
+      
     }
 
   return (
@@ -82,7 +72,7 @@ const LoginFormSec = () => {
               </div>
             </Form.Group>
             <div>
-             {/* <ReCaptha onChange={handleRecapChange} />  */}
+             <ReCaptha onChange={handleRecapChange} /> 
             </div>
             <Button variant="success" type="submit" className="w-100 mb-3" >
              {loading ? (<>Logging...</>) : (<>Login</>) }
@@ -101,6 +91,6 @@ const LoginFormSec = () => {
         </div>
     </div>
   );
-}
+};
 
-export default LoginFormSec
+export default LoginFormSec;

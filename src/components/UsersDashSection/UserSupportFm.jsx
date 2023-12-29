@@ -33,7 +33,7 @@ const UserSupportFm = () => {
         position: 'bottom-left'
       })
     }catch(err){
-      console.log(err)
+      toast.error(err.code, {position: "bottom-left"})
     }
   }
 

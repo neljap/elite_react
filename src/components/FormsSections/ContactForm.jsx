@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { db } from "../../server";
-import { addDoc, collection, Timestamp } from "firebase/firestore";
 import '../../App.css'
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -18,8 +16,6 @@ const ContactForm = () => {
       const condata = {fullname: name, email, subject, message}
 
       const resp = await axios.post("https://specserver.vercel.app/api/user/contact", condata);
-
-      console.log(resp.data);
       
       setEmail('')
       setMessage('')

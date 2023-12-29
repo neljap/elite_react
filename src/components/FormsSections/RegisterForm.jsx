@@ -64,8 +64,6 @@ const RegisterForm = () => {
         regdata
       );
 
-      console.log(regpro.data);
-
       toast.success('Registration Successfully, Login to Get Started', {
         position: 'bottom-left'
       })
@@ -73,7 +71,7 @@ const RegisterForm = () => {
       setLoading(false)
       }
     } catch (error) {
-      console.log(error.code)
+      toast.error(error.code, {position: "bottom-left"})
     }
   };
 

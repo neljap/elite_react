@@ -43,7 +43,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          {/* <TextUpload /> */}
+          <TextUpload />
           <UserCyptData />
           <FaqSection />
           <SubFooter />

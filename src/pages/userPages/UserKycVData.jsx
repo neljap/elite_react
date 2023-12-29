@@ -1,18 +1,42 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import "../../App.css";
-import { storage } from "../../server";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { toast } from "react-toastify";
 import { BsCloudUpload } from "react-icons/bs";
-
+import axios from "axios";
+import {ThreeDots} from "react-loader-spinner";
+import { hosturl } from "../../components/utils/Apis";
+import { AuthContext } from "../../components/context/AuthContext";
 const UserKycVData = () => {
-  const [file, setFile] = useState("");
+  const [kycFile, setKycFile] = useState("");
   const [percent, setPercent] = useState(0);
-  const inputRef = useRef(null);
+  const [loading, setLoading] = useState(false)
 
-  const uploadFile = (e) => {
+ const inputRef = useRef(null);
+
+ const {data} = useContext(AuthContext);
+
+  const preFile = async (type) => {
+    const data = new FormData();
+    data.append("file", kycFile);
+    data.append("upload_preset", "kyc_preset");
+
+    try {
+      let cloudName = "dpqswhzt3";
+      let resourceType = type === "image" ? "image" : "";
+      let api = `https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`;
+
+      const res = await axios.post(api, data);
+      const { secure_url } = res.data;
+      console.log(secure_url);
+      return secure_url;
+    } catch (error) {
+      toast.error(error.code, { position: "bottom-left" });
+    }
+  };
+
+  const uploadFile = async(e) => {
     e.preventDefault();
-    if (!file) {
+    if (!kycFile) {
       toast.error("Please Upload a file", {
         position: "bottom-left",
       });
@@ -20,29 +44,15 @@ const UserKycVData = () => {
     }
 
     try {
-      const storageRef = ref(storage, `/kyc/${file.name}`);
-
-      const uploadTask = uploadBytesResumable(storageRef, file);
-
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-          setPercent(progress);
-        },
-        (err) => console.log(err),
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((url) =>
-            console.log(url)
-          );
-        }
-      );
-      setFile("");
-      toast.success("Uploaded Successfully", { position: "bottom-left" });
-    } catch (err) {
-      console.log(err);
+      setLoading(true)
+      const kycinfo = await preFile('image');
+      const resp = await axios.patch(`${hosturl}/api/user/update/${data?._id}`, {
+        kycinfo,
+      });
+    } catch (error) {
+      toast.error(error.code, { position: "bottom-left" });
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -76,7 +86,7 @@ const UserKycVData = () => {
                   style={{ display: "none" }}
                   accept="/image/*"
                   id=""
-                  onChange={(e) => setFile(e.target.files[0])}
+                  onChange={(e) => setKycFile(e.target.files[0])}
                   ref={inputRef}
                 />
                 <p>{percent} % done</p>
@@ -92,6 +102,7 @@ const UserKycVData = () => {
               >
                 Upload
               </button>
+              {loading && <ThreeDots /> }
             </div>
             <div></div>
           </div>

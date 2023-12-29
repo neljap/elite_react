@@ -22,17 +22,24 @@ const UserPayProofPg = () => {
 
             const uploadTask = uploadBytesResumable(storageRef, file)
 
-            uploadTask.on("state_changed", (snapshot) => {
-                const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
-                setPercent(progress)
-            }, (err) => console.log(err),
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((url) => console.log(url))
-            }
-            )
+            uploadTask.on(
+              "state_changed",
+              (snapshot) => {
+                const progress = Math.round(
+                  (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+                setPercent(progress);
+              },
+              (err) => toast.error(err.code, { position: "bottom-left" }),
+              () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((url) =>
+                  console.log(url)
+                );
+              }
+            );
             setFile('')
         }catch(err){
-            console.log(err)
+            toast.error(err.code, { position: "bottom-left" });
         }
     }
 

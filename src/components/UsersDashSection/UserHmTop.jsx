@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 const UserHmTop = () => {
   const { data } = useContext(AuthContext);
 
-  console.log("from greetings", data)
-
   return (
     <>
       <div>

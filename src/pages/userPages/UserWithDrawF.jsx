@@ -1,8 +1,6 @@
 import { toast } from "react-toastify";
 import "../../App.css";
 import { useState, useContext } from "react";
-import { db } from "../../server";
-import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import {AuthContext} from "../../components/context/AuthContext";
 import axios from "axios";
@@ -20,7 +18,6 @@ const UserWithDrawF = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const sendAt = Timestamp.now();
       if (amount < 10000) {
         toast.error("Amount is too Low", {
           position: "bottom-left",
@@ -67,7 +64,7 @@ const UserWithDrawF = () => {
       setAmount("");
       setOtp("");
     } catch (err) {
-      console.log(err);
+      toast.error(err.code, { position: "bottom-left" });
     }
   };
   return (

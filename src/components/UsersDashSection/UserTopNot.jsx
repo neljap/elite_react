@@ -14,6 +14,7 @@ import "../../App.css"
 import { Link, useNavigate } from 'react-router-dom'
 import {BsBoxArrowInRight} from "react-icons/bs"
 import { Button, Modal } from 'react-bootstrap'
+import { toast } from 'react-toastify'
 
 // import { signOutHandler } from '../../server_side/userAuth'
 
@@ -43,7 +44,7 @@ const UserTopNot = () => {
             Cookies.remove("token")
             navigate("/")
         }catch(err){
-            console.log(err)
+          toast.error(err.code, {position: "bottom-left"})
         }
     }
 

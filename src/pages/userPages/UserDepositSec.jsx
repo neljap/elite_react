@@ -47,7 +47,7 @@ const UserDepositSec = () => {
         });
       }
     } catch (err) {
-      console.log(err);
+      toast.error(err.code, {position: "bottom-left"})
     }
   };
 

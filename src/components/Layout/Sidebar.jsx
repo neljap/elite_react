@@ -32,8 +32,6 @@ const Sidebar = ({children}) => {
 
     if(!cookietoken){
       navigate("/login")
-    }else{
-      console.log("there's token")
     }
 
   }, [])
@@ -80,11 +78,11 @@ const Sidebar = ({children}) => {
       name: "Refferals",
       icon: <FaCommentAlt />,
     },
-    // {
-    //   path: "/user/settings",
-    //   name: "Settings",
-    //   icon: <FaShoppingBag />,
-    // },
+    {
+      path: "/user/settings",
+      name: "Settings",
+      icon: <FaShoppingBag />,
+    },
     {
       path: "/user/kyc-verify",
       name: "KYC Verification",
