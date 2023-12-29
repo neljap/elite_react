@@ -9,7 +9,6 @@ import ProofSection from "../../components/WebSections/ProofSection";
 import SubFooter from "../../components/WebSections/SubFooter";
 import UserCyptData from "../../components/UsersDashSection/UserCyptData";
 import SpinnerLoad from "../SpinnerLoad";
-import TextUpload from "../../components/WebSections/TextUpload";
 
 const HomePage = () => {
   const [loading, setLoading] = useState(true);
@@ -43,7 +42,6 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <TextUpload />
           <UserCyptData />
           <FaqSection />
           <SubFooter />
