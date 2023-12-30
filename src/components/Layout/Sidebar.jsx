@@ -10,6 +10,7 @@ import {
   FaThList,
   FaWallet
 } from "react-icons/fa";
+import {IoLogOutSharp} from "react-icons/io5"
 import { NavLink } from "react-router-dom";
 import Logo from "../../assests/sclogo.png";
 import '../../App.css'
@@ -19,13 +20,27 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { hosturl } from "../utils/Apis";
 import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
+import { Button, Modal } from "react-bootstrap";
 
 const Sidebar = ({children}) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showNot, setShowNot] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const navigate = useNavigate()
 
   const {setData} = useContext(AuthContext);
+
+  const signOutFunc = () => {
+    try{  
+      Cookies.remove("token");
+      setShowNot(false);
+      navigate("/");
+      toast.info("Log Out Successfully", {position: "bottom-left"})
+    }catch(err){
+      toast.error(err.code, { position: "bottom-left" });
+    }
+  }
 
   useEffect(() => {
     let cookietoken = Cookies.get("token");
@@ -97,21 +112,21 @@ const Sidebar = ({children}) => {
   return (
     <>
       <div className="sidebar-container">
-        <div style={{ width:  "200px" }} className="sidebar d-none d-lg-block">
+        <div style={{ width: "200px" }} className="sidebar d-none d-lg-block">
           <div className="top_section">
-            <Link to='/'>
+            <Link to="/">
               <img
-              src={Logo}
-              style={{
-                // display: isOpen ? "block" : "none",
-                width: "150px",
-                height: "50px",
-              }}
-              className="logo"
-              alt="image"
-            />  
+                src={Logo}
+                style={{
+                  // display: isOpen ? "block" : "none",
+                  width: "150px",
+                  height: "50px",
+                }}
+                className="logo"
+                alt="image"
+              />
             </Link>
-            
+
             <div
               // style={{ marginLeft: isOpen ? "50px" : "0px" }}
               className="bars"
@@ -135,6 +150,32 @@ const Sidebar = ({children}) => {
               </div>
             </NavLink>
           ))}
+          <>
+            <div
+              className=" d-flex gap-2 justify-content-start align-items-center"
+              onClick={() => setShowNot(true)}
+              style={{paddingLeft: "13px"}}
+            >
+              <IoLogOutSharp size={28} color="white" />
+              <p className="mt-3">Logout</p>
+            </div>
+            {showNot && (
+              <Modal size="sm" show={showNot} onHide={() => setShowNot(false)}>
+                <Modal.Header closeButton>
+                  {/* <Modal.Title>Hi {fullNameInfo} </Modal.Title> */}
+                </Modal.Header>
+                <Modal.Body>Do you want to Log Out?</Modal.Body>
+                <Modal.Footer>
+                  <Button variant="danger" onClick={signOutFunc}>
+                    Yes
+                  </Button>
+                  <Button variant="primary" onClick={() => setShowNot(false)}>
+                    No
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            )}
+          </>
         </div>
         <div className="w-100 bg-dark text-light main-details-section">
           <UserNavSec />

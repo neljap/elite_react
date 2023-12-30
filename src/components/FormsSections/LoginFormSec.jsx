@@ -16,20 +16,20 @@ const LoginFormSec = () => {
   const [loading, setLoading] = useState(false)
   const [isRecapVerify, setIsRecapVerify] = useState(false)
   const navigate = useNavigate()
-  const handleRecapChange = (value) => {
-    setIsRecapVerify(true)
-  }
+  // const handleRecapChange = (value) => {
+  //   setIsRecapVerify(true)
+  // }
 
   const handleSubmit = async(e) => {
     e.preventDefault()
     
     if(!email || !password) return;
-    if(!isRecapVerify){
-        toast.error('Verify that you are not a bot', {
-          position: "bottom-left"
-        })
-        return;
-    }
+    // if(!isRecapVerify){
+    //     toast.error('Verify that you are not a bot', {
+    //       position: "bottom-left"
+    //     })
+    //     return;
+    // }
       setLoading(true)
 
       const formData = {email, password}
@@ -72,7 +72,7 @@ const LoginFormSec = () => {
               </div>
             </Form.Group>
             <div>
-             <ReCaptha onChange={handleRecapChange} /> 
+             {/* <ReCaptha onChange={handleRecapChange} />  */}
             </div>
             <Button variant="success" type="submit" className="w-100 mb-3" >
              {loading ? (<>Logging...</>) : (<>Login</>) }

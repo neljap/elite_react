@@ -70,7 +70,7 @@ const UserDasDetails = () => {
           <div className="d-flex justify-content-between align-items-center">
             <h5>TOTAL DEPOSIT</h5> <RiRefund2Fill size={40} />
           </div>
-          <h2>${data?.tBalance}.00</h2>
+          <h2>${data?.tDeposit}.00</h2>
         </div>
       </div>
     </>
