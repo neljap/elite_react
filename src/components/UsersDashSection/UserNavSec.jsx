@@ -12,9 +12,10 @@ import {
   FaWallet,
   FaTh,
 } from "react-icons/fa";
+import { IoLogOutSharp } from "react-icons/io5";
 import "../../App.css";
 
-const UserNavSec = () => {
+const UserNavSec = ({ setShowNot }) => {
   const NavRef = useRef();
 
   const showNavRef = () => {
@@ -35,23 +36,23 @@ const UserNavSec = () => {
     {
       path: "/user/my-wallet",
       name: "Wallet",
-      icon: <FaWallet />
+      icon: <FaWallet />,
     },
     // {
     //   path: "/user/investment",
     //   name: "Investment",
     //   icon: <FaRegChartBar />,
-    // }, 
+    // },
     {
       path: "/user/refferals",
       name: "Refferals",
       icon: <FaCommentAlt />,
     },
-    // {
-    //   path: "/user/settings",
-    //   name: "Settings",
-    //   icon: <FaShoppingBag />,
-    // },
+    {
+      path: "/user/settings",
+      name: "Settings",
+      icon: <FaShoppingBag />,
+    },
     {
       path: "/user/kyc-verify",
       name: "KYC Verification",
@@ -81,27 +82,38 @@ const UserNavSec = () => {
         </Link>
       </div>
 
-      <nav className="nav-links-mob" ref={NavRef} >
+      <nav className="nav-links-mob" ref={NavRef}>
         {menuItem.map((item, index) => (
           <NavLink
             to={item.path}
             key={index}
             className="text-decoration-none text-white"
-            // activeclassName="active"
             onClick={showNavRef}
           >
-            {/* <div className="icon">{item.icon}</div> */}
             <div
-              //   style={{ display: isOpen ? "block" : "none" }}
               className="text-decoration-none text-white"
             >
               {item.name}
             </div>
           </NavLink>
         ))}
-        <FaTimes color="white" className="nav-times-mob" size={25} onClick={showNavRef} />
+        <div
+          className=" d-flex gap-2 justify-content-start align-items-center"
+          onClick={() => setShowNot(true)}
+          style={{ paddingLeft: "13px" }}
+        >
+          {/* <IoLogOutSharp size={28} color="white" /> */}
+          <p className="mt-3 cursor-pointer" style={{cursor: "pointer"}}>Logout</p>
+        </div>
+        <FaTimes
+          color="white"
+          className="nav-times-mob"
+          size={25}
+          onClick={showNavRef}
+          style={{cursor: "pointer"}}
+        />
       </nav>
-      <FaBars color="white" size={25} onClick={showNavRef}/>
+      <FaBars color="white" size={25} onClick={showNavRef} style={{cursor: "pointer"}}/>
     </div>
   );
 };

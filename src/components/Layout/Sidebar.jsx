@@ -50,22 +50,6 @@ const Sidebar = ({children}) => {
     }
 
   }, [])
-  //   const token = Cookies.get("token"); // => 'value'
-  //   let config = {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-  //   const getUserDetails = async () => {
-  //     await axios
-  //       .get(`${hosturl}/api/user/getuser`, config)
-  //       .then((res) => {
-  //         setData(res?.data);
-  //       })
-  //       .catch((err) => console.log(err.response.data));
-  //   };
-  //   getUserDetails();
-  // }, []);
 
   const menuItem = [
     {
@@ -152,12 +136,12 @@ const Sidebar = ({children}) => {
           ))}
           <>
             <div
-              className=" d-flex gap-2 justify-content-start align-items-center"
+              className=" d-flex justify-content-start align-items-center link"
               onClick={() => setShowNot(true)}
-              style={{paddingLeft: "13px"}}
+              style={{paddingLeft: "13px", cursor: "pointer"}}
             >
               <IoLogOutSharp size={28} color="white" />
-              <p className="mt-3">Logout</p>
+              <p className="mt-3 font-bold">Logout</p>
             </div>
             {showNot && (
               <Modal size="sm" show={showNot} onHide={() => setShowNot(false)}>
@@ -178,7 +162,7 @@ const Sidebar = ({children}) => {
           </>
         </div>
         <div className="w-100 bg-dark text-light main-details-section">
-          <UserNavSec />
+          <UserNavSec  setShowNot={setShowNot}/>
           <main className="container w-100">{children}</main>
           <UserFooterCy />
         </div>

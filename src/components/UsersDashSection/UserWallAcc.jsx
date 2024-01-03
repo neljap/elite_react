@@ -1,10 +1,9 @@
 import { useContext, useRef } from "react";
 import { Accordion } from "react-bootstrap";
-import { FaTimes, FaBars, FaAddressCard } from "react-icons/fa";
+import { FaBars, FaAddressCard } from "react-icons/fa";
 import "../../App.css";
 import { Link } from "react-router-dom";
 import {AuthContext} from "../context/AuthContext";
-import DolUSD from '../../assests/dollar.png'
 import BTCD from '../../assests/bitcoin.png'
 import ETHD from '../../assests/ethereum.png'
 import USDT from '../../assests/dollar.png'
@@ -80,39 +79,6 @@ const UserWallAcc = () => {
             </div>
           </div>
           <div style={{ backgroundColor: "#2A3042" }} className="p-3 rounded">
-
-                {/* <div className="row mb-2">
-                  <div className="col-md-2">
-                    <img
-                      src={DolUSD}
-                      alt=""
-                      style={{ height: "50px", width: "50px" }}
-                    />
-                  </div>
-                  <div className="col-md-2">
-                    <h6>Tether (USDT)</h6>
-                  </div>
-                  <div className="col-md-4">
-                    <h4>{tDepos}.00USD</h4>
-                    
-                  </div>
-                  <div className="col-md-2 d-flex gap-2">
-                    <div>
-                      <button className="btn btn-success">
-                       <Link to='/user/deposit' className="text-decoration-none text-white">
-                        Deposit
-                        </Link> 
-                        </button>
-                    </div>
-                    <div>
-                      <button className="btn btn-transparent border border-light text-light">
-                        <Link to='/user/withdraw' className="text-decoration-none text-white">
-                          Withdraw
-                        </Link>
-                      </button>
-                    </div>
-                  </div>
-                </div> */}
                 <div className="row mb-2">
                 <div className="col-md-2">
                   <img
@@ -213,49 +179,12 @@ const UserWallAcc = () => {
         </div>
         
         <div className="my-3 user-wall-mob">
-            {/* <Accordion className="w-100 bg-dark">
-              <Accordion.Item eventKey="0" className="bg-dark text-light">
-                <Accordion.Header className="bg-dark text-light">
-                  <div className="d-flex justify-content-center align-items-center gap-2">
-                    <img
-                      src={DolUSD}
-                      alt=""
-                      style={{ height: "30px", width: "30px" }}
-                    />
-                    <p>Tether (USDT)</p>
-                  </div>
-                </Accordion.Header>
-                <Accordion.Body>
-                  <div className="d-flex justify-content-between align-items-center">
-                    <div>
-                      <p>${tDepos}.00USD</p>
-                    </div>
-                    <div className="d-flex">
-                      <div>
-                        <button className="btn btn-success">
-                          <Link to='/user/deposit' className="text-decoration-none text-white">
-                            Deposit
-                          </Link>
-                        </button>
-                      </div>
-                      <div>
-                        <button className="btn btn-transparent border border-light text-light">
-                          <Link to='/user/withdraw' className="text-decoration-none text-white">
-                            Withdraw
-                          </Link>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion> */}
             <Accordion className="w-100 bg-dark">
             <Accordion.Item eventKey="0" className="bg-dark text-light">
               <Accordion.Header className="bg-dark text-light">
                 <div className="d-flex justify-content-center align-items-center gap-2">
                   <img
-                    // src={BTCD}
+                    src={BTCD}
                     alt="image"
                     style={{ height: "30px", width: "30px" }}
                   />
@@ -265,7 +194,7 @@ const UserWallAcc = () => {
               <Accordion.Body>
                 <div className="d-flex justify-content-between align-items-center">
                   <div>
-                    {/* <p>${tBtc}.00USD</p> */}
+                    <p>${data?.tBtc}.00USD</p>
                   </div>
                   <div className="d-flex">
                     <div>
@@ -292,7 +221,7 @@ const UserWallAcc = () => {
             <Accordion.Header className="bg-dark text-light">
               <div className="d-flex justify-content-center align-items-center gap-2">
                 <img
-                  // src={ETHD}
+                  src={ETHD}
                   alt="image"
                   style={{ height: "30px", width: "30px" }}
                 />
@@ -302,7 +231,7 @@ const UserWallAcc = () => {
             <Accordion.Body>
               <div className="d-flex justify-content-between align-items-center">
                 <div>
-                  {/* <p>${tEth}.00USD</p> */}
+                  <p>${data?.tEth}.00USD</p>
                 </div>
                 <div className="d-flex">
                   <div>
@@ -329,7 +258,7 @@ const UserWallAcc = () => {
           <Accordion.Header className="bg-dark text-light">
             <div className="d-flex justify-content-center align-items-center gap-2">
               <img
-                // src={LTCD}
+                src={LTCD}
                 alt="image"
                 style={{ height: "30px", width: "30px" }}
               />
@@ -339,7 +268,7 @@ const UserWallAcc = () => {
           <Accordion.Body>
             <div className="d-flex justify-content-between align-items-center">
               <div>
-                {/* <p>${tLtc}.00USD</p> */}
+                <p>${data?.tLtc}.00USD</p>
               </div>
               <div className="d-flex">
                 <div>
